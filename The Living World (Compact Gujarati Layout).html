@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Living World - NEET (Gujarati)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Gujarati Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #525659;
+            font-family: 'Noto Sans Gujarati', sans-serif;
+            margin: 0;
+            padding: 30px 0;
+            color: #000;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 20mm 20mm 25mm 20mm;
+            position: relative;
+            box-sizing: border-box;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .page-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #000;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .q-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .q-text {
+            font-size: 14.5px;
+            margin-bottom: 8px;
+        }
+
+        .meta {
+            font-size: 13.5px;
+            color: #444;
+            font-style: italic;
+        }
+
+        .options {
+            margin-left: 10px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 14.5px;
+        }
+
+        .answer {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 8px;
+            font-size: 14.5px;
+        }
+
+        .solution-box {
+            background-color: #fff;
+            padding: 12px 15px;
+            border: 1px solid #000;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        table.match-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 14.5px;
+        }
+
+        table.match-table td {
+            padding: 4px 8px;
+            vertical-align: top;
+            border: 1px solid #ddd;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        @media print {
+            body { 
+                background-color: white; 
+                padding: 0; 
+                margin: 0;
+                display: block; 
+            }
+            #download-btn { display: none !important; }
+            .a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 210mm;
+                min-height: 297mm;
+                padding: 20mm 20mm 25mm 20mm;
+                page-break-after: always;
+                break-after: page;
+            }
+            @page { size: A4 portrait; margin: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <button id="download-btn" onclick="window.print()" class="fixed top-4 right-4 z-50 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow-xl flex items-center gap-2 transition-all cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span>Download PDF</span>
+    </button>
+
+    <!-- [Page 1] -->
+    <div class="a4-page">
+        <div class="page-title">The Living World (સજીવ વિશ્વ)</div>
+        
+        <div class="question-block">
+            <div class="q-title">Question1</div>
+            <div class="q-text">નીચનામાંથી કયું વિધાન દ્વિનામી નામકરણના સાર્વત્રિક નિયમો વિશે સાચું નથી? <span class="meta">(NEET 2026)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. જૈવિક નામો સામાન્ય રીતે લેટિનમાં હોય છે<br>
+                B. જૈવિક નામમાં બંને શબ્દો, જ્યારે હાથથી લખવામાં આવે છે, ત્યારે અલગથી અન્ડરલાઇન કરવામાં આવે છે અથવા ઇટાલિક્સમાં છાપવામાં આવે છે<br>
+                C. જૈવિક નામમાં જાતિ સંકેત નાના અક્ષરથી શરૂ થાય છે<br>
+                D. જૈવિક નામમાં પ્રથમ શબ્દ પ્રજાતિ દર્શાવે છે, જ્યારે બીજો ઘટક જાતિ સંકેત દર્શાવે છે
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                નામકરણના સાર્વત્રિક નિયમો અનુસાર, પ્રજાતિ દર્શાવતો પ્રથમ શબ્દ મોટા અક્ષરથી શરૂ થાય છે જ્યારે બીજો ઘટક જાતિ સંકેત દર્શાવે છે અને તે નાના અક્ષરથી શરૂ થાય છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question2</div>
+            <div class="q-text">સૂચિ-I ને સૂચિ-II સાથે જોડો.</div>
+            <table class="match-table">
+                <tr><td><strong>List-I</strong></td><td><strong>List-II</strong></td></tr>
+                <tr><td>A. કુળ (Family)</td><td>I. સેપિન્ડેલ્સ (Sapindales)</td></tr>
+                <tr><td>B. પ્રજાતિ (Genus)</td><td>II. દ્વિદળી (Dicotyledonae)</td></tr>
+                <tr><td>C. વર્ગ (Class)</td><td>III. એનાકાર્ડિએસી (Anacardiaceae)</td></tr>
+                <tr><td>D. સમુદાય (Phylum)</td><td>IV. આવૃત બીજધારી (Angiospermae)</td></tr>
+                <tr><td>E. ગોત્ર (Order)</td><td>V. મેંગિફેરા (Mangifera)</td></tr>
+            </table>
+            <div class="q-text">નીચે આપેલા વિકલ્પોમાંથી સાચો જવાબ પસંદ કરો: <span class="meta">(RE-NEET 2026)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. A-III, B-V, C-II, D-IV, E-I<br>
+                B. A-I, B-V, C-II, D-IV, E-III<br>
+                C. A-II, B-I, C-III, D-IV, E-V<br>
+                D. A-II, B-III, C-V, D-I, E-IV
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                મેંગિફેરા (Mangifera) પ્રજાતિ દર્શાવે છે, એનાકાર્ડિએસી (Anacardiaceae) કુળ દર્શાવે છે, સેપિન્ડેલ્સ (Sapindales) ગોત્ર દર્શાવે છે, દ્વિદળી (Dicotyledonae) વર્ગ દર્શાવે છે, સમુદાય આવૃત બીજધારી (Angiospermae) [સાચો શબ્દ વિભાગ (division) હોવો જોઈએ].
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question3</div>
+            <div class="q-text">નીચેની વર્ગીકરણ કક્ષાઓને ચડતા ક્રમમાં ગોઠવો.<br>
+            (a) પ્રજાતિ (Genus) (b) વર્ગ (Class) (c) ગોત્ર (Order) (d) સમુદાય (Phylum) (e) કુળ (Family) (f) સૃષ્ટિ (Kingdom) (g) જાતિ (Species)
+            </div>
+            <div class="q-text">નીચે આપેલા વિકલ્પોમાંથી સાચો જવાબ પસંદ કરો: <span class="meta">(RE-NEET 2026)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. (f), (c), (b), (g), (d), (e), (a)<br>
+                B. (g), (a), (e), (c), (b), (d), (f)<br>
+                C. (a), (c), (d), (g), (f), (b), (e)<br>
+                D. (g), (c), (d), (b), (e), (a), (f)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                ચડતા ક્રમમાં વર્ગીકરણ કક્ષાઓની ગોઠવણી નીચે મુજબ છે. જાતિ (g), પ્રજાતિ (a), કુળ (e), ગોત્ર (c), વર્ગ (b), સમુદાય (d), સૃષ્ટિ (f).
+            </div>
+        </div>
+
+        <div class="page-number">પેજ 1 / 10</div>
+    </div>
+
+    <!-- [Page 2] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question4</div>
+            <div class="q-text">પ્રજાતિ (Genus) શું દર્શાવે છે? <span class="meta">(RE-NEET 2026)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. નજીકથી સંબંધિત કુળોનો સમૂહ<br>
+                B. વ્યક્તિગત વનસ્પતિ અથવા પ્રાણી<br>
+                C. વનસ્પતિઓ અને પ્રાણીઓની વસ્તી<br>
+                D. નજીકથી સંબંધિત જાતિઓનો સમૂહ
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                પ્રજાતિમાં સંબંધિત જાતિઓનો સમૂહ શામેલ છે જેમાં અન્ય પ્રજાતિઓની જાતિઓની તુલનામાં સમાન લક્ષણો વધુ હોય છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question5</div>
+            <div class="q-text">લેસિથિન (Lecithin), જે જીવંત પેશીઓમાં જોવા મળતું ઓછું આણ્વીય વજન ધરાવતું કાર્બનિક સંયોજન છે, તે કોનું ઉદાહરણ છે: <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. એમિનો એસિડ્સ (Amino acids)<br>
+                B. ફોસ્ફોલિપિડ્સ (Phospholipids)<br>
+                C. ગ્લિસરાઈડ્સ (Glycerides)<br>
+                D. કાર્બોદિત (Carbohydrates)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સાચો જવાબ વિકલ્પ (B) છે.<br>
+                કેટલાક લિપિડ્સમાં ફોસ્ફરસ અને ફોસ્ફોરાયલેટેડ કાર્બનિક સંયોજન હોય છે. આ ફોસ્ફોલિપિડ્સ છે. તે કોષરસપટલમાં જોવા મળે છે. લેસિથિન તેનું એક ઉદાહરણ છે.<br>
+                વિકલ્પ (C) ખોટો છે કારણ કે ગ્લિસરાઈડ્સ લિપિડ્સનું અન્ય એક જૂથ છે જેમાં ગ્લિસરોલ અને ફેટી એસિડ્સ બંને હાજર હોય છે.<br>
+                વિકલ્પ (A) અને (D) ખોટા છે કારણ કે એમિનો એસિડ્સ અને કાર્બોદિત એ જૈવિક અણુઓના અલગ જૂથો છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question6</div>
+            <div class="q-text">Hind II હંમેશા DNA અણુઓને એક ચોક્કસ બિંદુએ કાપે છે જેને ઓળખ શૃંખલા (recognition sequence) કહેવાય છે અને તે શેની બનેલી હોય છે: <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. 8 bp<br>
+                B. 6 bp<br>
+                C. 4 bp<br>
+                D. 10 bp
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સાચો જવાબ વિકલ્પ (B) છે.<br>
+                પ્રથમ રિસ્ટ્રિક્શન એન્ડોન્યુક્લિએઝ - Hind II, જેની કામગીરી ચોક્કસ DNA ન્યુક્લિઓટાઇડ શૃંખલા પર આધારિત છે તેને અલગ કરવામાં આવ્યો હતો. એવું જાણવા મળ્યું હતું કે Hind II હંમેશા છ બેઝ પેર (6 bp) ની શૃંખલાને ઓળખીને DNA અણુઓને ચોક્કસ બિંદુએ કાપે છે.<br>
+                વિકલ્પ (A), (C) અને (D) ખોટા છે કારણ કે તેમની પાસે 6 bp કરતા વધુ અથવા ઓછા હોય છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question7</div>
+            <div class="q-text">વનસ્પતિના કોઈપણ કોષમાંથી આખા છોડને ઉત્પન્ન કરવાની ક્ષમતાને શું કહેવાય છે: <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. પૂર્ણક્ષમતા (Totipotency)<br>
+                B. માઇક્રોપ્રોપેગેશન (Micropropagation)<br>
+                C. વિભેદન (Differentiation)<br>
+                D. દૈહિક સંકરણ (Somatic hybridization)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                પૂર્ણક્ષમતા (Totipotency) એટલે વનસ્પતિના કોઈપણ કોષમાંથી આખા છોડને ઉત્પન્ન કરવાની ક્ષમતા.
+            </div>
+        </div>
+        <div class="page-number">પેજ 2 / 10</div>
+    </div>
+
+    <!-- [Page 3] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question8</div>
+            <div class="q-text">નીચે બે વિધાનો આપેલા છે:<br>
+            Statement I: Bt ટોક્સિન એ કીટક જૂથ-વિશિષ્ટ છે અને તે cry IAc જનીન દ્વારા કોડેડ છે.<br>
+            Statement II: Bt ટોક્સિન B. thuringiensis માં નિષ્ક્રિય પ્રોટોક્સિન તરીકે અસ્તિત્વ ધરાવે છે. જો કે, કીટક દ્વારા ગળ્યા પછી નિષ્ક્રિય પ્રોટોક્સિન કીટકના આંતરડાના એસિડિક pH ને કારણે સક્રિય સ્વરૂપમાં ફેરવાય છે.<br>
+            ઉપરોક્ત વિધાનોના પ્રકાશમાં, નીચે આપેલા વિકલ્પોમાંથી સાચો જવાબ પસંદ કરો: <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. Statement I અને Statement II બંને સાચા છે<br>
+                B. Statement I અને Statement II બંને ખોટા છે<br>
+                C. Statement I સાચું છે પરંતુ Statement II ખોટું છે<br>
+                D. Statement I ખોટું છે પરંતુ Statement II સાચું છે
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સાચો જવાબ વિકલ્પ (C) છે કારણ કે બેસિલસ થુરિન્જિએન્સિસ (Bacillus thuringiensis) માંથી વિશિષ્ટ Bt ટોક્સિન જનીનોને અલગ કરવામાં આવ્યા હતા અને કપાસ જેવા વિવિધ પાકોમાં દાખલ કરવામાં આવ્યા હતા. જનીનોની પસંદગી પાક અને લક્ષિત જંતુઓ પર આધાર રાખે છે કારણ કે મોટાભાગના Bt ટોક્સિન કીટક-જૂથ વિશિષ્ટ છે. ટોક્સિનને cry નામના જનીન દ્વારા કોડ કરવામાં આવે છે. તે ઘણાબધા છે, ઉદાહરણ તરીકે, cry IAc અને cry IIAb જનીનો દ્વારા એન્કોડ કરેલા પ્રોટીન કપાસના બોલવોર્મ્સ (bollworms) ને નિયંત્રિત કરે છે, જ્યારે cry IAb કોર્ન બોરર (corn borer) ને નિયંત્રિત કરે છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question9</div>
+            <div class="q-text">સંરક્ષણનો એવો પ્રકાર કે જેમાં ભયગ્રસ્ત જાતિઓને તેમના કુદરતી નિવાસસ્થાનમાંથી બહાર કાઢીને વિશેષ વાતાવરણમાં મૂકવામાં આવે છે જ્યાં તેમનું રક્ષણ કરી શકાય અને વિશેષ કાળજી આપી શકાય તેને શું કહેવાય છે? <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. સ્વસ્થાન સંરક્ષણ (in-situ conservation)<br>
+                B. જૈવવિવિધતા સંરક્ષણ (Biodiversity conservation)<br>
+                C. અર્ધ-રૂઢિચુસ્ત પદ્ધતિ (Semi-conservative method)<br>
+                D. ટકાઉ વિકાસ (Sustainable development)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સંરક્ષણનો એવો પ્રકાર કે જેમાં ભયગ્રસ્ત જાતિઓને તેમના કુદરતી નિવાસસ્થાનમાંથી બહાર કાઢીને વિશેષ વાતાવરણમાં મૂકવામાં આવે છે જ્યાં તેમનું રક્ષણ કરી શકાય અને વિશેષ કાળજી આપી શકાય તેને નવસ્થાન સંરક્ષણ (ex-situ conservation) કહેવાય છે જે જૈવવિવિધતા સંરક્ષણનો એક પ્રકાર છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question10</div>
+            <div class="q-text">સૂચિ I ને સૂચિ II સાથે જોડો</div>
+            <table class="match-table">
+                <tr><td><strong>List-I</strong></td><td><strong>List-II</strong></td></tr>
+                <tr><td>A. ક્લોસ્ટ્રીડિયમ બ્યુટીલિકમ</td><td>I. ઇથેનોલ (Ethanol)</td></tr>
+                <tr><td>B. સેકેરોમાયસીસ સેરેવિસી</td><td>II. સ્ટ્રેપ્ટોકાઇનેઝ (Streptokinase)</td></tr>
+                <tr><td>C. ટ્રાઇકોડર્મા પોલિસ્પોરમ</td><td>III. બ્યુટીરિક એસિડ (Butyric acid)</td></tr>
+                <tr><td>D. સ્ટ્રેપ્ટોકોકસ સ્પી.</td><td>IV. સાયક્લોસ્પોરીન-A (Cyclosporin-A)</td></tr>
+            </table>
+            <div class="q-text">નીચે આપેલા વિકલ્પોમાંથી સાચો જવાબ પસંદ કરો: <span class="meta">[NEET 2024]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. A-III, B-I, C-II, D-IV<br>
+                B. A-II, B-IV, C-III, D-I<br>
+                C. A-III, B-I, C-IV, D-II<br>
+                D. A-IV, B-I, C-III, D-II
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                A-III (બ્યુટીરિક એસિડ), B-I (ઇથેનોલ), C-IV (સાયક્લોસ્પોરીન-A), D-II (સ્ટ્રેપ્ટોકાઇનેઝ).
+            </div>
+        </div>
+        <div class="page-number">પેજ 3 / 10</div>
+    </div>
+
+    <!-- [Page 4] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question11</div>
+            <div class="q-text">વર્ગીકરણીય સાધન 'કળ' (key) વિશે નીચેનામાંથી કયું સાચું છે?<br>
+            (a) કળ સમાનતાઓ અને અસમાનતાઓ પર આધારિત છે.<br>
+            (b) કળ પ્રકૃતિમાં વિશ્લેષણાત્મક (analytical) છે.<br>
+            (c) કળ જોડીમાં વિરોધાભાસી લક્ષણો પર આધારિત છે જેને યુગ્મક (Couplet) કહેવાય છે.<br>
+            (d) સમાન કળનો ઉપયોગ તમામ વર્ગીકરણ કક્ષાઓ માટે થઈ શકે છે.<br>
+            (e) કળમાંના દરેક વિધાનને માર્ગદર્શક (Lead) કહેવાય છે.<br>
+            નીચે આપેલા વિકલ્પોમાંથી સૌથી યોગ્ય જવાબ પસંદ કરો : <span class="meta">[NEET Re-2022]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. માત્ર (a), (c), (d) અને (e)<br>
+                B. માત્ર (a), (b) અને (c)<br>
+                C. માત્ર (b), (c) અને (d)<br>
+                D. માત્ર (a), (b), (c) અને (e)
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                કળ એ વર્ગીકરણીય સાધનનો એક પ્રકાર છે. તેઓ પ્રકૃતિમાં વિશ્લેષણાત્મક છે. વિવિધ વર્ગીકરણ કક્ષાઓ માટે અલગ-અલગ કળનો ઉપયોગ થાય છે. (તેથી વિધાન d ખોટું છે).
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question12</div>
+            <div class="q-text">નીચેનામાંથી કયું ICBN ના નિયમો વિરુદ્ધ છે? <span class="meta">(OD NEET 2019)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. પ્રજાતિ (Generic) અને જાતિના (specific) નામો નાના અક્ષરોથી શરૂ કરીને લખવા જોઈએ.<br>
+                B. હાથથી લખેલા વૈજ્ઞાનિક નામો નીચે અન્ડરલાઇન હોવી જોઈએ.<br>
+                C. દરેક જાતિનું પ્રજાતિ નામ અને જાતિ સંકેત હોવું જોઈએ.<br>
+                D. વૈજ્ઞાનિક નામો લેટિનમાં છે અને તેને ઇટાલિક કરવા જોઈએ.
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                પ્રજાતિ દર્શાવતો પ્રથમ શબ્દ મોટા અક્ષરથી શરૂ થાય છે જ્યારે જાતિ સંકેત નાના અક્ષરથી શરૂ થાય છે. વનસ્પતિ નામકરણ (ICBN) માં, ટોટોનિમ્સ (tautonyms) માન્ય નથી એટલે કે વનસ્પતિઓમાં પ્રજાતિનું નામ અને જાતિનું નામ સમાન ન હોવું જોઈએ.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question13</div>
+            <div class="q-text">કેરીનું સાચું લખાયેલું વૈજ્ઞાનિક નામ પસંદ કરો જેનું વર્ણન સૌપ્રથમ કેરોલસ લિનિયસ દ્વારા કરવામાં આવ્યું હતું: <span class="meta">(NEET 2019)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. મેંગિફેરા ઇન્ડિકા કાર. લિન. (Mangifera indica Car. Linn.)<br>
+                B. મેંગિફેરા ઇન્ડિકા લિન. (Mangifera indica Linn.)<br>
+                C. મેંગિફેરા ઇન્ડિકા (Mangifera indica)<br>
+                D. મેંગિફેરા ઇન્ડિકા (Mangifera Indica)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                દ્વિનામી નામકરણના નિયમો અનુસાર, કેરીનું સાચું વૈજ્ઞાનિક નામ Mangifera indica Linn. છે. મેંગિફેરા 'પ્રજાતિ' સૂચવે છે જ્યારે ઇન્ડિકા ચોક્કસ 'જાતિ' અને લિન (Linn) એ જીવવિજ્ઞાની લિનિયસને સૂચવે છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question14</div>
+            <div class="q-text">વર્ગીકરણીય કળ (Taxonomic Key) માં પ્રાણીઓની ઓળખ માટે ઉપયોગમાં લેવાતા જોડીમાંના વિરોધાભાસી લક્ષણોને શું કહેવામાં આવે છે : <span class="meta">(NEET 2019)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. વૈકલ્પિક (Alternate)<br>
+                B. માર્ગદર્શક (Lead)<br>
+                C. યુગ્મક (Couplet)<br>
+                D. ડબલેટ (Doublet)
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                કળ એ જોડીમાં રહેલા વિરોધાભાસી લક્ષણોના સમૂહ પર આધારિત છે જેને યુગ્મક (couplet) તરીકે ઓળખવામાં આવે છે.
+            </div>
+        </div>
+        <div class="page-number">પેજ 4 / 10</div>
+    </div>
+
+    <!-- [Page 5] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question15</div>
+            <div class="q-text">પરાગરજને અશ્મિ તરીકે સાચવવામાં નીચેનામાંથી કયું મદદરૂપ સાબિત થયું છે? <span class="meta">[2018]</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. પોલેનકિટ (Pollenkitt)<br>
+                B. સેલ્યુલોસિક ઇન્ટાઇન (Cellulosic intine)<br>
+                C. સ્પોરોપોલેનિન (Sporopollenin)<br>
+                D. તેલનું પ્રમાણ (Oil content)
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સ્પોરોપોલેનિન ઉત્સેચક, મજબૂત એસિડ અને આલ્કલી દ્વારા વિઘટન પામતું નથી, તેથી તે પરાગરજને અશ્મિ તરીકે સાચવવામાં મદદરૂપ છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question16</div>
+            <div class="q-text">હર્બેરિયમ શીટના લેબલ પર શેની માહિતી હોતી નથી? <span class="meta">(NEET-II 2016)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. સંગ્રહની તારીખ<br>
+                B. સંગ્રહકર્તાનું નામ<br>
+                C. સ્થાનિક નામો<br>
+                D. છોડની ઊંચાઈ
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                હર્બેરિયમ એ સચવાયેલી વનસ્પતિઓનો સંગ્રહ છે. જ્યારે ક્ષેત્રમાંથી નમૂનાઓ એકત્રિત કરવામાં આવે છે, ત્યારે હર્બેરિયમ અને લાઇબ્રેરીમાં સંબંધિત માહિતીનો ઉપયોગ નમૂનાઓને ઓળખવા માટે થાય છે. તેમાં છોડની ઊંચાઈ વિશેની માહિતી હોતી નથી.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question17</div>
+            <div class="q-text">ઘરમાખીના વર્ગીકરણ માટે કૉલમ I ને કૉલમ II સાથે જોડો અને નીચે આપેલા કોડનો ઉપયોગ કરીને સાચો વિકલ્પ પસંદ કરો.</div>
+            <table class="match-table">
+                <tr><td><strong>Column I</strong></td><td><strong>Column II</strong></td></tr>
+                <tr><td>A. કુળ (Family)</td><td>(i) ડિપ્ટેરા (Diptera)</td></tr>
+                <tr><td>B. ગોત્ર (Order)</td><td>(ii) આર્થ્રોપોડા (Arthropods)</td></tr>
+                <tr><td>C. વર્ગ (Class)</td><td>(iii) મસ્સીડી (Muscidae)</td></tr>
+                <tr><td>D. સમુદાય (Phylum)</td><td>(iv) ઇન્સેક્ટા (Insecta)</td></tr>
+            </table>
+            <div class="q-text"><span class="meta">(NEET-ii 2016)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. A-(iii), B-(i), C-(iv), D-(ii)<br>
+                B. A-(iii), B-(ii), C-(iv), D-(i)<br>
+                C. A-(iv), B-(iii), C-(ii), D-(i)<br>
+                D. A-(iv), B-(ii), C-(i), D-(iii)
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                ઘરમાખીનું વૈજ્ઞાનિક નામ Musca domestica છે. વર્ગીકરણ: સમુદાય: Arthropoda, વર્ગ: Insecta, ગોત્ર: Diptera, કુળ: Muscidae, પ્રજાતિ: Musca, જાતિ: M. domestica.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question18</div>
+            <div class="q-text">નીચે આપેલા ચાર વિધાનો (A-D) નો અભ્યાસ કરો અને તેમાંથી બે સાચા વિધાનો પસંદ કરો.<br>
+            A. જૈવિક જાતિની વ્યાખ્યા અર્ન્સ્ટ માયર દ્વારા આપવામાં આવી હતી.<br>
+            B. પ્રકાશ અવધિ (Photoperiod) વનસ્પતિઓમાં પ્રજનનને અસર કરતી નથી.<br>
+            C. દ્વિનામી નામકરણ પદ્ધતિ R.H. વિટેકર દ્વારા આપવામાં આવી હતી.<br>
+            D. એકકોષીય સજીવોમાં, પ્રજનન એ વૃદ્ધિનો પર્યાય છે.<br>
+            બે સાચા વિધાનો કયા છે? <span class="meta">(NEET-II 2016)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. B અને C<br>
+                B. C અને D<br>
+                C. A અને D<br>
+                D. A અને B
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                પ્રકાશ અવધિ વનસ્પતિઓના પુષ્પસર્જનના સમયને નિયંત્રિત કરીને તેમના પ્રજનનને અસર કરે છે. દ્વિનામી નામકરણ પદ્ધતિ કેરોલસ લિનિયસ દ્વારા આપવામાં આવી હતી. R.H. વિટેકરે 5 સૃષ્ટિ વર્ગીકરણ રજૂ કર્યું હતું.
+            </div>
+        </div>
+        <div class="page-number">પેજ 5 / 10</div>
+    </div>
+
+    <!-- [Page 6] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question19</div>
+            <div class="q-text">નામકરણ કેટલાક સાર્વત્રિક નિયમો દ્વારા સંચાલિત થાય છે. નીચેનામાંથી કયું નામકરણના નિયમોથી વિરુદ્ધ છે? <span class="meta">(NEET-1 2016)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. નામો લેટિનમાં લખાયેલા છે અને ઇટાલિક હોય છે.<br>
+                B. જ્યારે હાથથી લખવામાં આવે છે ત્યારે નામો નીચે અન્ડરલાઇન કરવાની હોય છે.<br>
+                C. જૈવિક નામો કોઈપણ ભાષામાં લખી શકાય છે.<br>
+                D. જૈવિક નામમાં પ્રથમ શબ્દ પ્રજાતિનું નામ દર્શાવે છે અને બીજો શબ્દ જાતિ સંકેત છે.
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                જૈવિક નામો લેટિન ભાષામાંથી લેવામાં આવ્યા છે અથવા લેટિનિકૃત છે. આ એટલા માટે છે કારણ કે લેટિન ભાષા એક મૃત ભાષા છે અને તેથી સમય પસાર થવા સાથે તેના સ્વરૂપ અથવા જોડણીમાં ફેરફાર થશે નહીં.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question20</div>
+            <div class="q-text">નીચેનામાંથી કયું વિધાન સાચું નથી? <span class="meta">(NEET 2013)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. મ્યુઝિયમમાં વનસ્પતિઓ અને પ્રાણીઓના ફોટોગ્રાફ્સનો સંગ્રહ હોય છે.<br>
+                B. કળ એ નમૂનાઓની ઓળખ માટેની વર્ગીકરણીય સહાય છે.<br>
+                C. હર્બેરિયમમાં સૂકવેલા, દબાવેલા અને સાચવેલા વનસ્પતિના નમૂનાઓ હોય છે.<br>
+                D. બોટનિકલ ગાર્ડન્સમાં સંદર્ભ માટે જીવંત વનસ્પતિઓનો સંગ્રહ હોય છે.
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                મ્યુઝિયમમાં અભ્યાસ અને સંદર્ભ માટે સાચવેલા વનસ્પતિ અને પ્રાણીના નમૂનાઓનો સંગ્રહ હોય છે. નમૂનાઓને જાળવણી માટેના દ્રાવણોમાં પાત્રો અથવા બરણીઓમાં સાચવવામાં આવે છે. 
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question21</div>
+            <div class="q-text">ટામેટા અને બટાકા વચ્ચેની સામાન્ય લાક્ષણિકતાઓ તેમના કયા સ્તરે મહત્તમ હશે? <span class="meta">(Karnataka NEET 2013)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. કુળ (family)<br>
+                B. ગોત્ર (order)<br>
+                C. વિભાગ (division)<br>
+                D. પ્રજાતિ (genus)
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                બટાકા (Solanum tuberosum) અને ટામેટા (Lycopersicum esculentum) બંને સોલેનેસી (Solanaceae) કુળના છે, જેને સામાન્ય રીતે "બટાકાનું કુળ" કહેવામાં આવે છે. 
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question22</div>
+            <div class="q-text">નીચેનામાંથી કયા સજીવનું વૈજ્ઞાનિક નામ યોગ્ય રીતે અપાયેલું છે, નામકરણના આંતરરાષ્ટ્રીય નિયમો અનુસાર યોગ્ય રીતે છાપેલું છે અને યોગ્ય રીતે વર્ણવેલ છે? <span class="meta">(Mains 2012)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. Musca domestica - સામાન્ય ગરોળી, એક સરીસૃપ.<br>
+                B. Plasmodium falciparum - એક પ્રજીવ રોગકારક જે સૌથી ગંભીર પ્રકારના મેલેરિયાનું કારણ બને છે.<br>
+                C. Felis tigris - ભારતીય વાઘ, ગીરના જંગલોમાં સારી રીતે સુરક્ષિત.<br>
+                D. E.Coli - પૂરું નામ Entamoeba coli, માનવ આંતરડામાં સામાન્ય રીતે જોવા મળતા બેક્ટેરિયમ.
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                પ્લાઝમોડિયમ ફાલ્સીપેરમ (Plasmodium falciparum) એક પ્રજીવ પરોપજીવી છે જે મનુષ્યોમાં મેલેરિયાનું કારણ બને છે. સામાન્ય ગરોળીનું વૈજ્ઞાનિક નામ Hemidactylus છે જ્યારે Musca domestica એ સામાન્ય ઘરમાખીનું વૈજ્ઞાનિક નામ છે. ભારતીય વાઘનું વૈજ્ઞાનિક નામ Panthera tigris છે. E.coli નું પૂરું નામ Escherichia coli છે.
+            </div>
+        </div>
+        <div class="page-number">પેજ 6 / 10</div>
+    </div>
+
+    <!-- [Page 7] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question23</div>
+            <div class="q-text">નીચેનામાંથી કયું પ્રાણી તેની ચોક્કસ વર્ગીકરણ કક્ષા સાથે યોગ્ય રીતે જોડાયેલું છે? <span class="meta">(2011)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. વાઘ - ટાઇગ્રિસ (Tigris), જાતિ<br>
+                B. કટલફિશ - મૃદુકાય (mollusca), વર્ગ<br>
+                C. મનુષ્ય - પ્રાઈમેટા (primata), કુળ<br>
+                D. ઘરમાખી - મસ્કા (Musca), ગોત્ર
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                બે ભાગના લેટિનાઇઝ્ડ નામનો ઉપયોગ કરીને સજીવોના નામકરણની દ્વિનામી નામકરણ પદ્ધતિ સ્વીડિશ વનસ્પતિશાસ્ત્રી લિનિયસ દ્વારા ઘડી કાઢવામાં આવી હતી. પ્રથમ ભાગ પ્રજાતિનું નામ છે, બીજો જાતિનું નામ છે. વાઘનું પ્રાણીશાસ્ત્રીય નામ Panthera tigris છે. તેથી, tigris એ વાઘની જાતિનું નામ છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question24</div>
+            <div class="q-text">નીચેનામાંથી કયું પાસું માત્ર જીવંત વસ્તુઓનું જ વિશિષ્ટ લક્ષણ છે? <span class="meta">(Mains 2011)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. ઇન વિટ્રો (in vitro) માં થતી અલગ ચયાપચયની પ્રક્રિયાઓ<br>
+                B. માત્ર અંદરથી જ દળમાં વધારો થવો<br>
+                C. પર્યાવરણમાં બનતી ઘટનાઓની અનુભૂતિ અને તેમની સ્મૃતિ.<br>
+                D. સપાટી પર તેમજ આંતરિક રીતે દ્રવ્યના સંચય દ્વારા દળમાં વધારો.
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                • ઇન વિટ્રો (in vitro) માં થતી અલગ ચયાપચયની પ્રક્રિયાઓ જીવંત વસ્તુઓ નથી પરંતુ જીવંત પ્રક્રિયાઓ છે.<br>
+                • જો કે કેટલીક નિર્જીવ વસ્તુઓ જેવી કે પર્વતો, રેતીના ઢૂવા, સ્ફટિકો પણ વૃદ્ધિ પામે છે, તેમની વૃદ્ધિ બહારથી દ્રવ્યના ઉમેરાને કારણે છે.<br>
+                • તમામ સજીવો બાહ્ય ઉત્તેજના પ્રત્યે પ્રતિભાવ આપે છે. પ્રોકેરિયોટ્સથી લઈને સૌથી જટિલ યુકેરિયોટ્સ સુધીના તમામ સજીવો પર્યાવરણીય ઘટનાઓને અનુભવી શકે છે અને પ્રતિભાવ આપી શકે છે. તેથી, સાચો જવાબ 'પર્યાવરણમાં બનતી ઘટનાઓની અનુભૂતિ અને તેમની સ્મૃતિ' છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question25</div>
+            <div class="q-text">ICBN નું પૂરું નામ શું છે? <span class="meta">(2007)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. ઇન્ટરનેશનલ કોડ ઓફ બોટનિકલ નોમેન્કલેચર (International Code of Botanical Nomenclature)<br>
+                B. ઇન્ટરનેશનલ કોંગ્રેસ ઓફ બાયોલોજિકલ નેમ્સ (International Congress of Biological Names)<br>
+                C. ઇન્ડિયન કોડ ઓફ બોટનિકલ નોમેન્કલેચર (Indian Code of Botanical Nomenclature)<br>
+                D. ઇન્ડિયન કોંગ્રેસ ઓફ બાયોલોજિકલ નેમ્સ (Indian Congress of Biological Names)
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                ઇન્ટરનેશનલ કોડ ઓફ બોટનિકલ નોમેન્કલેચર (ICBN) એ વનસ્પતિઓને આપવામાં આવતા ઔપચારિક વનસ્પતિશાસ્ત્રીય નામો સાથે વ્યવહાર કરતા નિયમો અને ભલામણોનો સમૂહ છે. 
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question26</div>
+            <div class="q-text">જીવંત સજીવોને નિર્જીવ વસ્તુઓથી તેમની કઈ ક્ષમતાના આધારે અપવાદ વિના અલગ પાડી શકાય છે? <span class="meta">(2007)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. પર્યાવરણ સાથેની ક્રિયાપ્રતિક્રિયા અને પ્રગતિશીલ ઉત્ક્રાંતિ<br>
+                B. પ્રજનન<br>
+                C. વૃદ્ધિ અને હલનચલન<br>
+                D. સ્પર્શ પ્રત્યે પ્રતિભાવ (responsiveness to touch).<br>
+                E. ઉપરોક્ત તમામ
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                જીવંત સજીવોને સ્પર્શ અને અન્ય ઉત્તેજનાઓ પ્રત્યે પ્રતિભાવ આપવાની તેમની ક્ષમતાના આધારે નિર્જીવ વસ્તુઓથી અપવાદ વિના અલગ પાડી શકાય છે.
+            </div>
+        </div>
+        <div class="page-number">પેજ 7 / 10</div>
+    </div>
+
+    <!-- [Page 8] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question27</div>
+            <div class="q-text">બોટનિકલ ગાર્ડન્સના સૌથી મહત્વપૂર્ણ કાર્યોમાંથી એક કયું છે? <span class="meta">(2005)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. તેઓ મનોરંજન માટે સુંદર વિસ્તાર પૂરો પાડે છે<br>
+                B. કોઈ ત્યાં ઉષ્ણકટિબંધીય વનસ્પતિઓ જોઈ શકે છે<br>
+                C. તે જર્મપ્લાઝ્મનું નવસ્થાન (ex situ) સંરક્ષણ થવા દે છે<br>
+                D. તેઓ વન્યજીવન માટે કુદરતી નિવાસસ્થાન પૂરા પાડે છે.
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                નવસ્થાન સંરક્ષણ (Ex situ conservation) એટલે "સ્થળની બહાર સંરક્ષણ". બોટનિકલ ગાર્ડન વિવિધ વનસ્પતિઓના જર્મપ્લાઝ્મના નવસ્થાન સંરક્ષણ તરીકે કામ કરે છે, દુર્લભ અને સ્થાનિક વનસ્પતિની જાતિઓ જાળવી રાખે છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question28</div>
+            <div class="q-text">જાતિઓ (Species) ને શું માનવામાં આવે છે? <span class="meta">(2003)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. વર્ગીકરણના વાસ્તવિક મૂળભૂત એકમો<br>
+                B. વર્ગીકરણના સૌથી નીચલા એકમો<br>
+                C. માનવ મનનો કૃત્રિમ ખ્યાલ જે નિરપેક્ષ શરતોમાં વ્યાખ્યાયિત કરી શકાતો નથી<br>
+                D. વર્ગીકરણવિદો દ્વારા ઘડી કાઢવામાં આવેલ વર્ગીકરણના વાસ્તવિક એકમો.
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                જાતિ એ કુદરતી વસ્તી અથવા વ્યક્તિઓની કુદરતી વસ્તીઓનું જૂથ છે જે આનુવંશિક રીતે અલગ અને સમાન આવશ્યક બાહ્યાકાર લક્ષણો સાથે પ્રજનનીય રીતે અલગ હોય છે. જાતિ એ સૌથી નીચલી અથવા મૂળભૂત વર્ગીકરણીય કક્ષા છે. વર્ગીકરણના મૂળભૂત એકમ તરીકે જાતિને ગણવામાં આવે છે કારણ કે મોટાભાગના કિસ્સાઓમાં આપણી પાસે આંતરજાતીય નામો નથી.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question29</div>
+            <div class="q-text">બાયોસિસ્ટમેટિક્સ (Biosystematics) નો હેતુ શું છે? <span class="meta">(2003)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. વ્યાપક બાહ્યાકાર લક્ષણો પર આધારિત સજીવોનું વર્ગીકરણ<br>
+                B. સજીવોના વિવિધ ટેક્સાને સીમાંકિત કરવા અને તેમના સંબંધો સ્થાપિત કરવા<br>
+                C. સજીવોના તેમના ઉત્ક્રાંતિના ઇતિહાસ પર આધારિત વર્ગીકરણ અને અભ્યાસના તમામ ક્ષેત્રોમાંથી વિવિધ પરિમાણોની સંપૂર્ણતા પર તેમની ફાઇલોજેની સ્થાપિત કરવી<br>
+                D. તેમના કોષવિદ્યાકીય લક્ષણોના આધારે સજીવોની ઓળખ અને ગોઠવણ.
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                બાયોસિસ્ટમેટિક્સ એ સજીવોમાં ઓળખ, નામકરણ, વર્ગીકરણ અને સંબંધોનો અભ્યાસ છે. તે સજીવોની વિવિધતા, તુલનાત્મક શરીરરચના, ઇકોલોજી અને અન્ય ક્ષેત્રો પર આધારિત તેમના ઉત્ક્રાંતિ સંબંધોનો અભ્યાસ છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question30</div>
+            <div class="q-text">પ્રજાતિની સરખામણીમાં નીચેનામાંથી શેમાં લક્ષણો ઓછા સામાન્ય (less general) હોય છે? <span class="meta">(2001)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. જાતિ<br>
+                B. વિભાગ<br>
+                C. વર્ગ<br>
+                D. કુળ
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                વિવિધ ટેક્સાના વર્ગીકરણની સાચી શ્રેણી: સૃષ્ટિ &rarr; સમુદાય &rarr; વર્ગ &rarr; ગોત્ર &rarr; કુળ &rarr; પ્રજાતિ &rarr; જાતિ. જાતિ સૌથી નીચલા સ્તર પર છે જેમાં લગભગ સમાન બાહ્યાકાર અને વર્તણૂકની સમાનતાઓ છે.
+            </div>
+        </div>
+        <div class="page-number">પેજ 8 / 10</div>
+    </div>
+
+    <!-- [Page 9] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question31</div>
+            <div class="q-text">પુસ્તક 'Genera Plantarum' કોના દ્વારા લખવામાં આવ્યું હતું? <span class="meta">(1999)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. હચિન્સન (Hutchinson)<br>
+                B. એન્ગલર અને પ્રાન્ટલ (Engler and Prantl)<br>
+                C. આઇકલર (Eichler)<br>
+                D. કેરોલસ લિનિયસ (Carolus Linnaeus)
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                Genera Plantarum એ સ્વીડિશ પ્રકૃતિવાદી કાર્લ લિનિયસ (1707-1778) નું પ્રકાશન છે. તેની પ્રથમ આવૃત્તિમાં 935 પ્રજાતિઓનું વર્ણન સામેલ છે. પ્રમાણિત સાર્વત્રિક જૈવિક નામકરણ તરફના પ્રથમ પગલાનો Genera Plantarum એક મહત્વપૂર્ણ ભાગ હતો.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question32</div>
+            <div class="q-text">'ટેક્સોન' (Taxon) એ કયા જૂથનો એકમ છે? <span class="meta">(1996)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. ગોત્ર<br>
+                B. વર્ગીકરણ (taxonomy)<br>
+                C. જાતિ<br>
+                D. જનીનો
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                ટેક્સોન એ વર્ગીકરણ પદાનુક્રમની તમામ કક્ષાઓનો સંદર્ભ આપે છે. તે સૃષ્ટિ, વર્ગ, ગોત્ર, કુળ, પ્રજાતિ અથવા જાતિ હોઈ શકે છે. આ શબ્દ 1956 માં ICBN દ્વારા બનાવવામાં આવ્યો હતો.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question33</div>
+            <div class="q-text">લિનિયસને શેનો શ્રેય આપવામાં આવે છે? <span class="meta">(1993)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. દ્વિનામી નામકરણ<br>
+                B. જૈવઉત્પત્તિનો સિદ્ધાંત<br>
+                C. માઇક્રોસ્કોપની શોધ<br>
+                D. રુધિરાભિસરણની શોધ
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                વૈજ્ઞાનિક નામકરણનું દ્વિનામી નામકરણ સૌપ્રથમ C. લિનિયસ (1735) દ્વારા તેમના પુસ્તક Systema Naturae માં આપવામાં આવ્યું હતું.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question34</div>
+            <div class="q-text">વર્ગીકરણ કક્ષાઓનો ક્રમ કયો છે? <span class="meta">(1992)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. વર્ગ-સમુદાય-જનજાતિ (tribe)-ગોત્ર-કુળ-પ્રજાતિ-જાતિ<br>
+                B. વિભાગ-વર્ગ-કુળ-જનજાતિ ગોત્ર-પ્રજાતિ-જાતિ<br>
+                C. વિભાગ-વર્ગ-ગોત્ર-કુળ-જનજાતિ-પ્રજાતિ-જાતિ<br>
+                D. સમુદાય-ગોત્ર-વર્ગ-જનજાતિ કુળ-પ્રજાતિ-જાતિ
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                વર્ગીકરણનો પદાનુક્રમ બનાવવા માટે, જાતિઓને પ્રજાતિમાં, પ્રજાતિઓને કુળમાં, કુળોને ગોત્રમાં, ગોત્રોને વર્ગમાં, વર્ગોને સમુદાય/વિભાગમાં ગોઠવવામાં આવે છે.
+            </div>
+        </div>
+        <div class="page-number">પેજ 9 / 10</div>
+    </div>
+
+    <!-- [Page 10] -->
+    <div class="a4-page">
+        <div class="question-block">
+            <div class="q-title">Question35</div>
+            <div class="q-text">સમુદાય (phylum) શબ્દ કોણે આપ્યો હતો? <span class="meta">(1992)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. કુવિયર (Cuvier)<br>
+                B. હેકલ (Haeckel)<br>
+                C. થિયોફ્રાસ્ટસ (Theophrastus)<br>
+                D. લિનિયસ (Linnaeus)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                સમુદાય (phylum) શબ્દ 1866 માં એર્ન્સ્ટ હેકલ દ્વારા ગ્રીક શબ્દ phylon પરથી બનાવવામાં આવ્યો હતો.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question36</div>
+            <div class="q-text">સમાન લક્ષણો ધરાવતા વનસ્પતિઓ કે પ્રાણીઓના કોઈપણ કક્ષાના જૂથને શું કહે છે? <span class="meta">(1992, 1991)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. જાતિ<br>
+                B. પ્રજાતિ<br>
+                C. ગોત્ર<br>
+                D. ટેક્સોન (taxon)
+            </div>
+            <div class="answer">Answer: D</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                ટેક્સોન (બહુવચન taxa) અથવા વર્ગીકરણીય એકમ, એ સજીવ અથવા સજીવોના જૂથને દર્શાવતું નામ છે. 
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question37</div>
+            <div class="q-text">વર્ગીકરણનો મૂળભૂત એકમ અથવા સૌથી નાનો ટેક્સોન કયો છે? <span class="meta">(1990)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. જાતિ<br>
+                B. સૃષ્ટિ<br>
+                C. કુળ<br>
+                D. વિવિધતા (variety)
+            </div>
+            <div class="answer">Answer: A</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                વર્ગીકરણનો મૂળભૂત એકમ અથવા સૌથી નાનો ટેક્સોન જાતિ છે. 
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question38</div>
+            <div class="q-text">લિનિયસે નામકરણની એક પદ્ધતિ વિકસાવી જેને શું કહેવાય છે? <span class="meta">(1990)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. એકનામી (mononomial)<br>
+                B. સ્થાનિક (vernacular)<br>
+                C. દ્વિનામી (binomial)<br>
+                D. બહુનામી (polynomial)
+            </div>
+            <div class="answer">Answer: C</div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question39</div>
+            <div class="q-text">'ન્યૂ સિસ્ટમેટિક્સ' (New Systematics) શબ્દ કોણે રજૂ કર્યો હતો? <span class="meta">(1990)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. બેન્થમ અને હૂકર (Bentham and Hooker)<br>
+                B. લિનિયસ (Linnaeus)<br>
+                C. જુલિયન હક્સલી (Julian Huxley)<br>
+                D. એ.પી. ડી કેન્ડોલ (A.P. de Candolle)
+            </div>
+            <div class="answer">Answer: C</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                "ન્યૂ સિસ્ટમેટિક્સ" શબ્દ જુલિયન હક્સલી (1940) દ્વારા આપવામાં આવ્યો હતો.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="q-title">Question40</div>
+            <div class="q-text">જાતિનો સ્થિર ખ્યાલ (Static concept of species) કોણે રજૂ કર્યો હતો? <span class="meta">(1988)</span></div>
+            <div class="q-text mb-1 font-semibold">Options:</div>
+            <div class="options">
+                A. ડી કેન્ડોલ (de Candolle)<br>
+                B. લિનિયસ (Linnaeus)<br>
+                C. થિયોફ્રાસ્ટસ (Theophrastus)<br>
+                D. ડાર્વિન (Darwin)
+            </div>
+            <div class="answer">Answer: B</div>
+            <div class="solution-box">
+                <strong>Solution:</strong><br>
+                લિનિયસે 1758 માં 'નામકરણની દ્વિનામી પદ્ધતિ' વિકસાવી, ડી કેન્ડોલે વર્ગીકરણ (taxonomy) શબ્દ આપ્યો.
+            </div>
+        </div>
+        
+        <div class="page-number">પેજ 10 / 10</div>
+    </div>
+
+</body>
+</html>
