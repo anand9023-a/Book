@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Science - Standard VII (Gujarati)</title>
+    
+    <!-- Tailwind CSS for external UI styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Gujarati Font: Noto Serif Gujarati for a textbook feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #8e44ad;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            background-color: #525659; /* Classic PDF viewer background */
+            font-family: 'Noto Serif Gujarati', serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #pdf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 5rem 0 2rem 0;
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 20mm;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            page-break-after: always;
+            color: #333;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { color: var(--primary-color); font-weight: 700; }
+        .text-center { text-align: center; }
+        .text-justify { text-align: justify; }
+        .font-bold { font-weight: 700; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-4 { margin-top: 1rem; }
+        
+        .page-number {
+            position: absolute;
+            bottom: 15mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 15mm;
+            right: 20mm;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        table, th, td {
+            border: 1px solid #bdc3c7;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 700;
+        }
+
+        /* Specific Page Styles */
+        .cover-title { font-size: 48px; color: var(--primary-color); margin-top: 40mm; text-align: center; font-weight: bold;}
+        .cover-subtitle { font-size: 24px; color: var(--secondary-color); text-align: center; margin-top: 10mm; }
+        .cover-bottom { position: absolute; bottom: 30mm; width: calc(100% - 40mm); text-align: center; font-size: 18px; }
+        
+        .anthem-pledge { font-size: 15px; line-height: 1.8; text-align: center; }
+        .foreword { font-size: 15px; line-height: 1.6; text-align: justify; }
+        .chapter-title { font-size: 32px; color: var(--accent-color); border-bottom: 3px solid var(--accent-color); padding-bottom: 10px; margin-bottom: 20px;}
+        
+        .conversation-box { background-color: #e8f6f3; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #1abc9c; }
+        .info-box { border: 2px solid var(--primary-color); padding: 15px; border-radius: 8px; margin: 15px 0; }
+
+        /* Print Styles */
+        @media print {
+            body { background-color: white; }
+            #download-btn { display: none !important; }
+            #pdf-wrapper { padding: 0; gap: 0; display: block; }
+            .a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 210mm;
+                height: 297mm;
+                padding: 20mm;
+                page-break-after: always;
+                break-after: page;
+            }
+            @page { size: A4 portrait; margin: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Download Button -->
+    <button id="download-btn" onclick="downloadPDF()" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-xl flex items-center gap-2 transition-all duration-200 group border border-blue-500 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span>Download PDF</span>
+    </button>
+
+    <main id="pdf-wrapper">
+        
+        <!-- PAGE 1: Cover -->
+        <div class="a4-page">
+            <div class="cover-title">પાયાનું વિજ્ઞાન<br>(Basic Science)</div>
+            <div class="cover-subtitle">ધોરણ ૭ (Standard VII)<br><br>ભાગ ૧ (Part 1)</div>
+            
+            <div class="cover-bottom">
+                <div class="font-bold">કેરળ સરકાર</div>
+                <div>સામાન્ય શિક્ષણ વિભાગ</div>
+                <div class="mt-4 text-sm">સ્ટેટ કાઉન્સિલ ઓફ એજ્યુકેશનલ રિસર્ચ એન્ડ ટ્રેનિંગ (SCERT) કેરળ દ્વારા તૈયાર કરાયેલ</div>
+                <div class="font-bold mt-2">૨૦૨૪</div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: Anthem & Pledge -->
+        <div class="a4-page">
+            <h2 class="text-center mb-4">રાષ્ટ્રગીત</h2>
+            <div class="anthem-pledge">
+                જન-ગણ-મન અધિનાયક જય હે<br>
+                ભારત-ભાગ્ય-વિધાતા<br>
+                પંજાબ-સિંધુ-ગુજરાત-મરાઠા<br>
+                દ્રાવિડ-ઉત્કલ-બંગ<br>
+                વિંધ્ય-હિમાચલ-યમુના-ગંગા<br>
+                ઉચ્છલ-જલધિ-તરંગ<br>
+                તવ શુભ નામે જાગે,<br>
+                તવ શુભ આશિષ માંગે,<br>
+                ગાહે તવ જય ગાથા<br>
+                જન-ગણ-મંગલ-દાયક જય હે<br>
+                ભારત-ભાગ્ય-વિધાતા<br>
+                જય હે, જય હે, જય હે,<br>
+                જય જય જય, જય હે.
+            </div>
+
+            <h2 class="text-center mb-4 mt-8">પ્રતિજ્ઞા</h2>
+            <div class="anthem-pledge text-justify px-8">
+                ભારત મારો દેશ છે. બધા ભારતીયો મારા ભાઈ-બહેનો છે.<br>
+                હું મારા દેશને ચાહું છું, અને તેના સમૃદ્ધ અને વૈવિધ્યપૂર્ણ વારસા પર મને ગર્વ છે. હું હંમેશા તેને લાયક બનવાનો પ્રયત્ન કરીશ.<br>
+                હું મારા માતાપિતા, શિક્ષકો અને તમામ વડીલોનો આદર કરીશ અને દરેક સાથે નમ્રતાથી વર્તીશ.<br>
+                મારા દેશ અને મારા લોકો પ્રત્યે, હું મારી નિષ્ઠાની પ્રતિજ્ઞા લઉં છું. માત્ર તેમની સુખાકારી અને સમૃદ્ધિમાં જ મારી ખુશી રહેલી છે.
+            </div>
+            <div class="page-number">2</div>
+        </div>
+
+        <!-- PAGE 3: Foreword -->
+        <div class="a4-page">
+            <div class="foreword">
+                <div class="font-bold mb-4">પ્રિય મિત્રો,</div>
+                <p class="mb-4">મને ખાતરી છે કે આ વિજ્ઞાનનું પાઠ્યપુસ્તક તમારું ઘનિષ્ઠ સાથી સાબિત થશે. તે અવલોકન, પ્રયોગો, રચના, અભ્યાસ પ્રવાસ, સેમિનાર, ઇન્ટરવ્યુ, ક્વિઝ અને પ્રોજેક્ટ જેવી વિવિધ પ્રવૃત્તિઓ દ્વારા તમને જ્ઞાનની ઊંચાઈઓ પર લઈ જઈને શુદ્ધ આનંદ માટે અસંખ્ય તકો પૂરી પાડશે. આ સાથી તમને પ્રશ્નો પૂછીને અને તમને પ્રશ્નો પૂછવા માટે સક્ષમ બનાવીને પ્રકૃતિની વિવિધતાને જોવામાં મદદ કરે છે.</p>
+                <p class="mb-4">આ પુસ્તક તમને તમારી પોતાની 'સાયન્સ કિટ' વિકસાવવાની અને તમારા મિત્રો સાથે સંશોધનાત્મક પ્રવૃત્તિઓમાં જોડાવાની તક આપવા માટે બનાવવામાં આવ્યું છે. આવા શીખવાના અનુભવો કેટલા આહલાદક હોઈ શકે છે! આ અનુભવો તમારી કલ્પનાને પાંખો આપશે, તમને વધારાના વાંચનની દુનિયામાં લઈ જશે. તમે ICT ની મદદથી જ્ઞાનના નવા માર્ગો પણ શોધી શકો છો.</p>
+                <p class="mb-4">તમને દેશના વિકાસનો પ્રત્યક્ષ અનુભવ કરવાની અને સ્થાનિક વિકાસ પ્રવૃત્તિઓમાં ભાગ લેવાની તક પણ આપવામાં આવી રહી છે. સ્વ-મૂલ્યાંકન સક્ષમ કરતી અને વધુ પૂછપરછ તરફ દોરી જતી પ્રવૃત્તિઓ દરેક પાઠના અંતે સામેલ કરવામાં આવી છે. મારું માનવું છે કે આ પુસ્તક તમામ વિદ્યાર્થીઓને જ્ઞાનના ઉચ્ચ સ્તર સુધી લઈ જવા માટે શીખવાના અનુભવો પ્રદાન કરશે.</p>
+                <p class="mb-4">તમારા માટે ખાસ તૈયાર કરવામાં આવેલી તમામ શીખવાની પ્રવૃત્તિઓમાં તમારી સક્રિય ભાગીદારી આવશ્યક છે. મને ખાતરી છે કે તમે તમારી સાયન્સ ડાયરીને વિવિધ શીખવાની પ્રવૃત્તિઓ, વૈજ્ઞાનિક જિજ્ઞાસાઓ, વૈજ્ઞાનિક કલ્પનાઓ અને રાષ્ટ્રીય વિકાસ માટેની તમારી દ્રષ્ટિ દ્વારા ગ્રહણ કરેલા ખ્યાલોથી સમૃદ્ધ કરશો.</p>
+                <p class="mb-4">તમારા તરફથી મૂલ્યવાન ટિપ્પણીઓ અને સૂચનો મેળવવામાં મને ખૂબ આનંદ થશે.</p>
+                <div class="mt-8 text-right">
+                    શુભેચ્છાઓ સાથે,<br>
+                    <span class="font-bold">ડૉ. જયપ્રકાશ આર.કે.</span><br>
+                    નિયામક<br>
+                    SCERT કેરળ
+                </div>
+            </div>
+            <div class="page-number">3</div>
+        </div>
+
+        <!-- PAGE 4: Team -->
+        <div class="a4-page">
+            <h2 class="text-center mb-8 border-b-2 pb-2">પાઠ્યપુસ્તક વિકાસ સમિતિ</h2>
+            
+            <div class="grid grid-cols-2 gap-8 text-sm">
+                <div>
+                    <h3 class="font-bold mb-2">સલાહકાર (Advisor)</h3>
+                    <p>ડૉ. સલાહુદ્દીન કુંજુ<br>પ્રિન્સિપાલ (નિવૃત્ત), યુનિવર્સિટી કૉલેજ, તિરુવનંતપુરમ</p>
+                    <p class="mt-2">ડૉ. પ્રસન્નકુમાર આર.<br>પ્રિન્સિપાલ (નિવૃત્ત), DIET</p>
+                    
+                    <h3 class="font-bold mt-4 mb-2">અધ્યક્ષ (Chairperson)</h3>
+                    <p>પ્રો. (ડૉ.) રાજેશ્વરી કે.<br>પ્રિન્સિપાલ (નિવૃત્ત), IASE ત્રિશૂર</p>
+
+                    <h3 class="font-bold mt-4 mb-2">નિષ્ણાતો (Experts)</h3>
+                    <p>ડૉ. જયશ્રી એસ.<br>H.S.S.T. ઝૂઓલોજી, G.H.S.S., વેસ્ટ કલ્લાડા, કોલ્લમ</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-2">સભ્યો (Members)</h3>
+                    <ul class="list-disc pl-4 space-y-2">
+                        <li>શ્રી વાસુદેવન પી. (U.P.S.T., V.P.A.U.P.S.)</li>
+                        <li>શ્રી ઇલ્યાસ પ્રિયમ્બલમ (P.D. Teacher, G.B.H.S.S.)</li>
+                        <li>શ્રી મનોજ કોટ્ટક્કલ (P.D. Teacher, G.H.S.S.)</li>
+                        <li>શ્રી પ્રસાદ પી.વી. (U.P.S.T., M.U.P.S.)</li>
+                        <li>ડૉ. સતીશ ચંદ્રન જે.જી. (Lecturer, DIET)</li>
+                        <li>શ્રી શ્રીકુમાર જી. (Trainer, S.S.K.)</li>
+                        <li>શ્રી એસ. પ્રદીપકુમાર (U.P.S.T., U.P.S.)</li>
+                        <li>શ્રી સુરેશ એ. (P.D. Teacher, G.H.S.S.)</li>
+                        <li>શ્રીમતી સ્મિતા અરવિંદ (H.S.T., G.G.H.S.S.)</li>
+                        <li>શ્રી સંતોષ કે. (Drawing Teacher)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm italic">
+                State Council of Educational Research and Training (SCERT) Kerala<br>
+                Vidyabhavan, Poojappura, Thiruvananthapuram - 695 012
+            </div>
+            <div class="page-number">4</div>
+        </div>
+
+        <!-- PAGE 5: Contents -->
+        <div class="a4-page">
+            <h1 class="text-center mb-8 border-b-2 pb-2 text-3xl">અનુક્રમણિકા (Contents)</h1>
+            
+            <table class="w-full text-lg mt-8">
+                <tbody>
+                    <tr class="bg-gray-100">
+                        <td class="w-16 text-center font-bold">1</td>
+                        <td class="font-bold">સો ગણા ઉત્પાદન તરફ<br>(Towards A Hundredfold Yield)</td>
+                        <td class="w-16 text-center font-bold">07</td>
+                    </tr>
+                    <tr>
+                        <td class="w-16 text-center font-bold">2</td>
+                        <td class="font-bold">એસિડ અને બેઝ<br>(Acids and Bases)</td>
+                        <td class="w-16 text-center font-bold">27</td>
+                    </tr>
+                    <tr class="bg-gray-100">
+                        <td class="w-16 text-center font-bold">3</td>
+                        <td class="font-bold">વિદ્યુતની દુનિયા<br>(The World of Electricity)</td>
+                        <td class="w-16 text-center font-bold">43</td>
+                    </tr>
+                    <tr>
+                        <td class="w-16 text-center font-bold">4</td>
+                        <td class="font-bold">જ્યારે પ્રકાશ પરાવર્તિત થાય છે<br>(When Light Reflects)</td>
+                        <td class="w-16 text-center font-bold">62</td>
+                    </tr>
+                    <tr class="bg-gray-100">
+                        <td class="w-16 text-center font-bold">5</td>
+                        <td class="font-bold">માનવ શરીર: એક અજાયબી - પાચન અને શ્વસન<br>(Human Body: A Wonder - Digestion and Respiration)</td>
+                        <td class="w-16 text-center font-bold">81</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box mt-12">
+                <p class="font-bold">નોંધ:</p>
+                <p>પાઠ્યપુસ્તકના ખ્યાલોને લગતી વધારાની માહિતી 'વધુ વાંચન માટે' (For Further Reading) શીર્ષક હેઠળ આપવામાં આવી છે. તે મૂલ્યાંકનને આધીન નથી.</p>
+            </div>
+            <div class="page-number">5</div>
+        </div>
+
+        <!-- PAGE 6: Constitution -->
+        <div class="a4-page">
+            <h2 class="text-center mb-8 border-b-2 pb-2 text-2xl">ભારતનું બંધારણ<br>(THE CONSTITUTION OF INDIA)</h2>
+            <h3 class="text-center mb-4">આમુખ (PREAMBLE)</h3>
+            
+            <div class="anthem-pledge text-justify px-8 mt-8">
+                અમે, ભારતના લોકો, ભારતને એક <strong>સાર્વભૌમ, સમાજવાદી, બિનસાંપ્રદાયિક, લોકશાહી પ્રજાસત્તાક</strong> તરીકે સંસ્થાપિત કરવાનો અને તેના તમામ નાગરિકોને સુરક્ષિત કરવાનો ગંભીરતાપૂર્વક સંકલ્પ કર્યો છે:<br><br>
+                
+                <strong>ન્યાય</strong>, સામાજિક, આર્થિક અને રાજકીય;<br><br>
+                
+                <strong>સ્વતંત્રતા</strong>, વિચાર, અભિવ્યક્તિ, માન્યતા, ધર્મ અને ઉપાસનાની;<br><br>
+                
+                <strong>સમાનતા</strong>, દરજ્જા અને તકની; અને તે બધામાં ઉત્તેજન આપવાનો;<br><br>
+                
+                <strong>બંધુત્વ</strong>, વ્યક્તિની ગરિમા અને રાષ્ટ્રની એકતા અને અખંડિતતાની ખાતરી આપતો:<br><br>
+                
+                અમારી બંધારણ સભામાં ૨૬મી નવેમ્બર, ૧૯૪૯ ના આ દિવસે, આથી આ બંધારણને અપનાવીએ છીએ, અધિનિયમિત કરીએ છીએ અને અમારી જાતને અર્પણ કરીએ છીએ.
+            </div>
+            <div class="page-number">6</div>
+        </div>
+
+        <!-- PAGE 7: Chapter 1 Start -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <h1 class="chapter-title">૧. સો ગણા ઉત્પાદન તરફ (Towards A Hundredfold Yield)</h1>
+            
+            <div class="conversation-box">
+                <p><strong>બાળક:</strong> "મારા આંબાના ઝાડ પર પેલા મોટા ઝાડની જેમ કેરીઓ ક્યારે આવશે?"</p>
+                <p><strong>વડીલ:</strong> "ધીરજ રાખ... તારું આંબાનું ઝાડ પણ આઠથી દસ વર્ષમાં તને પુષ્કળ કેરીઓ આપશે."</p>
+            </div>
+
+            <p class="mb-4">તમે તમારા ઘરમાં અને આસપાસ આંબાના વિવિધ પ્રકારના વૃક્ષો જોયા હશે. તમારા ઘરમાં વડીલોને પૂછો કે આંબાના રોપાને મોટા થવામાં અને કેરી આવવામાં કેટલો સમય લાગે છે.</p>
+            <p class="mb-4">આંબાનો રોપો વાવતી વખતે અને તેને ઉછેરતી વખતે તમારી અપેક્ષાઓ શું હોય છે?</p>
+
+            <div class="grid grid-cols-3 gap-4 mt-8">
+                <div class="text-center p-4 border rounded bg-gray-50">
+                    <p class="font-bold text-blue-600">"ઘણી બધી કેરીઓ મળવી જોઈએ"</p>
+                </div>
+                <div class="text-center p-4 border rounded bg-gray-50">
+                    <p class="font-bold text-green-600">"શક્ય તેટલી વહેલી તકે ફળ મળવા જોઈએ"</p>
+                </div>
+                <div class="text-center p-4 border rounded bg-gray-50">
+                    <p class="font-bold text-orange-600">"કેરી મીઠી હોવી જોઈએ"</p>
+                </div>
+            </div>
+            <div class="page-number">7</div>
+        </div>
+
+        <!-- PAGE 8 -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <p class="mb-4">શું ફળો, શાકભાજી કે અનાજ ઉગાડતી વખતે પણ આપણા લક્ષ્યો સમાન નથી હોતા?</p>
+            
+            <ul class="list-disc pl-8 mb-6 font-bold space-y-2">
+                <li>ઝડપથી ઉત્પાદન મળવું જોઈએ (Should yield quickly)</li>
+                <li>પુષ્કળ ઉત્પાદન મળવું જોઈએ (Must yield plenty)</li>
+                <li>ઉત્પાદન સારી ગુણવત્તાનું હોવું જોઈએ (Yield should have good quality)</li>
+            </ul>
+
+            <p class="mb-4">આ સિદ્ધ કરવા માટે કઈ બાબતોનું ધ્યાન રાખવું જોઈએ? તમારા મિત્રો સાથે ચર્ચા કરો અને તમારી વિજ્ઞાન ડાયરીમાં લખો.</p>
+            <ul class="list-disc pl-8 mb-8 text-blue-600 font-bold">
+                <li>સારા બિયારણ/વાવેતર સામગ્રીનો ઉપયોગ કરવો જોઈએ.</li>
+            </ul>
+
+            <h2 class="text-xl mt-8 mb-4 border-b pb-2">બિયારણ અને વાવેતર સામગ્રી (Seeds and Planting Materials)</h2>
+            <p class="mb-4">શું તમે કહેવત નથી સાંભળી, 'બીજું તેવું ફળ' (vithu gunam pathu gunam)? તેનો અર્થ શું છે?</p>
+            <p class="mb-4">છોડ -> ફળ -> બીજ (Plant -> Fruit -> Seeds)</p>
+            <p class="mb-4">બીજ ક્યાં બને છે? ફળોનું શું?</p>
+            <p class="mb-4">શ્રેષ્ઠ બીજ પસંદ કરતી વખતે કયા પરિબળો ધ્યાનમાં લેવા જોઈએ?</p>
+            <div class="page-number">8</div>
+        </div>
+
+        <!-- PAGE 9 -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <p class="mb-4">આ છોડ જુઓ. બીજ એકત્ર કરવા માટે તમે આમાંથી કયો છોડ પસંદ કરશો? શા માટે?</p>
+            
+            <p class="mb-4">તમે જાણો છો કે એક જ છોડ ઘણા ફળો આપી શકે છે. સારા બીજ મેળવવા માટે કયા લણણીના તબક્કાના ફળો પસંદ કરવા જોઈએ?</p>
+            <p class="mb-4">શું છોડના જીવનકાળના પ્રારંભિક અને અંતિમ તબક્કામાં બનેલા ફળો બીજ સંગ્રહ માટે આદર્શ છે?</p>
+            <p class="mb-4">છોડના જીવનકાળના મધ્યમાં ઉત્પન્ન થતા પાકા ફળોમાંથી બીજ એકત્ર કરવા જોઈએ. ભીંડા અને વટાણા જેવા છોડમાં એક જ ફળમાં અસંખ્ય બીજ હોય છે. શું આ બધા બીજનો ઉપયોગ રોપાઓના ઉત્પાદન માટે થઈ શકે? તેમાંથી આપણે શ્રેષ્ઠ બીજ કેવી રીતે પસંદ કરી શકીએ?</p>
+            
+            <p class="mb-4">વટાણાના થોડા બીજ લો. નીચેના પરિબળોના આધારે તેમાંથી શ્રેષ્ઠ બીજ પસંદ કરો.</p>
+            <ul class="list-disc pl-8 mb-6">
+                <li>આકાર (Shape)</li>
+                <li>કદ (Size)</li>
+                <li>વજન (Weight)</li>
+                <li>બીજનું આવરણ (Seed coat)</li>
+            </ul>
+
+            <p class="mb-4">બીજ પસંદ કરતી વખતે ધ્યાનમાં લેવાના પરિબળો નીચે આપેલા છે.</p>
+            <table>
+                <tr>
+                    <th>બીજ સંગ્રહ માટે પસંદ કરેલ છોડ</th>
+                    <th>બીજ સંગ્રહ માટે પસંદ કરેલ ફળ</th>
+                    <th>પસંદ કરેલ બીજ</th>
+                </tr>
+                <tr>
+                    <td>વધુ ઉપજ આપનાર (High yielding)</td>
+                    <td>છોડના જીવનકાળના મધ્યમાં બનેલા ફળો</td>
+                    <td>ચોક્કસ આકાર ધરાવતા</td>
+                </tr>
+                <tr>
+                    <td>સ્વસ્થ છોડ (Healthy plant)</td>
+                    <td>સંપૂર્ણ પાકેલા (Fully ripened)</td>
+                    <td>સામાન્ય વજન ધરાવતા</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>સામાન્ય કદ ધરાવતા (Normal size)</td>
+                </tr>
+            </table>
+            
+            <div class="info-box">
+                <p>વધુ સારી ઉપજ માટે સારી ગુણવત્તાવાળા બીજ પસંદ કરવા જોઈએ. આ માટે, સંબંધિત છોડ અને ફળ પણ સારી ગુણવત્તાના હોવા જોઈએ.</p>
+            </div>
+            <div class="page-number">9</div>
+        </div>
+
+        <!-- PAGE 10 -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <p class="mb-4">શું નવા છોડ માત્ર બીજમાંથી જ બને છે? કરી પત્તા (Curry leaf), આદુ (Ginger), બ્રાયોફિલમ (Bryophyllum - પાનફૂટી), મરી (Pepper) ના છોડમાંથી રોપાઓ કયા ભાગોમાંથી બને છે?</p>
+            
+            <ul class="list-disc pl-8 mb-6">
+                <li>કરી પત્તાનો છોડ (Curry leaf plant)</li>
+                <li>આદુનો છોડ (Ginger plant)</li>
+                <li>બ્રાયોફિલમ / પાનફૂટી (Bryophyllum)</li>
+                <li>મરીનો છોડ (Pepper plant)</li>
+            </ul>
+
+            <p class="mb-4">શું તમે નથી સમજ્યા કે નવા છોડ મૂળ (root), પ્રકાંડ (stem), પર્ણ (leaf) અને ભૂગર્ભ પ્રકાંડ (underground stem) જેવા ભાગોમાંથી બને છે? રોપાઓ માત્ર બીજમાંથી જ નહીં પણ આ ભાગોમાંથી પણ બનાવી શકાય છે. તેથી, આ ભાગો પણ વાવેતર સામગ્રી છે.</p>
+
+            <h2 class="text-xl mt-8 mb-4 border-b pb-2">વાનસ્પતિક પ્રજનન અને લિંગી પ્રજનન (Vegetative Propagation and Sexual Reproduction)</h2>
+            <p class="mb-4">મૂળ, પ્રકાંડ, પર્ણ અને ભૂગર્ભ પ્રકાંડ જેવા છોડના વનસ્પતિ ભાગોમાંથી નવા રોપાઓ ઉત્પન્ન કરવાની પ્રક્રિયાને <strong>વાનસ્પતિક પ્રજનન (vegetative propagation)</strong> કહેવામાં આવે છે. આ એક પ્રકારનું <strong>અલિંગી પ્રજનન (asexual reproduction)</strong> છે. બીજ <strong>લિંગી પ્રજનન (sexual reproduction)</strong> દ્વારા બને છે. રોપાઓ બીજમાંથી પણ અંકુરિત થાય છે.</p>
+
+            <p class="mb-4">વાનસ્પતિક પ્રજનન અને લિંગી પ્રજનન દ્વારા પ્રજનન કરતા છોડના ઉદાહરણો શોધો અને સાયન્સ ડાયરીમાં લખો.</p>
+            <table>
+                <tr>
+                    <th colspan="4" class="text-center">વાનસ્પતિક પ્રજનન (Vegetative propagation)</th>
+                    <th>લિંગી પ્રજનન (Sexual reproduction)</th>
+                </tr>
+                <tr>
+                    <th>મૂળ (Root)</th>
+                    <th>પ્રકાંડ (Stem)</th>
+                    <th>પર્ણ (Leaf)</th>
+                    <th>ભૂગર્ભ પ્રકાંડ (Underground stem)</th>
+                    <th>બીજ (Seed)</th>
+                </tr>
+                <tr>
+                    <td>બ્રેડ ફ્રૂટ (Bread fruit)</td>
+                    <td>સરગવો (Moringa)</td>
+                    <td>પાનફૂટી (Bryophyllum)</td>
+                    <td>રતાળુ (Dioscorea)</td>
+                    <td>સરગવો (Moringa)</td>
+                </tr>
+            </table>
+            <div class="page-number">10</div>
+        </div>
+
+        <!-- PAGE 11 -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <p class="mb-4">સરગવામાં, યુવાન છોડ બીજમાંથી અને પ્રકાંડના ટુકડા વાવીને ઉત્પન્ન થાય છે. શું તમે એવા છોડના વધુ ઉદાહરણો શોધી શકો છો જે લિંગી પ્રજનન અને વાનસ્પતિક પ્રજનન બંને દ્વારા પ્રજનન કરી શકે?</p>
+            <p class="mb-4 pl-4 border-l-4 border-blue-500 text-blue-700">ઉદાહરણ: શીમાકોન્ના / ગ્લિરીસીડિયા (Gliricidia)</p>
+            
+            <p class="mb-4 mt-6">ખેતી માટે યોગ્ય વાવેતર સામગ્રીની પસંદગી એટલી જ મહત્વપૂર્ણ છે જેટલી સારી ગુણવત્તાવાળા બીજની પસંદગી. શ્રેષ્ઠ ગુણવત્તા ધરાવતા છોડમાંથી વાવેતર સામગ્રી પસંદ કરવા માટે કાળજી લેવી જોઈએ.</p>
+            
+            <div class="conversation-box mt-6">
+                <p><strong>બાળક ૧:</strong> "વાહ! જામફળ મોટું છે! તે પાકેલું પણ છે! શું હું વાવેતર માટે તેના પ્રકાંડનો ટુકડો (stem cutting) લઈ શકું?"</p>
+                <p><strong>બાળક ૨:</strong> "ચોક્કસ. હું તને પ્રકાંડનો ટુકડો અને ફળ બંને આપીશ."</p>
+                <p><strong>બાળક ૧:</strong> "પરંતુ, શું જામફળના છોડનું પ્રકાંડ ફૂટી શકે છે? શું બીજને ઝાડમાં ઉગવામાં અને ફળ આવવામાં વર્ષો નહીં લાગે?"</p>
+            </div>
+
+            <p class="mb-4">આ જામફળના છોડના તમામ ગુણો ધરાવતા અને ટૂંકા ગાળામાં ફળ આપી શકે તેવા રોપાઓ બનાવવા માટે શું કરી શકાય?</p>
+            <p class="mb-4">તમે પહેલાથી જ શીખી ગયા છો કે ફળો અને બીજ પરાગનયન (pollination) દ્વારા બને છે. શું આ રીતે બનેલા છોડમાં માત્ર માતૃ છોડ (mother plant) ના ગુણો હોય છે?</p>
+            <p class="mb-4">જો પ્રકાંડના ટુકડામાંથી નવો છોડ બને તો શું? શું તેમાં માતૃ છોડ સમાન ગુણો નહીં હોય?</p>
+            <p class="mb-4">જાસૂદ, ટેપીઓકા (tapioca), શક્કરિયા વગેરેના પ્રકાંડ કાપીને વાવવાથી સરળતાથી ફૂટે છે. પરંતુ જામફળ માટે પ્રકાંડમાંથી અંકુરિત થવું મુશ્કેલ છે. જો આપણે પ્રકાંડમાંથી મૂળ ઉગાડી શકીએ તો શું? જો આમ કરી શકાય, તો શું જામફળનો છોડ ખૂબ વહેલો ઉગશે અને ફળ આપશે નહીં? ચાલો તે કરીએ.</p>
+            <div class="page-number">11</div>
+        </div>
+
+        <!-- PAGE 12 -->
+        <div class="a4-page">
+            <div class="header-text">બેઝિક સાયન્સ (Class - VII)</div>
+            <h2 class="text-xl mb-4 border-b pb-2">લેયરીંગ (Layering)</h2>
+            <p class="mb-4">જામફળ, ચીકુ (sapota), જામફળ (java apple), બદામ અને અંજીર જેવા છોડમાં માતૃ છોડના પ્રકાંડમાં મૂળ પ્રેરિત કરી શકાય છે. મૂળવાળા આ પ્રકાંડને કાપીને વાવી શકાય છે. ચાલો જામફળના છોડમાં લેયરીંગના તબક્કાઓથી પરિચિત થઈએ.</p>
+
+            <div class="space-y-4 mb-6">
+                <div>
+                    <span class="font-bold text-red-600">તબક્કો 1 (Stage 1):</span> માતૃ છોડનું પેન્સિલના કદનું પ્રકાંડ પસંદ કરો. તેને મુખ્ય પ્રકાંડમાંથી પસંદ કરવું વધુ સારું છે. આ પ્રકાંડની બે ગાંઠો (nodes) વચ્ચેની છાલ પર વર્તુળાકાર આકારમાં 2-3 સેમી લંબાઈનો કાપો બનાવો.
+                </div>
+                <div>
+                    <span class="font-bold text-red-600">તબક્કો 2 (Stage 2):</span> આ વિસ્તારમાં કોકોપીટ, માટી અને ગાયના છાણના પાવડરનું થોડું ભીનું મિશ્રણ લગાવો. આ વિસ્તારને પોલીથીન બેગથી લપેટી લો. જરૂર પડે તો વિસ્તારને પાણી આપો.
+                </div>
+                <div>
+                    <span class="font-bold text-red-600">તબક્કો 3 (Stage 3):</span> બે મહિનામાં લેયરીંગના વિસ્તારમાં મૂળ ફૂટશે. લેયરીંગના વિસ્તારની બરાબર નીચેથી પ્રકાંડ કાપો અને આને ફૂલના કુંડામાં અથવા ગ્રો બેગમાં વાવી શકાય છે. જ્યારે તે વધવા લાગે છે, ત્યારે તેને જમીનમાં ફરીથી રોપી શકાય છે.
+                </div>
+            </div>
+
+            <div class="info-box bg-yellow-50 border-yellow-400">
+                <p class="font-bold">લેયરીંગ (Layering):</p>
+                <p>લેયરીંગ એ માતૃ છોડના પ્રકાંડમાંથી મૂળ ઉત્પન્ન કર્યા પછી તેને કાપીને અને વાવીને છોડ ઉત્પન્ન કરવાની પ્રથા છે.</p>
+            </div>
+
+            <h3 class="font-bold mt-6 mb-2">સર્પેન્ટાઇન લેયરીંગ (Serpentine Layering)</h3>
+            <p class="mb-4">મરી જેવા છોડમાં, લાંબી ડાળીઓને જમીનમાં વાળીને અને સમયાંતરે (ગાંઠો પર) ડાળીઓને માટીથી ઢાંકીને લેયરીંગ કરી શકાય છે. આ રીતે, એક જ ડાળીમાંથી એક સાથે અનેક રોપાઓ ઉત્પન્ન કરી શકાય છે.</p>
+
+            <table class="mt-4">
+                <tr>
+                    <th colspan="2" class="text-center">વિવિધ લેયરીંગ પદ્ધતિઓવાળા છોડ</th>
+                </tr>
+                <tr>
+                    <td class="font-bold">એર લેયરીંગ (Air layering)</td>
+                    <td>જામફળ, કાજુનું ઝાડ, ચીકુ, ગુલાબ, અંજીર, બદામ</td>
+                </tr>
+                <tr>
+                    <td class="font-bold">સર્પેન્ટાઇન લેયરીંગ (Serpentine layering)</td>
+                    <td>બૌગનવેલિયા (Bougainvillea), ચમેલી (Jasmine), નાગરવેલ (Betel), મરી, દ્રાક્ષ</td>
+                </tr>
+            </table>
+            <div class="page-number">12</div>
+        </div>
+
+    </main>
+
+    <script>
+        function downloadPDF() {
+            // Using the browser's native print engine to generate 
+            // an editable, selectable vector PDF with intact Gujarati fonts.
+            window.print();
+        }
+    </script>
+</body>
+</html>
