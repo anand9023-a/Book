@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gujarati Positive Thoughts PDF</title>
+    
+    <!-- Tailwind CSS for styling the UI outside the pages -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Gujarati Font for proper rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #525659; /* Standard dark background for PDF viewers */
+            font-family: 'Noto Serif Gujarati', serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #pdf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 5rem 0 2rem 0; /* Extra top padding for the fixed button */
+        }
+
+        .a4-page {
+            width: 210mm;
+            height: 297mm; /* Standard A4 size */
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 25mm 20mm; /* Top/Bottom and Left/Right margins */
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Ensure correct page breaking when printing */
+            page-break-after: always; 
+        }
+
+        /* Typography and Layout within the pages */
+        .page-header {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .page-title {
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .quote-list {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #000;
+        }
+
+        .quote-item {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+            text-align: justify;
+        }
+
+        .quote-num {
+            font-weight: 700;
+            min-width: 22px;
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 800px) {
+            .a4-page {
+                width: 95%;
+                height: auto;
+                min-height: 297mm;
+                padding: 15mm;
+            }
+            .quote-item {
+                text-align: left;
+            }
+        }
+
+        /* --- NEW PRINT STYLES FOR EDITABLE PDF --- */
+        @media print {
+            body {
+                background-color: white;
+            }
+            #download-btn {
+                display: none !important; /* Hide button in the downloaded PDF */
+            }
+            #pdf-wrapper {
+                padding: 0;
+                gap: 0;
+                display: block;
+            }
+            .a4-page {
+                box-shadow: none;
+                margin: 0;
+                width: 210mm;
+                height: 297mm;
+                padding: 25mm 20mm;
+                page-break-after: always; /* Ensure each div starts on a new PDF page */
+                break-after: page;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0; /* Let the .a4-page handle the padding/margins */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-900">
+
+    <button id="download-btn" onclick="downloadPDF()" class="fixed top-4 right-4 z-50 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-xl flex items-center gap-2 transition-all duration-200 group border border-red-500 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span id="btn-text">Download PDF</span>
+    </button>
+
+    <main id="pdf-wrapper" class="w-full">
+        
+        <!-- PAGE 1 -->
+        <div class="a4-page">
+            <div class="page-header">સ્ટેટવાઇડ ટ્રેનિંગ એન્ડ ડેવલપમેન્ટ</div>
+            <div class="page-title">આજના દિવસ માટે સકારાત્મક વિચારો</div>
+            
+            <div class="quote-list">
+                <div class="quote-item"><span class="quote-num">1.</span> <div>તમે આખી દુનિયાને બદલી શકતા નથી, અને તમે ચોક્કસપણે અન્ય લોકોને બદલી શકતા નથી, પરંતુ તમારી પાસે તમારી જાતને બદલવાની ક્ષમતા છે. તમે તમારી નોકરીમાં, જે લોકો સાથે કામ કરો છો, અને આખી સંસ્થા પર સકારાત્મક અસર પાડી શકો છો... પસંદગી તમારી છે. - ચેરી કાર્ટર-સ્કોટ</div></div>
+                <div class="quote-item"><span class="quote-num">2.</span> <div>એકવાર આપણે કોઈ માન્યતા ધરાવીએ છીએ, જ્યાં સુધી આપણે તેને પડકારીએ નહીં ત્યાં સુધી તે આખી જિંદગી આપણી સાથે રહે છે. - ડૉ. રિચાર્ડ ગિલેટ, તમારું મન બદલો, તમારી દુનિયા બદલો</div></div>
+                <div class="quote-item"><span class="quote-num">3.</span> <div>મોટાભાગના લોકો એટલા જ ખુશ હોય છે જેટલા તેઓ પોતાના મનમાં નક્કી કરે છે. - અબ્રાહમ લિંકન</div></div>
+                <div class="quote-item"><span class="quote-num">4.</span> <div>નકારાત્મક કંઈ ન હોવા કરતાં સકારાત્મક કંઈક હોવું વધુ સારું છે. - ધ રોડ ટુ સક્સેસ ઇઝ ઓલવેઝ અન્ડર કન્સ્ટ્રક્શન માંથી</div></div>
+                <div class="quote-item"><span class="quote-num">5.</span> <div>તમે જે જુઓ છો તે જ તમે મેળવો છો! - ગેરાલ્ડિન (ઉર્ફે ફ્લિપ વિલ્સન)</div></div>
+                <div class="quote-item"><span class="quote-num">6.</span> <div>તે પૂરું થઈ ગયું છે તેથી રડશો નહીં. સ્મિત કરો કારણ કે તે થયું હતું. - ડૉ. સ્યુસ</div></div>
+                <div class="quote-item"><span class="quote-num">7.</span> <div>શોધનું વાસ્તવિક કાર્ય નવી જમીન શોધવામાં નહીં પણ નવી આંખોથી જોવામાં છે. - માર્સેલ પ્રુસ્ટ</div></div>
+                <div class="quote-item"><span class="quote-num">8.</span> <div>આશ્ચર્યની ભાવના-તે આપણી છઠ્ઠી ઇન્દ્રિય છે. - ડી.એચ. લોરેન્સ</div></div>
+                <div class="quote-item"><span class="quote-num">9.</span> <div>આશા અદ્રશ્ય જુએ છે, અમૂર્ત અનુભવે છે, અને અશક્ય સિદ્ધ કરે છે. - ચાર્લ્સ કાલેબ કોલ્ટન</div></div>
+                <div class="quote-item"><span class="quote-num">10.</span> <div>આપણે ઘણીવાર આપણા માર્ગમાં આવતી સમસ્યાઓનો સામનો કરવામાં એટલો સમય વિતાવીએ છીએ કે આપણા માટે ખરેખર શું મહત્વનું છે તેનો આપણને માત્ર ઝાંખો અથવા અચોક્કસ ખ્યાલ જ રહે છે. - પીટર સેંગે</div></div>
+                <div class="quote-item"><span class="quote-num">11.</span> <div>નિરાશાવાદીઓ મુશ્કેલીઓની ગણતરી કરે છે. આશાવાદીઓ માને છે કે તેઓ તેના પર કાબુ મેળવી શકે છે. - ટેડ કોપેલ</div></div>
+                <div class="quote-item"><span class="quote-num">12.</span> <div>સંશોધકોને જાણવા મળ્યું છે કે આશાવાદીઓ નિરાશાવાદીઓ કરતા 19 ટકા વધુ જીવે છે. - ધ ઓરેગોનિયન એજ કોલમ</div></div>
+                <div class="quote-item"><span class="quote-num">13.</span> <div>ફક્ત તરતા રહો. - ફાઇન્ડિંગ નિમોમાં ડોરી</div></div>
+                <div class="quote-item"><span class="quote-num">14.</span> <div>હું મારું મન શાંતિ, સંવાદિતા, આરોગ્ય, પ્રેમ અને વિપુલતા પર કેન્દ્રિત રાખું છું. પછી, હું શંકા, ચિંતા અથવા ભયથી વિચલિત થઈ શકતી નથી. - એડિથ આર્મસ્ટ્રોંગ</div></div>
+                <div class="quote-item"><span class="quote-num">15.</span> <div>કોઈપણ સમસ્યા તે જ સ્તરની ચેતનાથી હલ થઈ શકતી નથી જેણે તેને બનાવી છે. - આલ્બર્ટ આઈન્સ્ટાઈન</div></div>
+                <div class="quote-item"><span class="quote-num">16.</span> <div>આપણી ખુશી કે દુઃખનો મોટો ભાગ આપણા સ્વભાવ પર આધારિત છે અને આપણા સંજોગો પર નહીં. - માર્થા વોશિંગ્ટન</div></div>
+                <div class="quote-item"><span class="quote-num">17.</span> <div>આપણી પાસેથી બધું જ છીનવી શકાય છે પરંતુ એક વસ્તુ-માનવ સ્વાતંત્ર્યની છેલ્લી બાબત-કોઈપણ સંજોગોમાં પોતાનું વલણ પસંદ કરવાની સ્વતંત્રતા. - વિક્ટર ફ્રેન્કલ</div></div>
+            </div>
+            
+            <div class="page-footer">
+                <span>લીડરશીપ ઓરેગોન પ્રોગ્રામ: એપ્રિલ ૨૦૦૭</span>
+                <span>પેજ ૧ / ૫</span>
+            </div>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="a4-page">
+            <div class="page-header">સ્ટેટવાઇડ ટ્રેનિંગ એન્ડ ડેવલપમેન્ટ</div>
+            
+            <div class="quote-list">
+                <div class="quote-item"><span class="quote-num">18.</span> <div>નિંદાત્મક યુવાન વ્યક્તિને જોવું એ લગભગ સૌથી દુઃખદ દ્રશ્ય છે કારણ કે તેનો અર્થ એ છે કે તે કંઈ ન જાણવાથી લઈને કંઈ પણ ન માનવા સુધી પહોંચી ગયો છે. - માયા એન્જેલોઉ</div></div>
+                <div class="quote-item"><span class="quote-num">19.</span> <div>તમારા વિચારો જુઓ; તે શબ્દો બને છે. તમારા શબ્દો જુઓ; તે ક્રિયાઓ બને છે. તમારી ક્રિયાઓ જુઓ; તે આદતો બને છે. તમારી આદતો જુઓ; તે પાત્ર બને છે. તમારું પાત્ર જુઓ; તે તમારું ભાગ્ય બને છે. - ફ્રેન્ક આઉટલો</div></div>
+                <div class="quote-item"><span class="quote-num">20.</span> <div>જો આપણે એ બધી બાબતો કરીએ જે કરવા માટે આપણે સક્ષમ છીએ તો આપણે શાબ્દિક રીતે આપણી જાતને આશ્ચર્યચકિત કરી દઈશું. - થોમસ આલ્વા એડિસન</div></div>
+                <div class="quote-item"><span class="quote-num">21.</span> <div>વિચારશીલ, પ્રતિબદ્ધ નાગરિકોનું એક નાનું જૂથ દુનિયા બદલી શકે છે એમાં ક્યારેય શંકા ન કરો. ખરેખર, આ એકમાત્ર વસ્તુ છે જેણે અત્યાર સુધી આવું કર્યું છે. - માર્ગારેટ મીડ</div></div>
+                <div class="quote-item"><span class="quote-num">22.</span> <div>માર્ટિન લ્યુથર કિંગે એવું નહોતું કહ્યું, "મારી પાસે એક વ્યૂહાત્મક યોજના છે." તેના બદલે, તેમણે બૂમ પાડી, "મારું એક સ્વપ્ન છે," અને તેમણે એક ધર્મયુદ્ધ ઊભું કર્યું. - અજ્ઞાત સ્ત્રોત, કેથી વેલ્સ દ્વારા પ્રદાન કરાયેલ</div></div>
+                <div class="quote-item"><span class="quote-num">23.</span> <div>તમારું જીવન જીવવાની માત્ર બે જ રીતો છે. એક એ છે કે જાણે કંઈ જ ચમત્કાર નથી. બીજી એ છે કે જાણે બધું જ ચમત્કાર છે. - આલ્બર્ટ આઈન્સ્ટાઈન</div></div>
+                <div class="quote-item"><span class="quote-num">24.</span> <div>એ ધ્યાનમાં રાખવું જોઈએ કે જીવનની કરૂણતા તમારા લક્ષ્ય સુધી ન પહોંચવામાં નથી. તે પહોંચવા માટે કોઈ લક્ષ્ય ન હોવામાં છે. અધૂરા સપના સાથે મરવું એ આફત નથી, પરંતુ સપના જ ન જોવા એ આફત છે. તારાઓ સુધી ન પહોંચવું એ અપમાન નથી, પરંતુ પહોંચવા માટે કોઈ તારાઓ ન હોવા એ અપમાન છે. નિષ્ફળતા નહીં, પણ નીચું લક્ષ્ય, વાસ્તવિક પાપ છે. - પાબ્લો આઇઝનબર્ગ મારફતે બેન્જામિન મેયસ</div></div>
+                <div class="quote-item"><span class="quote-num">25.</span> <div>આપણે દુનિયામાં જે પરિવર્તન જોવા માંગીએ છીએ તે આપણે પોતે બનવું જોઈએ. - ગાંધીજી</div></div>
+                <div class="quote-item"><span class="quote-num">26.</span> <div>આશાવાદી ઘોષણા કરે છે કે આપણે બધી સંભવિત દુનિયામાં શ્રેષ્ઠ દુનિયામાં રહીએ છીએ; અને નિરાશાવાદીને ડર છે કે આ સાચું છે. - જેમ્સ બ્રાન્ચ કેબેલ</div></div>
+                <div class="quote-item"><span class="quote-num">27.</span> <div>નિરાશાવાદી એ છે જે તેની તકોમાંથી મુશ્કેલીઓ ઊભી કરે છે. આશાવાદી એ છે જે તેની મુશ્કેલીઓમાંથી તકો ઊભી કરે છે. - રેજિનાલ્ડ બી. મેન્સેલ</div></div>
+                <div class="quote-item"><span class="quote-num">28.</span> <div>ભલે તમે મોઢાભેર પડો, છતાં તમે આગળ જ વધી રહ્યા છો. - વિક્ટર કિયામ</div></div>
+                <div class="quote-item"><span class="quote-num">29.</span> <div>મારા પોતાના માટે, હું આશાવાદી છું - બીજું કંઈ બનવાનો કોઈ અર્થ લાગતો નથી. - સર વિન્સ્ટન ચર્ચિલ</div></div>
+                <div class="quote-item"><span class="quote-num">30.</span> <div>તકો સામાન્ય રીતે સખત મહેનતના વેશમાં આવે છે, તેથી મોટાભાગના લોકો તેમને ઓળખી શકતા નથી. - એન લેન્ડર્સ</div></div>
+                <div class="quote-item"><span class="quote-num">31.</span> <div>હું જેટલું વધુ કંઈક પૂર્ણ કરવા માંગું છું, તેટલું જ ઓછું હું તેને કામ કહું છું. - રિચાર્ડ બાચ</div></div>
+                <div class="quote-item"><span class="quote-num">32.</span> <div>અશાંતિ એ જીવન શક્તિ છે. તે તક છે. ચાલો અશાંતિને પ્રેમ કરીએ અને તેનો પરિવર્તન માટે ઉપયોગ કરીએ. - રામસે ક્લાર્ક</div></div>
+                <div class="quote-item"><span class="quote-num">33.</span> <div>સુખ આપણા પોતાના પર નિર્ભર છે. - એરિસ્ટોટલ</div></div>
+                <div class="quote-item"><span class="quote-num">34.</span> <div>આપણને એવું માનવાનું શીખવવામાં આવ્યું છે કે નકારાત્મક એટલે વાસ્તવિક અને સકારાત્મક એટલે અવાસ્તવિક. - સુસાન જેફર્સ</div></div>
+            </div>
+            
+            <div class="page-footer">
+                <span>લીડરશીપ ઓરેગોન પ્રોગ્રામ: એપ્રિલ ૨૦૦૭</span>
+                <span>પેજ ૨ / ૫</span>
+            </div>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="a4-page">
+            <div class="page-header">સ્ટેટવાઇડ ટ્રેનિંગ એન્ડ ડેવલપમેન્ટ</div>
+            
+            <div class="quote-list">
+                <div class="quote-item"><span class="quote-num">35.</span> <div>માણસ તે છે જે તે માને છે. - એન્ટોન ચેખોવ</div></div>
+                <div class="quote-item"><span class="quote-num">36.</span> <div>જે વસ્તુમાં તમે ખરેખર વિશ્વાસ કરો છો તે હંમેશા થાય છે; અને કોઈ વસ્તુમાં વિશ્વાસ જ તેને સાકાર કરે છે. - ફ્રેન્ક લોઇડ રાઇટ</div></div>
+                <div class="quote-item"><span class="quote-num">37.</span> <div>તે તમારી પસંદગી છે-તક નહીં કે જે તમારું ભાગ્ય નક્કી કરે છે. - જીન નિડેચ</div></div>
+                <div class="quote-item"><span class="quote-num">38.</span> <div>ફક્ત હું જ મારું જીવન બદલી શકું છું. કોઈ મારા માટે તે કરી શકે નહીં. - કેરોલ બર્નેટ</div></div>
+                <div class="quote-item"><span class="quote-num">39.</span> <div>સકારાત્મક વલણ કદાચ તમારી બધી સમસ્યાઓ હલ ન કરે, પરંતુ તે એટલા લોકોને નારાજ કરશે કે તેના માટે પ્રયત્ન કરવો યોગ્ય બની જશે. - હર્મ આલ્બ્રાઇટ</div></div>
+                <div class="quote-item"><span class="quote-num">40.</span> <div>મજબૂત, સકારાત્મક માનસિક વલણ કોઈપણ ચમત્કારિક દવા કરતાં વધુ ચમત્કારો સર્જશે. - પેટ્રિશિયા નીલ</div></div>
+                <div class="quote-item"><span class="quote-num">41.</span> <div>મનુષ્ય, પોતાના મનના આંતરિક વલણો બદલીને, તેમના જીવનના બાહ્ય પાસાઓને બદલી શકે છે. - વિલિયમ જેમ્સ</div></div>
+                <div class="quote-item"><span class="quote-num">42.</span> <div>જે શબ્દો આત્માને જ્ઞાન આપે છે તે ઝવેરાત કરતાં પણ વધુ કિંમતી છે. - હઝરત ઇનાયત ખાન</div></div>
+                <div class="quote-item"><span class="quote-num">43.</span> <div>મુશ્કેલીની મધ્યમાં તક રહેલી છે. - આલ્બર્ટ આઈન્સ્ટાઈન</div></div>
+                <div class="quote-item"><span class="quote-num">44.</span> <div>દરરોજ હું બીજા એક દિવસ માટે મારું શ્રેષ્ઠ કરું છું. - ધ કિંગ એન્ડ આઈ માં રાજા તરીકે યુલ બ્રાયનર</div></div>
+                <div class="quote-item"><span class="quote-num">45.</span> <div>એંસી ટકા સફળતા ફક્ત હાજર રહેવામાં છે. - વુડી એલન</div></div>
+                <div class="quote-item"><span class="quote-num">46.</span> <div>ભલે તમે ગમે તેટલા નિંદાત્મક બની જાઓ, તેની સાથે તાલ મિલાવવો અશક્ય છે. - લીલી ટોમલિન</div></div>
+                <div class="quote-item"><span class="quote-num">47.</span> <div>તમારા વિચારો બદલો અને તમે તમારી દુનિયા બદલી નાખશો. - નોર્મન વિન્સેન્ટ પીલે</div></div>
+                <div class="quote-item"><span class="quote-num">48.</span> <div>કોઈપણ નિરાશાવાદીએ ક્યારેય તારાઓનું રહસ્ય શોધ્યું નથી, અથવા અજાણ્યા પ્રદેશમાં મુસાફરી કરી નથી, અથવા માનવ આત્મા માટે નવા દરવાજા ખોલ્યા નથી. - હેલેન કેલર</div></div>
+                <div class="quote-item"><span class="quote-num">49.</span> <div>(નીચેના અવતરણોના લેખકો અથવા સ્ત્રોતો અજ્ઞાત છે.)<br>
+                જીવનની ઘડિયાળમાં માત્ર એક જ વાર ચાવી અપાય છે અને કોઈ પણ માણસમાં એ કહેવાની શક્તિ નથી કે કાંટા ક્યારે અટકશે, મોડેથી કે વહેલી કલાકે.<br>
+                અત્યારનો સમય જ તમારી પાસે છે. તમારે ઇચ્છાશક્તિથી જીવવું, પ્રેમ કરવો અને કામ કરવું જોઈએ.<br>
+                આવતીકાલ પર કોઈ વિશ્વાસ ન રાખો; કારણ કે ત્યારે ઘડિયાળ સ્થિર પણ થઈ શકે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">50.</span> <div>જ્યારે આપણે પવનની દિશા બદલી શકતા નથી, ત્યારે આપણે સઢને અનુકૂળ કરી શકીએ છીએ.</div></div>
+            </div>
+            
+            <div class="page-footer">
+                <span>લીડરશીપ ઓરેગોન પ્રોગ્રામ: એપ્રિલ ૨૦૦૭</span>
+                <span>પેજ ૩ / ૫</span>
+            </div>
+        </div>
+
+        <!-- PAGE 4 -->
+        <div class="a4-page">
+            <div class="page-header">સ્ટેટવાઇડ ટ્રેનિંગ એન્ડ ડેવલપમેન્ટ</div>
+            
+            <div class="quote-list">
+                <div class="quote-item"><span class="quote-num">51.</span> <div>આગળની સરહદ ફક્ત તમારી સામે જ નથી-તે તમારી અંદર છે.</div></div>
+                <div class="quote-item"><span class="quote-num">52.</span> <div>શું કલ્પી શકાય છે અને શું સિદ્ધ કરી શકાય છે તેની વચ્ચેનું અંતર આટલું નાનું ક્યારેય નહોતું.</div></div>
+                <div class="quote-item"><span class="quote-num">53.</span> <div>તમે જાણતા હોય તેવા સૌથી જિજ્ઞાસુ અને સકારાત્મક વ્યક્તિ બનો.</div></div>
+                <div class="quote-item"><span class="quote-num">54.</span> <div>શું થઈ શકે છે તેની અટકળો ન કરો... કલ્પના કરો કે તમે વાસ્તવમાં શું કરી શકો છો.</div></div>
+                <div class="quote-item"><span class="quote-num">55.</span> <div>દુનિયામાં સારું કરવાનો પ્રયાસ કરનારાઓ પ્રત્યે ઘણા લોકો નિંદાત્મક બની જાય છે. છતાં પણ કંઈક સારું કરો.</div></div>
+                <div class="quote-item"><span class="quote-num">56.</span> <div>તમારું હૃદય અને આત્મા તમને જે કરવાનું કહે છે તેને આગળ ધપાવતા "અશક્ય" શબ્દને ક્યારેય રોકવા ન દો. અશક્ય વસ્તુઓ રોજ સાચી પડે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">57.</span> <div>તમારી જાત પર વિશ્વાસ રાખો. અન્યમાં વિશ્વાસ રાખો. જીવનમાં વિશ્વાસ રાખો.</div></div>
+                <div class="quote-item"><span class="quote-num">58.</span> <div>પ્રતિકૂળતાને તમારો સાથી બનાવો. કઠિન સમય અને અણધાર્યા સંજોગોમાં મહાનતા જન્મે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">59.</span> <div>ફરિયાદ ઓછી કરો, શ્વાસ વધુ લો. ટીકા ઓછી કરો, સર્જન વધુ કરો. ચિંતા ઓછી કરો, વધુ હસો. ડર ઓછો કરો, આશા વધુ રાખો.</div></div>
+                <div class="quote-item"><span class="quote-num">60.</span> <div>યાદ રાખો કે તમને તમારા પ્રયત્નો માટે મળતો સૌથી મોટો પુરસ્કાર એ નથી જે તમને તેના માટે મળે છે, પરંતુ તમે તેના દ્વારા શું બનો છો તે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">61.</span> <div>પવન જેટલો સખત ફૂંકાશે, તમારી પતંગ તેટલી ઊંચી ઉડશે.</div></div>
+                <div class="quote-item"><span class="quote-num">62.</span> <div>આશાવાદી લોકો વ્યૂહાત્મક રીતે અવાસ્તવિક હોય છે.</div></div>
+                <div class="quote-item"><span class="quote-num">63.</span> <div>નિરાશાવાદી હોવાનો કોઈ અર્થ નથી. કદાચ તે કોઈપણ રીતે કામ કરશે નહીં.</div></div>
+                <div class="quote-item"><span class="quote-num">64.</span> <div>આશાની અતાર્કિક ભાવના રાખો.</div></div>
+                <div class="quote-item"><span class="quote-num">65.</span> <div>સૌથી મહત્વપૂર્ણ પાઠ ઘણીવાર ત્યાં આવે છે જ્યાં રસ્તો તીવ્ર વળાંક લે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">66.</span> <div>જીવન જે લાવે છે તેમાંથી શીખતા રહો.</div></div>
+                <div class="quote-item"><span class="quote-num">67.</span> <div>દરેક ઠોકર અને વળાંક એ શીખેલો પાઠ છે.</div></div>
+                <div class="quote-item"><span class="quote-num">68.</span> <div>દયાળુ શબ્દની શક્તિ, ઉદારતાના અણધાર્યા કાર્ય, હિંમતવાન કાર્યને ક્યારેય ઓછો અંદાજ ન આપો.</div></div>
+                <div class="quote-item"><span class="quote-num">69.</span> <div>જીવનના માર્ગ પર, થોડી જ નિશાનીઓ મોટી અથવા સ્પષ્ટ હોય છે. બસ એવા પાટિયાઓથી છેતરાઈ ન જશો જે કહે છે, "તમે અહીંથી ત્યાં પહોંચી શકતા નથી."</div></div>
+                <div class="quote-item"><span class="quote-num">70.</span> <div>તમે જે હતા અથવા રહી ચૂક્યા છો તે બની રહેવાથી સંતુષ્ટ ન થાઓ. તમે જે બની શકો છો તેના માટે પ્રયત્ન કરતા રહો.</div></div>
+                <div class="quote-item"><span class="quote-num">71.</span> <div>સ્પર્ધા કરવાનું બંધ કરો, અને શ્રેષ્ઠ બનવાનું શરૂ કરો. તમારે જીતવા માટે કોઈએ હારવાની જરૂર નથી.</div></div>
+            </div>
+            
+            <div class="page-footer">
+                <span>લીડરશીપ ઓરેગોન પ્રોગ્રામ: એપ્રિલ ૨૦૦૭</span>
+                <span>પેજ ૪ / ૫</span>
+            </div>
+        </div>
+
+        <!-- PAGE 5 -->
+        <div class="a4-page">
+            <div class="page-header">સ્ટેટવાઇડ ટ્રેનિંગ એન્ડ ડેવલપમેન્ટ</div>
+            
+            <div class="quote-list">
+                <div class="quote-item"><span class="quote-num">72.</span> <div>હળવા થાઓ. પ્રસન્ન રહો. સામેલ થવાનું ચાલુ રાખો.</div></div>
+                <div class="quote-item"><span class="quote-num">73.</span> <div>યાદ રાખો, જૂની આદતોનું પુનરાવર્તન કરવાથી તમને ક્યારેય નવા પરિણામો મળશે નહીં.</div></div>
+                <div class="quote-item"><span class="quote-num">74.</span> <div>ક્યારેય ભૂલશો નહીં કે તમારું વલણ અને લાગણીઓ હંમેશા બરાબર તે જ આકર્ષિત કરે છે જે તેઓ વ્યક્ત કરે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">75.</span> <div>જીવનની શક્યતાઓ પર ક્યારેય હાર ન માનો.</div></div>
+                <div class="quote-item"><span class="quote-num">76.</span> <div>એવી રીતે કામ કરો જાણે તમને પૈસાની કોઈ જરૂર નથી.</div></div>
+                <div class="quote-item"><span class="quote-num">77.</span> <div>તમારા કામ દ્વારા પરિવર્તન લાવવા માટે જે પણ કરવું પડે તે કરો.</div></div>
+                <div class="quote-item"><span class="quote-num">78.</span> <div>તમારા દૈનિક પ્રયત્નોને મોટા સપનાઓ અને મહાન લક્ષ્યો સાથે જોડો.</div></div>
+                <div class="quote-item"><span class="quote-num">79.</span> <div>પ્રેરણાની નાની ક્ષણોને પણ મહત્વ આપો.</div></div>
+                <div class="quote-item"><span class="quote-num">80.</span> <div>ક્યારેય ન ભૂલો કે મનુષ્ય કેટલી દૂર પાછળ પડી ગયા પછી પણ પાછો ફરી શકે છે અને પરિવર્તન લાવી શકે છે.</div></div>
+                <div class="quote-item"><span class="quote-num">81.</span> <div>જાણો કે જીવનમાં સૌથી મોટું જોખમ બિલકુલ જોખમ ન લેવું એ છે.</div></div>
+                <div class="quote-item"><span class="quote-num">82.</span> <div>એવી રીતે જીવો કે જ્યારે અન્ય લોકો પ્રામાણિકતા, ઉત્સાહ, પ્રતિબદ્ધતા અને કાળજી વિશે વિચારે, ત્યારે તેઓ તમારા વિશે વિચારે.</div></div>
+                <div class="quote-item"><span class="quote-num">83.</span> <div>જાણો કે દુનિયામાં કંઈક અલગ કરવા માટે તમે એક અસલ વ્યક્તિ તરીકે જન્મ્યા છો.</div></div>
+            </div>
+            
+            <div class="page-footer">
+                <span>લીડરશીપ ઓરેગોન પ્રોગ્રામ: એપ્રિલ ૨૦૦૭</span>
+                <span>પેજ ૫ / ૫</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function downloadPDF() {
+            // Using the browser's native print engine is the ONLY reliable way to generate 
+            // a 100% clear, selectable, and editable vector PDF for complex scripts like Gujarati 
+            // purely on the client-side without rasterizing it into an image.
+            
+            // This will open the print dialog where the user can choose "Save as PDF"
+            window.print();
+        }
+    </script>
+</body>
+</html>
