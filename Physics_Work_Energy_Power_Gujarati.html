@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>કાર્ય, ઊર્જા અને પાવર - Physics (Gujarati)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Gujarati Font & Math Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700&family=Cambria+Math&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #525659;
+            font-family: 'Noto Sans Gujarati', sans-serif;
+            margin: 0;
+            padding: 30px 0;
+            color: #000;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0; 
+        }
+        
+        /* Seamless Document View - No Empty Spaces */
+        .a4-container {
+            width: 210mm;
+            background: white;
+            padding: 15mm; 
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .chapter-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            text-align: center;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Tightly packed question blocks for zero space wastage */
+        .question-block {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #ccc;
+            page-break-inside: auto; 
+            break-inside: auto;
+        }
+        .question-block:last-child {
+            border-bottom: none;
+        }
+
+        .q-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #b91c1c;
+            margin-bottom: 4px;
+            page-break-after: avoid;
+        }
+
+        .q-text {
+            font-size: 15px;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .options {
+            margin-left: 15px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 15px;
+            page-break-inside: avoid;
+        }
+
+        .answer {
+            font-weight: bold;
+            color: #047857;
+            margin-bottom: 6px;
+            font-size: 15px;
+            page-break-inside: avoid;
+        }
+
+        .solution-box {
+            background-color: #f8fafc;
+            padding: 10px 12px;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            margin-bottom: 4px;
+            page-break-inside: auto; 
+        }
+
+        .math {
+            font-family: 'Cambria Math', serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .math-block {
+            font-family: 'Cambria Math', serif;
+            font-size: 16px;
+            display: block;
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        /* Exact Image Placeholder Styles */
+        .diagram-placeholder {
+            width: 100%;
+            max-width: 350px;
+            height: 200px;
+            background-color: #f1f5f9;
+            border: 2px dashed #94a3b8;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #64748b;
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+        
+        .diagram-placeholder svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+            opacity: 0.7;
+        }
+
+        @media print {
+            body { 
+                background-color: white; 
+                padding: 0; 
+                margin: 0;
+            }
+            #download-btn { display: none !important; }
+            .a4-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 100%;
+                padding: 0 !important;
+                border-radius: 0;
+            }
+            @page { 
+                size: A4 portrait; 
+                margin: 15mm; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="download-btn" onclick="window.print()" class="fixed top-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-xl flex items-center gap-2 transition-all cursor-pointer border-2 border-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        <span>Download HD PDF</span>
+    </button>
+
+    <div class="a4-container">
+        
+        <div class="chapter-title">કાર્ય, ઊર્જા અને પાવર (Work, Energy and Power)</div>
+
+        <!-- Question 1 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 1</div>
+            <div class="q-text">
+                એક ક્રેન 1000 kg દળને 10 s માં 20 m ની ઊંચાઈએ ઊંચકે છે, તો તેનો પાવર છે: <span class="math">(g = 9.8 m/s²)</span>
+                <span class="meta">(NEET 2026)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 19.6 W<br>
+                B. 39.2 W<br>
+                C. 19.6 kW<br>
+                D. 39.2 kW
+            </div>
+            <div class="answer">જવાબ: C</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                <div class="math-block">Power = Work / Time</div>
+                <div class="math-block">= mgh / t</div>
+                <div class="math-block">= (10³ × 9.8 × 20) / 10 = 19.6 kW</div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 2</div>
+            <div class="q-text">
+                M દળનો એક કણ સમક્ષિતિજ અક્ષ પર <span class="math">x = 0</span> થી <span class="math">x = L</span> સુધી ગતિ કરે છે. ગતિક ઘર્ષણાંક (coefficient of kinetic friction) x ના વિધેય તરીકે નીચે મુજબ બદલાય છે: 
+                <span class="math">&mu;<sub>k</sub>(x) = &mu;<sub>0</sub> - &alpha;x</span>, જ્યાં <span class="math">&mu;<sub>0</sub></span> અને <span class="math">&alpha;</span> યોગ્ય પરિમાણો ધરાવતા અચળાંકો છે, જેથી <span class="math">&mu;<sub>k</sub>(L) = 0</span> થાય. 
+                આ ગતિ દરમિયાન ઘર્ષણ બળ દ્વારા થતું કુલ કાર્ય <span class="math">n &mu;<sub>0</sub>MgL</span> છે, જ્યાં g ગુરુત્વપ્રવેગ છે. n નું મૂલ્ય કેટલું હશે?
+                <span class="meta">(RE-NEET 2026)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 1/2<br>
+                B. 3<br>
+                C. 1<br>
+                D. 1/3
+            </div>
+            <div class="answer">જવાબ: A</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                આપેલ છે: <span class="math">&mu;<sub>k</sub>(x) = &mu;<sub>0</sub> - &alpha;x</span> અને <span class="math">&mu;<sub>k</sub>(L) = 0 = &mu;<sub>0</sub> - &alpha;L &Rightarrow; &mu;<sub>0</sub> = &alpha;L</span><br>
+                ઘર્ષણ બળ દ્વારા થતા કાર્યનું મૂલ્ય, <span class="math">W<sub>f</sub> = &int; dW<sub>f</sub></span> જ્યાં <span class="math">W<sub>f</sub> = f<sub>k</sub> dx = &mu;<sub>k</sub> N dx = &mu;<sub>k</sub> Mg dx = (&mu;<sub>0</sub> - &alpha;x) Mg dx</span><br>
+                <div class="math-block">W<sub>f</sub> = &int;<sub>0</sub><sup>L</sup> &mu;<sub>0</sub> Mg dx - &int;<sub>0</sub><sup>L</sup> &alpha; Mg x dx = &mu;<sub>0</sub> Mg [x]<sub>0</sub><sup>L</sup> - &alpha; Mg [x²/2]<sub>0</sub><sup>L</sup></div>
+                <div class="math-block">&Rightarrow; n &mu;<sub>0</sub> MgL = &mu;<sub>0</sub> MgL - (&mu;<sub>0</sub>/L) Mg (L²/2) = (&mu;<sub>0</sub> MgL) / 2</div>
+                તેથી, <span class="math">n = 1/2</span>
+            </div>
+        </div>
+
+        <!-- Question 3 (WITH IMAGE) -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 3</div>
+            <div class="q-text">
+                ભારે દળ m ધરાવતા એક લોલક (bob) ને l લંબાઈની હલકી દોરી વડે લટકાવવામાં આવેલ છે. લોલકને આકૃતિમાં દર્શાવ્યા મુજબ સમક્ષિતિજ વેગ <span class="math">v<sub>0</sub></span> આપવામાં આવે છે. જો દોરી સમક્ષિતિજ સાથે <span class="math">&theta;</span> ખૂણો બનાવતા કોઈ બિંદુ P પર ઢીલી પડે (slack), તો બિંદુ P પાસે લોલકની ઝડપ v અને તેની પ્રારંભિક ઝડપ <span class="math">v<sub>0</sub></span> નો ગુણોત્તર છે:
+                <span class="meta">(NEET 2025)</span>
+            </div>
+            
+            <!-- Exact Image Placeholder -->
+            <div class="diagram-placeholder">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>[ આકૃતિ માટે જગ્યા: લોલકની વર્તુળાકાર ગતિ (બિંદુ P અને વેગ v<sub>0</sub>) ]</span>
+            </div>
+
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. <span class="math">(cos &theta; / (2 + 3 sin &theta;))<sup>1/2</sup></span><br>
+                B. <span class="math">(sin &theta; / (2 + 3 sin &theta;))<sup>1/2</sup></span><br>
+                C. <span class="math">(sin &theta;)<sup>1/2</sup></span><br>
+                D. <span class="math">(1 / (2 + 3 sin &theta;))<sup>1/2</sup></span>
+            </div>
+            <div class="answer">જવાબ: B</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                <!-- Exact Image Placeholder for Solution -->
+                <div class="diagram-placeholder" style="height:150px;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>[ આકૃતિ: બિંદુ P પર બળોનું વિભાજન (mg sin&theta; વગેરે) ]</span>
+                </div>
+                બિંદુ P પર, <span class="math">mg sin &theta; = mv² / l</span>  --- (1)<br>
+                બિંદુ P અને Q વચ્ચે યાંત્રિક ઉર્જાના સંરક્ષણ (conservation of mechanical energy) મુજબ:<br>
+                <div class="math-block">½ mv<sub>0</sub>² = ½ mv² + mg(l + l sin &theta;)</div>
+                <div class="math-block">v<sub>0</sub>² / 2 = v² / 2 + gl(1 + sin &theta;)</div>
+                સમીકરણ (1) પરથી <span class="math">gl = v² / sin &theta;</span> મુકતા,<br>
+                <div class="math-block">v<sub>0</sub>² / 2 = v² / 2 + (v² / sin &theta;)(1 + sin &theta;)</div>
+                <div class="math-block">v<sub>0</sub>² / 2 = 3/2 v² + v² / sin &theta;</div>
+                <div class="math-block">v<sub>0</sub>² = v² [3 + 2 / sin &theta;]</div>
+                <div class="math-block">v / v<sub>0</sub> = (sin &theta; / (3 sin &theta; + 2))<sup>1/2</sup></div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 4</div>
+            <div class="q-text">
+                બે સમાન કાર A અને B ની ગતિ ઊર્જા અનુક્રમે 100 J અને 225 J છે. બ્રેક લગાવ્યા પછી, કાર A 1000 m અંતર કાપીને અને કાર B 1500 m અંતર કાપીને ઊભી રહે છે. જો <span class="math">F<sub>A</sub></span> અને <span class="math">F<sub>B</sub></span> એ અનુક્રમે કાર A અને B પર બ્રેક દ્વારા લગાડવામાં આવતા બળો હોય, તો <span class="math">F<sub>A</sub> / F<sub>B</sub></span> નો ગુણોત્તર કેટલો થશે?
+                <span class="meta">(NEET 2025)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 1/3<br>
+                B. 1/2<br>
+                C. 3/2<br>
+                D. 2/3
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                કાર્ય-ઊર્જા પ્રમેય (work-energy theorem) મુજબ, બ્રેકિંગ બળ દ્વારા થતું કાર્ય ગતિ ઊર્જાના ફેરફાર બરાબર હોય છે. તેથી, દરેક કાર માટે:<br>
+                <span class="math">FS = &Delta;KE</span><br>
+                બંને કાર માટે અંતિમ ગતિ ઊર્જા શૂન્ય છે, તેથી: <span class="math">FS = k<sub>i</sub></span><br>
+                કાર A અને કાર B માટે:<br>
+                <span class="math">F<sub>A</sub> &middot; S<sub>A</sub> = k<sub>A</sub></span> અને <span class="math">F<sub>B</sub> &middot; S<sub>B</sub> = k<sub>B</sub></span><br>
+                ગુણોત્તર માટે: <span class="math">F<sub>A</sub> / F<sub>B</sub> = (k<sub>A</sub> / k<sub>B</sub>) &times; (S<sub>B</sub> / S<sub>A</sub>)</span><br>
+                આપેલી કિંમતો મુકતા:<br>
+                <span class="math">F<sub>A</sub> / F<sub>B</sub> = (100 / 225) &times; (1500 / 1000) = 150 / 225 = 2/3</span>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 5</div>
+            <div class="q-text">
+                સમક્ષિતિજ x-દિશામાં 10J ની ગતિ ઊર્જા સાથે ગતિ કરતા એક પદાર્થ પર બળ <span class="math">F&rarr; = (-2i&#770; + 3j&#770;) N</span> લાગે છે, જેનાથી તે <span class="math">x = (3i&#770;) m</span> જેટલું સ્થાનાંતર કરે છે. સ્થાનાંતર x ના અંતે પદાર્થની ગતિ ઊર્જા કેટલી હશે?
+                <span class="meta">(NEET 2024 Re)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 10J<br>
+                B. 16J<br>
+                C. 4J<br>
+                D. 6J
+            </div>
+            <div class="answer">જવાબ: C</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                કાર્ય-ઊર્જા પ્રમેય (Work energy theorem),<br>
+                <span class="math">W<sub>all</sub> = &Delta;K.E</span><br>
+                <span class="math">&Rightarrow; K<sub>f</sub> - K<sub>i</sub> = F&rarr; &middot; &Delta;x&rarr;</span><br>
+                <span class="math">&Rightarrow; K<sub>f</sub> - 10 = (-2i&#770; + 3j&#770;) &middot; (3i&#770;)</span><br>
+                <span class="math">K<sub>f</sub> - 10 = -6</span><br>
+                <span class="math">K<sub>f</sub> = 4J</span>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 6</div>
+            <div class="q-text">
+                એક પદાર્થ જમીનથી 10m ની ઊંચાઈએથી પડે છે. જમીન સાથે અથડાયા પછી તે તેની 50% ગતિ ઊર્જા ગુમાવે છે. આ પદાર્થ જમીન પરથી પાછો ફેંકાઈને (rebounce) કેટલી ઊંચાઈ સુધી જશે?
+                <span class="meta">(NEET 2024 Re)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 7.5m<br>
+                B. 10m<br>
+                C. 2.5m<br>
+                D. 5m
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                જમીન સાથે અથડાતા પહેલા બરાબરની ગતિ ઊર્જા <span class="math">K<sub>1</sub> = mgh<sub>1</sub> = mg(10)</span><br>
+                અથડાયા પછી તરત જ ગતિ ઊર્જા:<br>
+                <span class="math">K<sub>2</sub> = K<sub>1</sub> - (50/100)K<sub>1</sub> = K<sub>1</sub> / 2</span><br>
+                હવે, <span class="math">K<sub>2</sub> = mgh<sub>2</sub></span><br>
+                <span class="math">&Rightarrow; K<sub>1</sub> / 2 = mgh<sub>2</sub></span><br>
+                <span class="math">&Rightarrow; mg(10) / 2 = mgh<sub>2</sub> &Rightarrow; h<sub>2</sub> = 5m</span>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 7</div>
+            <div class="q-text">
+                એક લાંબી સ્પ્રિંગને 2cm ખેંચવામાં આવે ત્યારે તેની સ્થિતિ ઊર્જા U છે. જો સ્પ્રિંગને 8cm ખેંચવામાં આવે, તો તેમાં સંગ્રહિત સ્થિતિ ઊર્જા કેટલી થશે?
+                <span class="meta">(NEET 2023)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 4U<br>
+                B. 8U<br>
+                C. 16U<br>
+                D. 2U
+            </div>
+            <div class="answer">જવાબ: C</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                સ્પ્રિંગમાં સંગ્રહિત સ્થિતિ ઊર્જા <span class="math">U = ½ Kx²</span><br>
+                <span class="math">U = ½ K(2)²</span> (જ્યાં x = 2 cm)<br>
+                <span class="math">U = ½ (K) &middot; (4) = 2K</span><br>
+                <span class="math">U' = ½ K(8)² = ½ K &times; 64 = 32K</span><br>
+                બંનેનો ગુણોત્તર લેતા:<br>
+                <span class="math">U / U' = 2K / 32K = 1/16</span><br>
+                તેથી, <span class="math">U' = 16U</span>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 8</div>
+            <div class="q-text">
+                કોઈપણ ક્ષણે t સમયે, 5N બળની અસર હેઠળ કોઈ કણનું સ્થાનાંતર 2t - 1 (SI એકમમાં) વડે આપવામાં આવે છે. તાત્ક્ષણિક પાવર (instantaneous power) નું મૂલ્ય (SI એકમમાં) કેટલું છે:
+                <span class="meta">(NEET 2024)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 10<br>
+                B. 5<br>
+                C. 7<br>
+                D. 6
+            </div>
+            <div class="answer">જવાબ: A</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                <span class="math">x = 2t - 1</span><br>
+                વેગ <span class="math">v = dx/dt = 2 m s⁻¹</span><br>
+                પાવર <span class="math">P = F &middot; v</span><br>
+                <span class="math">P = 5 &times; 2 = 10 W</span>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 9</div>
+            <div class="q-text">
+                m દળની એક ગોળી (bullet) M દળના એક બ્લોક સાથે સ્થિતિસ્થાપક રીતે (elastically) અથડાય છે. ઊર્જાનું ટ્રાન્સફર (transfer of energy) મહત્તમ ક્યારે હશે?
+                <span class="meta">(NEET 2023 mpr)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. M = m<br>
+                B. M = 2m<br>
+                C. M &lt;&lt; m<br>
+                D. M &gt;&gt; m
+            </div>
+            <div class="answer">જવાબ: A</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                સ્થિતિસ્થાપક અથડામણમાં મહત્તમ ઊર્જાનું ટ્રાન્સફર ત્યારે થાય છે જ્યારે બંને દળ સમાન હોય, એટલે કે <span class="math">M = m</span>.
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 10</div>
+            <div class="q-text">
+                એક કણ અચળ બળ <span class="math">(10i&#770; + 10j&#770; + 20k&#770;) N</span> ની અસર હેઠળ સમક્ષિતિજ રીતે <span class="math">(5i&#770; - 3j&#770; + 6k&#770;) ms⁻¹</span> ના વેગથી ગતિ કરે છે. કણને પૂરો પાડવામાં આવતો તાત્ક્ષણિક પાવર (instantaneous power) છે:
+                <span class="meta">(NEET 2023 mpr)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 200W<br>
+                B. Zero (શૂન્ય)<br>
+                C. 100W<br>
+                D. 140W
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                <span class="math">P = F&rarr; &middot; V&rarr;</span><br>
+                <span class="math">P = (10i&#770; + 10j&#770; + 20k&#770;) &middot; (5i&#770; - 3j&#770; + 6k&#770;)</span><br>
+                <span class="math">P = (10 &times; 5) + (10 &times; -3) + (20 &times; 6)</span><br>
+                <span class="math">P = 50 - 30 + 120 = 140W</span>
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 11</div>
+            <div class="q-text">
+                2000kg ના મહત્તમ વજન (લિફ્ટ + મુસાફરો) સાથેની એક ઇલેક્ટ્રિક લિફ્ટ અચળ ઝડપ 1.5ms⁻¹ સાથે ઉપર તરફ ગતિ કરી રહી છે. ગતિનો વિરોધ કરતું ઘર્ષણ બળ 3000N છે. મોટર દ્વારા લિફ્ટને પહોંચાડવામાં આવતો લઘુત્તમ પાવર વોટ (watts) માં કેટલો હશે? <span class="math">(g = 10ms⁻²)</span>
+                <span class="meta">(NEET-2022)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 23000<br>
+                B. 20000<br>
+                C. 34500<br>
+                D. 23500
+            </div>
+            <div class="answer">જવાબ: C</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                કુલ નીચે તરફ લાગતું બળ <span class="math">F = mg + F<sub>friction</sub></span><br>
+                <span class="math">F = (2000 &times; 10) + 3000 = 23000 N</span><br>
+                લઘુત્તમ પાવર <span class="math">P<sub>min</sub> = F &middot; v</span><br>
+                <span class="math">P<sub>min</sub> = 23000 &times; 1.5 = 34500 W</span>
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 12</div>
+            <div class="q-text">
+                100kW ટ્રાન્સમીટર દ્વારા 1 કલાકમાં આદર્શ રીતે કેટલી ઊર્જાનું ઉત્સર્જન (radiated) થશે?
+                <span class="meta">(NEET-2022)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 36 &times; 10<sup>7</sup> J<br>
+                B. 36 &times; 10<sup>4</sup> J<br>
+                C. 36 &times; 10<sup>5</sup> J<br>
+                D. 1 &times; 10<sup>5</sup> J
+            </div>
+            <div class="answer">જવાબ: A</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                ઊર્જા (Energy) = પાવર &times; સમય<br>
+                <span class="math">E = 100 &times; 10³ W &times; 3600 s</span><br>
+                <span class="math">E = 36 &times; 10<sup>7</sup> J</span>
+            </div>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 13</div>
+            <div class="q-text">
+                0.3 kg m/s નું રેખીય વેગમાન (linear momentum) ધરાવતા 5g દળના પદાર્થ દ્વારા 5 સેકન્ડમાં કાપવામાં આવેલ અંતર કેટલું હશે:
+                <span class="meta">(NEET Re-2022)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 0.3m<br>
+                B. 300m<br>
+                C. 30m<br>
+                D. 3m
+            </div>
+            <div class="answer">જવાબ: B</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                વેગમાન <span class="math">P = mv</span><br>
+                <span class="math">0.3 = (5 / 1000) &times; v &Rightarrow; v = 60 m/s</span><br>
+                5 સેકન્ડમાં કાપેલ અંતર = <span class="math">v &times; t = 60 &times; 5 = 300 m</span>
+            </div>
+        </div>
+
+        <!-- Question 14 (WITH IMAGE) -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 14</div>
+            <div class="q-text">
+                200 cm લંબાઈ અને 500 g દળ ધરાવતો એક સમાન સળિયો 40 cm માર્ક પર મૂકેલા ફાચર (wedge) પર સંતુલિત છે. સળિયા પર 20 cm ના માર્ક પરથી 2 kg દળ લટકાવવામાં આવે છે અને આકૃતિમાં દર્શાવ્યા મુજબ 160 cm ના માર્ક પરથી અન્ય અજ્ઞાત દળ 'm' લટકાવવામાં આવે છે. જો સળિયો સંતુલનમાં હોય તો 'm' નું મૂલ્ય શોધો. <span class="math">(g = 10 m/s²)</span>
+                <span class="meta">(NEET 2021)</span>
+            </div>
+
+            <!-- Exact Image Placeholder -->
+            <div class="diagram-placeholder">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>[ આકૃતિ માટે જગ્યા: સળિયાનું સંતુલન (20cm પર 2kg, 40cm પર ફાચર, 160cm પર m) ]</span>
+            </div>
+
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 1/2 kg<br>
+                B. 1/3 kg<br>
+                C. 1/6 kg<br>
+                D. 1/12 kg
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                આપેલ છે: સળિયાનું દળ = 500g = 0.5kg; લંબાઈ = 200 cm (CM = 100 cm પર).<br>
+                સળિયો સંતુલનમાં હોવાથી ફાચર (બિંદુ O) ની સાપેક્ષે કુલ ટોર્ક શૂન્ય થશે.<br>
+                <div class="math-block">&tau;<sub>net</sub> = &tau;<sub>2kg</sub> + &tau;<sub>rod</sub> + &tau;<sub>m</sub> = 0</div>
+                2kg દળનો ટોર્ક (40 - 20 = 20cm અંતરે): <span class="math">2 &times; 10 &times; 0.20 = 4 Nm (વામવર્ત)</span><br>
+                સળિયાના દળનો ટોર્ક (100 - 40 = 60cm અંતરે): <span class="math">0.5 &times; 10 &times; 0.60 = 3 Nm (દક્ષિણાવર્ત)</span><br>
+                m દળનો ટોર્ક (160 - 40 = 120cm અંતરે): <span class="math">m &times; 10 &times; 1.20 = 12m Nm (દક્ષિણાવર્ત)</span><br>
+                સંતુલન માટે: <span class="math">4 = 3 + 12m</span><br>
+                <span class="math">&Rightarrow; 12m = 1 &Rightarrow; m = 1/12 kg</span>
+            </div>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 15</div>
+            <div class="q-text">
+                પૃથ્વીની સપાટીથી S ઊંચાઈએથી એક કણને મુક્ત કરવામાં આવે છે. ચોક્કસ ઊંચાઈએ તેની ગતિ ઊર્જા તેની સ્થિતિ ઊર્જા કરતાં ત્રણ ગણી છે. તે ક્ષણે પૃથ્વીની સપાટીથી તેની ઊંચાઈ અને કણની ઝડપ અનુક્રમે કેટલી હશે?
+                <span class="meta">(NEET 2021)</span>
+            </div>
+
+            <!-- Exact Image Placeholder -->
+            <div class="diagram-placeholder" style="height:120px;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span>[ આકૃતિ: પદાર્થની ઊંચાઈ S અને વચ્ચે બિંદુ y ]</span>
+            </div>
+
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. S/4 , 3gS/2<br>
+                B. S/4 , &radic;(3gS) / 2<br>
+                C. S/2 , &radic;(3gS) / 2<br>
+                D. S/4 , &radic;(3gS / 2)
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                ધારો કે જમીનથી ઊંચાઈ y છે. પદાર્થ (S-y) અંતર કાપે છે.<br>
+                વેગ <span class="math">v = &radic;(2g(S-y))</span><br>
+                આપેલ શરત મુજબ: ગતિ ઊર્જા (K) = 3 &times; સ્થિતિ ઊર્જા (U)<br>
+                <span class="math">½ m v² = 3 &times; mgy</span><br>
+                <span class="math">½ m &times; 2g(S-y) = 3 mgy &Rightarrow; S - y = 3y &Rightarrow; 4y = S &Rightarrow; y = S/4</span><br>
+                વેગ: <span class="math">v = &radic;(2g(S - S/4)) = &radic;(3gS / 2)</span>
+            </div>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 16</div>
+            <div class="q-text">
+                ટર્બાઇન ચલાવવા માટે 60m ની ઊંચાઈએથી 15 kg/s ના દરે પાણી પડે છે. ઘર્ષણ બળને કારણે થતો વ્યય ઇનપુટ ઊર્જાના 10% છે. ટર્બાઇન દ્વારા કેટલો પાવર ઉત્પન્ન થાય છે? <span class="math">(g = 10 m/s²)</span>
+                <span class="meta">(NEET 2021)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 10.2 kW<br>
+                B. 8.1 kW<br>
+                C. 12.3 kW<br>
+                D. 7.0 kW
+            </div>
+            <div class="answer">જવાબ: B</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                ટર્બાઇન પર આપાત પાવર <span class="math">= d(mgh)/dt = gh (dm/dt)</span><br>
+                <span class="math">= 10 &times; 60 &times; 15 = 9000 W</span><br>
+                10% નો વ્યય થાય છે, તેથી ઉત્પન્ન થતો પાવર:<br>
+                <span class="math">= 9000 &times; (1 - 10/100) = 8100 W = 8.1 kW</span>
+            </div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 17</div>
+            <div class="q-text">
+                u ઝડપથી ગતિ કરતો 4m દળનો પદાર્થ A, સ્થિર રહેલા 2m દળના અન્ય પદાર્થ B સાથે અથડાય છે. આ અથડામણ હેડ-ઓન (head on) અને સ્થિતિસ્થાપક છે. અથડામણ પછી પદાર્થ A દ્વારા ગુમાવાતી ઊર્જાનો અંશ (fraction) કેટલો હશે?
+                <span class="meta">(NEET 2019)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 5/9<br>
+                B. 1/9<br>
+                C. 8/9<br>
+                D. 4/9
+            </div>
+            <div class="answer">જવાબ: C</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                અથડાતા પદાર્થની ગતિ ઊર્જાનો અપૂર્ણાંક વ્યય (Fractional loss of KE):<br>
+                <span class="math">&Delta;KE / KE = [4 &times; (m<sub>1</sub>m<sub>2</sub>)] / (m<sub>1</sub> + m<sub>2</sub>)²</span><br>
+                <span class="math">= [4 &times; (4m) &times; 2m] / (4m + 2m)²</span><br>
+                <span class="math">= 32m² / 36m² = 8/9</span>
+            </div>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 18</div>
+            <div class="q-text">
+                એક બળ <span class="math">F = 20 + 10y</span> y-દિશામાં એક કણ પર કાર્ય કરે છે, જ્યાં F ન્યુટનમાં અને y મીટરમાં છે. કણને <span class="math">y = 0</span> થી <span class="math">y = 1m</span> સુધી ખસેડવા માટે આ બળ દ્વારા થતું કાર્ય છે:
+                <span class="meta">(NEET 2019)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 20 J<br>
+                B. 30 J<br>
+                C. 5 J<br>
+                D. 25 J
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                ચલ બળ (variable force) દ્વારા થતું કાર્ય:<br>
+                <span class="math">W = &int; F dy = &int;<sub>0</sub><sup>1</sup> (20 + 10y) dy</span><br>
+                <span class="math">= [20y + (10y² / 2)]<sub>0</sub><sup>1</sup> = 20(1) + 5(1)² = 25 J</span>
+            </div>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 19</div>
+            <div class="q-text">
+                m દળને એક પાતળા તાર સાથે બાંધવામાં આવેલ છે અને તેને શિરોલંબ વર્તુળમાં ઘુમાવવામાં આવે છે. તાર તૂટવાની શક્યતા સૌથી વધુ ક્યારે છે?
+                <span class="meta">(NEET 2019)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. શિરોલંબ સાથે 60&deg; ના ખૂણે નમેલું હોય ત્યારે<br>
+                B. દળ સૌથી ઉચ્ચ બિંદુએ હોય ત્યારે<br>
+                C. તાર સમક્ષિતિજ હોય ત્યારે<br>
+                D. દળ સૌથી નીચા બિંદુએ હોય ત્યારે
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                <div class="diagram-placeholder" style="height: 120px;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span>[ આકૃતિ: સૌથી નીચા બિંદુએ તણાવ બળ T અને વજન mg ]</span>
+                </div>
+                સૌથી નીચા બિંદુએ સમીકરણ: <span class="math">T - mg = mu² / l &Rightarrow; T = mg + (mu² / l)</span><br>
+                સૌથી નીચા બિંદુએ તણાવ (Tension) મહત્તમ હોય છે, તેથી ત્યાં તાર તૂટવાની શક્યતા સૌથી વધુ છે.
+            </div>
+        </div>
+
+        <!-- Question 20 -->
+        <div class="question-block">
+            <div class="q-title">પ્રશ્ન 20</div>
+            <div class="q-text">
+                સ્થિર રહેલો 5m દળનો એક કણ અચાનક પોતાની મેળે ત્રણ ટુકડાઓમાં વિસ્ફોટ પામે છે. m દળના બે ટુકડાઓ એકબીજાને લંબ દિશામાં દરેકમાં v ઝડપથી ગતિ કરે છે. આ પ્રક્રિયા દરમિયાન મુક્ત થતી ઊર્જા કેટલી છે?
+                <span class="meta">(OD NEET 2019)</span>
+            </div>
+            <div class="q-text font-semibold">વિકલ્પો:</div>
+            <div class="options">
+                A. 3/5 mv²<br>
+                B. 5/3 mv²<br>
+                C. 3/2 mv²<br>
+                D. 4/3 mv²
+            </div>
+            <div class="answer">જવાબ: D</div>
+            <div class="solution-box">
+                <strong>ઉકેલ:</strong><br>
+                વેગમાનના સંરક્ષણ મુજબ (conservation of momentum):<br>
+                <span class="math">3m v&rarr; + mvi&#770; + mvj&#770; = 0</span><br>
+                <span class="math">&Rightarrow; v&rarr; = -(v/3)i&#770; - (v/3)j&#770;</span><br>
+                <span class="math">|v&rarr;| = (&radic;2 / 3) v</span><br>
+                મુક્ત થતી ઊર્જા (Energy released):<br>
+                <span class="math">= ½ mv² + ½ mv² + ½ (3m) [ (&radic;2/3)v ]²</span><br>
+                <span class="math">= mv² + ½ (3m) (2/9) v² = mv² + 1/3 mv² = 4/3 mv²</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
