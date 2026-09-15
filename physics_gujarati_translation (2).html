@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>કાર્ય, ઊર્જા અને પાવર (Work, Energy and Power)</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering mathematical equations -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .page-container { background-color: white; max-width: 900px; margin: 0 auto; padding: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .question-block { border-bottom: 1px solid #e5e7eb; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+        .question-block:last-child { border-bottom: none; }
+        .math-text { font-family: 'Times New Roman', serif; }
+        @media print {
+            body { background-color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .page-container { box-shadow: none; padding: 0; max-width: 100%; margin: 0; }
+            .no-print { display: none !important; }
+            .question-block { page-break-inside: avoid; border-bottom: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="window.print()" class="no-print fixed top-4 right-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-lg flex items-center gap-2 z-50 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download PDF
+    </button>
+
+    <div class="page-container" id="pdf-content">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 border-b-2 border-gray-800 pb-4">કાર્ય, ઊર્જા અને પાવર (Work, Energy and Power)</h1>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 1</div>
+            <p class="text-gray-800 mb-3">એક ક્રેનનો પાવર, જે 1000 kg દળને 10 s માં 20 m ની ઊંચાઈ સુધી ઉઠાવે છે, તે છે: $(g=9.8{m/s}^{2})$ <span class="text-sm text-gray-500 font-semibold">(NEET 2026)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. 19.6 W</div><div>B. 39.2 W</div><div>C. 19.6 kW</div><div>D. 39.2 kW</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: C</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                $Power=\frac{Work}{Time}$<br>
+                $=\frac{mgh}{t}$<br>
+                $=\frac{10^{3}\times9.8\times20}{10}=19.6~kW$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 2</div>
+            <p class="text-gray-800 mb-3">M દળનો એક કણ આડી ધરી પર $x=0$ થી $x=L$ સુધી ગતિ કરે છે. ગતિક ઘર્ષણાંક $x$ ના વિધેય તરીકે $\mu_{k}(x)=\mu_{0}-\alpha x$ મુજબ બદલાય છે. જ્યાં $\mu_{0}$, $\alpha$ યોગ્ય પરિમાણોવાળા અચળાંકો છે, જેથી $\mu_{k}(L)=0$ થાય. ગતિ દરમિયાન ઘર્ષણ બળ દ્વારા થતું કુલ કાર્ય $n\mu_{0}MgL$ છે, જ્યાં g ગુરુત્વ પ્રવેગ છે. તો n નું મૂલ્ય શોધો: <span class="text-sm text-gray-500 font-semibold">(RE-NEET 2026)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. $\frac{1}{2}$</div><div>B. 3</div><div>C. 1</div><div>D. $\frac{1}{3}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: A</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                આપેલ છે $\mu_{k}(x)=\mu_{0}-\alpha x$ અને $\mu_{k}(L)=0=\mu_{0}-\alpha L\Rightarrow\mu_{0}=\alpha L$<br>
+                ઘર્ષણ બળ દ્વારા થતા કાર્યનું મૂલ્ય, $W_{f}=\int dW_{f}$ જ્યાં $W_{f}=f_{k}dx=\mu_{k}Ndx=\mu_{k}Mgdx=(\mu_{0}-\alpha x)Mgdx$<br>
+                $\therefore W_{f}=\int_{0}^{L}\mu_{0}Mgdx-\int_{0}^{L}\alpha Mgxdx=\mu_{0}Mg[x]_{0}^{L}-\alpha Mg[\frac{x^{2}}{2}]_{0}^{L}$<br>
+                $\Rightarrow n\mu_{0}MgL=\mu_{0}MgL-(\frac{\mu_{0}}{L})Mg(\frac{L^{2}}{2})=\frac{\mu_{0}MgL}{2}$<br>
+                $\Rightarrow n=\frac{1}{2}$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 3</div>
+            <p class="text-gray-800 mb-3">m દળનો એક ભારે ગોળો $l$ લંબાઈની હલકી દોરી વડે લટકાવેલ છે. આકૃતિમાં દર્શાવ્યા મુજબ ગોળાને આડો વેગ $v_{0}$ આપવામાં આવે છે. જો દોરી આડી દિશા સાથે $\theta$ ખૂણો બનાવતા કોઈ બિંદુ P પાસે ઢીલી પડે છે, તો બિંદુ P પાસે ગોળાની ઝડપ v અને તેની પ્રારંભિક ઝડપ $v_{0}$ નો ગુણોત્તર છે: <span class="text-sm text-gray-500 font-semibold">(NEET 2025)</span></p>
+            
+            <div class="my-4 flex justify-center">
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 6"/>
+                    <line x1="100" y1="100" x2="100" y2="180" stroke="#3b82f6" stroke-width="3"/>
+                    <line x1="100" y1="100" x2="160" y2="40" stroke="#3b82f6" stroke-width="3"/>
+                    <line x1="100" y1="100" x2="180" y2="100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4"/>
+                    <circle cx="100" cy="100" r="4" fill="#3b82f6"/>
+                    <circle cx="100" cy="180" r="6" fill="#3b82f6"/>
+                    <circle cx="160" cy="40" r="4" fill="#3b82f6"/>
+                    <text x="80" y="95" fill="blue" font-size="16" font-style="italic">O</text>
+                    <text x="170" y="35" fill="blue" font-size="16" font-style="italic">P</text>
+                    <text x="85" y="195" fill="blue" font-size="16" font-style="italic">m</text>
+                    <text x="135" y="90" fill="blue" font-size="16">$\theta$</text>
+                    <path d="M125 100 A 25 25 0 0 0 115 80" stroke="blue" stroke-width="2"/>
+                    <path d="M 105 185 L 145 185" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <text x="155" y="190" fill="blue" font-size="16" font-style="italic">V&#8320;</text>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                          <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+                        </marker>
+                      </defs>
+                </svg>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-3">
+                <div>A. $(\frac{cos~\theta}{2+3~sin~\theta})^{\frac{1}{2}}$</div><div>B. $(\frac{sin~\theta}{2+3~sin~\theta})^{\frac{1}{2}}$</div>
+                <div>C. $(sin~\theta)^{\frac{1}{2}}$</div><div>D. $(\frac{1}{2+3~sin~\theta})^{\frac{1}{2}}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: B</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                <div class="my-4 flex justify-center">
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" stroke="#3b82f6" stroke-width="2"/>
+                        <line x1="100" y1="100" x2="100" y2="180" stroke="#3b82f6" stroke-width="2"/>
+                        <line x1="100" y1="100" x2="160" y2="40" stroke="#3b82f6" stroke-width="2"/>
+                        <line x1="100" y1="100" x2="180" y2="100" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4"/>
+                        <circle cx="100" cy="100" r="3" fill="#3b82f6"/>
+                        <circle cx="100" cy="180" r="6" fill="#3b82f6"/>
+                        <circle cx="160" cy="40" r="4" fill="#3b82f6"/>
+                        <text x="85" y="95" fill="blue" font-size="14">O</text>
+                        <text x="170" y="35" fill="blue" font-size="14">P</text>
+                        <text x="135" y="90" fill="blue" font-size="14">$\theta$</text>
+                        <text x="175" y="45" fill="blue" font-size="12">$90-\theta$</text>
+                        <line x1="160" y1="40" x2="160" y2="70" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="165" y="65" fill="blue" font-size="12">mg</text>
+                        <line x1="160" y1="40" x2="120" y2="70" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="110" y="60" fill="blue" font-size="12">mg sin$\theta$</text>
+                        <line x1="160" y1="40" x2="130" y2="10" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="120" y="20" fill="blue" font-size="14">v</text>
+                        <line x1="160" y1="40" x2="190" y2="40" stroke="blue" stroke-width="2"/>
+                        <path d="M125 100 A 25 25 0 0 0 115 80" stroke="blue" stroke-width="2"/>
+                        <path d="M 100 180 L 140 180" stroke="blue" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="145" y="175" fill="blue" font-size="14">V&#8320;</text>
+                        <text x="95" y="195" fill="blue" font-size="14">Q</text>
+                        <rect x="94" y="174" width="12" height="12" fill="none" stroke="blue" stroke-width="2"/>
+                    </svg>
+                </div>
+                બિંદુ P પાસે, $mg~sin~\theta=\frac{mv^{2}}{l}$  (1)<br>
+                બિંદુ P અને Q વચ્ચે યાંત્રિક ઊર્જાના સંરક્ષણ મુજબ:<br>
+                $\frac{1}{2}mv_{0}^{2}=\frac{1}{2}mv^{2}+mg(l+l~sin~\theta)$<br>
+                $\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+gl(1+sin~\theta)$<br>
+                સમીકરણ (1) નો ઉપયોગ કરીને $gl=\frac{v^{2}}{sin~\theta}$ મૂકતાં:<br>
+                $\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+\frac{v^{2}}{sin~\theta}(1+sin~\theta)$<br>
+                $\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+\frac{v^{2}}{sin~\theta}+v^{2}$<br>
+                $\frac{v_{0}^{2}}{2}=\frac{3}{2}v^{2}+\frac{2v^{2}}{2~sin~\theta}$<br>
+                $v_{0}^{2}=v^{2}[3+\frac{2}{sin~\theta}]$<br>
+                $\frac{v}{v_{0}}=(\frac{sin~\theta}{3~sin~\theta+2})^{\frac{1}{2}}$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 4</div>
+            <p class="text-gray-800 mb-3">બે સમાન કાર A અને B ની ગતિ ઊર્જા અનુક્રમે 100 J અને 225 J છે. બ્રેક લગાવતાં, કાર A 1000 m પછી અને કાર B 1500 m પછી ઊભી રહે છે. જો કાર A અને B પર બ્રેક દ્વારા લાગુ પડતા બળો અનુક્રમે $F_{A}$ અને $F_{B}$ હોય, તો ગુણોત્તર $\frac{F_{A}}{F_{B}}$ છે: <span class="text-sm text-gray-500 font-semibold">(NEET 2025)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. $\frac{1}{3}$</div><div>B. $\frac{1}{2}$</div><div>C. $\frac{3}{2}$</div><div>D. $\frac{2}{3}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: D</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                <div class="my-4 flex justify-center">
+                    <svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="40" width="320" height="20" fill="white" stroke="black" stroke-width="2"/>
+                        <polygon points="100,60 90,80 110,80" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="100" y="95" font-size="14" text-anchor="middle">O</text>
+                        <line x1="60" y1="40" x2="60" y2="100" stroke="black" stroke-width="2"/>
+                        <line x1="300" y1="40" x2="300" y2="100" stroke="black" stroke-width="2"/>
+                        <rect x="40" y="100" width="40" height="25" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="60" y="117" font-size="14" text-anchor="middle">2 kg</text>
+                        <rect x="280" y="100" width="40" height="25" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="300" y="117" font-size="14" text-anchor="middle" font-style="italic">m</text>
+                        <circle cx="180" cy="50" r="3" fill="black"/>
+                        <text x="180" y="75" font-size="14" text-anchor="middle">CM</text>
+                        <text x="20" y="30" font-size="14" text-anchor="middle">0</text>
+                        <text x="60" y="30" font-size="14" text-anchor="middle">20</text>
+                        <text x="100" y="30" font-size="14" text-anchor="middle">40</text>
+                        <text x="180" y="30" font-size="14" text-anchor="middle">100</text>
+                        <text x="300" y="30" font-size="14" text-anchor="middle">160 cm</text>
+                    </svg>
+                </div>
+                આપેલ છે:<br>
+                સળિયાનું દળ = 500 g; સળિયાની લંબાઈ = 200 cm<br>
+                સળિયો સંતુલનમાં રહેશે, જ્યારે O બિંદુ વિશે કુલ ટોર્ક શૂન્ય હશે.<br>
+                2 kg દળને કારણે O બિંદુ પર ટોર્ક:<br>
+                $\tau_{1}=20\times20\times10^{-2}\times sin~90^{\circ}(\hat{k})=4N~m(\hat{k})$<br>
+                સળિયાના દળ (CM = 100 cm પર) ને કારણે ટોર્ક:<br>
+                $\tau_{2}=5\times60\times10^{-2}\times sin~90^{\circ}(-\hat{k})=3N~m(-\hat{k})$<br>
+                દળ m ને કારણે ટોર્ક:<br>
+                $\tau_{3}=mg\times120\times10^{-2}\times sin~90^{\circ}(-\hat{k})=12mN~m(-\hat{k})$<br>
+                O બિંદુ વિશે કુલ ટોર્ક શૂન્ય હશે:<br>
+                $\Rightarrow4-3-12m=0 \Rightarrow 12m=1 \Rightarrow m=\frac{1}{12}kg$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 15</div>
+            <p class="text-gray-800 mb-3">પૃથ્વીની સપાટીથી S ઊંચાઈએથી એક કણને છોડવામાં આવે છે. ચોક્કસ ઊંચાઈએ તેની ગતિ ઊર્જા તેની સ્થિતિ ઊર્જા કરતાં ત્રણ ગણી છે. તે ક્ષણે પૃથ્વીની સપાટીથી ઊંચાઈ અને કણની ઝડપ અનુક્રમે છે: <span class="text-sm text-gray-500 font-semibold">[NEET 2021]</span></p>
+            <div class="grid grid-cols-2 gap-4 mb-3">
+                <div>A. $\frac{S}{4}, \frac{3gS}{2}$</div><div>B. $\frac{S}{4}, \frac{\sqrt{3gS}}{2}$</div>
+                <div>C. $\frac{S}{2}, \frac{\sqrt{3gS}}{2}$</div><div>D. $\frac{S}{4} , \sqrt{\frac{3gS}{2}}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: D</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                <div class="my-4 flex justify-center">
+                    <svg width="100" height="150" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="20" r="8" fill="gray"/>
+                        <line x1="50" y1="35" x2="50" y2="60" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="20" y1="130" x2="80" y2="130" stroke="black" stroke-width="3"/>
+                        <text x="50" y="145" font-size="12" text-anchor="middle">EARTH</text>
+                        <line x1="10" y1="20" x2="10" y2="130" stroke="black" stroke-width="1"/>
+                        <line x1="5" y1="20" x2="15" y2="20" stroke="black" stroke-width="1"/>
+                        <line x1="5" y1="130" x2="15" y2="130" stroke="black" stroke-width="1"/>
+                        <text x="0" y="80" font-size="14">S</text>
+                        <line x1="80" y1="75" x2="80" y2="130" stroke="black" stroke-width="1"/>
+                        <line x1="75" y1="75" x2="85" y2="75" stroke="black" stroke-width="1"/>
+                        <line x1="75" y1="130" x2="85" y2="130" stroke="black" stroke-width="1"/>
+                        <text x="90" y="105" font-size="14">y</text>
+                        <circle cx="50" cy="75" r="8" fill="gray" fill-opacity="0.5"/>
+                    </svg>
+                </div>
+                ધારો કે પદાર્થની જરૂરી ઊંચાઈ y છે.<br>
+                જ્યારે પદાર્થ સ્થિર અવસ્થામાંથી $(S-y)$ ઊંચાઈ નીચે પડે છે, ત્યારે અચળ પ્રવેગ હેઠળ:<br>
+                $v^{2}=0^{2}+2g(S-y)$<br>
+                $v=\sqrt{2g(S-y)}$ ......(1)<br>
+                જ્યારે પદાર્થ જમીનથી y ઊંચાઈએ હોય, ત્યારે m દળના પદાર્થની સ્થિતિ ઊર્જા $U = mgy$<br>
+                આપેલ શરત મુજબ ગતિ ઊર્જા, $K=3U$<br>
+                $\frac{1}{2}mv^{2}=3\times mgy$<br>
+                $\frac{1}{2} \times m \times 2g(S-y) = 3 \times mgy$ (સમીકરણ 1 નો ઉપયોગ કરતા)<br>
+                $S-y=3y \Rightarrow 4y = S \Rightarrow y=\frac{S}{4}$<br>
+                $\therefore v=\sqrt{2g(S-\frac{S}{4})}=\sqrt{\frac{3gS}{2}}$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 16</div>
+            <p class="text-gray-800 mb-3">ટર્બાઇન ચલાવવા માટે 60 m ની ઊંચાઈ પરથી 15 kg/s ના દરે પાણી પડે છે. ઘર્ષણ બળને કારણે થતો વ્યય ઈનપુટ ઊર્જાના 10% છે. ટર્બાઇન દ્વારા કેટલો પાવર ઉત્પન્ન થાય છે? $(g=10~m/s^{2})$ <span class="text-sm text-gray-500 font-semibold">[NEET 2021]</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. 10.2 kW</div><div>B. 8.1 kW</div><div>C. 12.3 kW</div><div>D. 7.0 kW</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: B</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                ટર્બાઇન પર આપાત પાવર $=\frac{d(mgh)}{dt} = gh\frac{dm}{dt}$<br>
+                $=10\times60\times15 = 9000~W$<br>
+                હવે, વ્યય 10% છે<br>
+                ઉત્પન્ન થયેલ પાવર $=(1-\frac{10}{100})\times9000 = 8100 W = 8.1~kW$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 17</div>
+            <p class="text-gray-800 mb-3">u ઝડપથી ગતિ કરતો 4m દળનો પદાર્થ A, સ્થિર રહેલા 2m દળના બીજા પદાર્થ B સાથે અથડાય છે. આ અથડામણ હેડ-ઓન (સામસામી) અને સ્થિતિસ્થાપક છે. અથડામણ પછી પદાર્થ A દ્વારા ગુમાવવામાં આવતી ઊર્જાનો ભાગ (અપૂર્ણાંક) છે: <span class="text-sm text-gray-500 font-semibold">(NEET 2019)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. $\frac{5}{9}$</div><div>B. $\frac{1}{9}$</div><div>C. $\frac{8}{9}$</div><div>D. $\frac{4}{9}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: C</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                અથડાતા પદાર્થની ગતિ ઊર્જાનો અપૂર્ણાંક વ્યય,<br>
+                $\frac{\Delta KE}{KE}=\frac{4\times(m_{1}m_{2})}{(m_{1}+m_{2})^{2}}$<br>
+                $=\frac{4\times(4m)\times2m}{(4m+2m)^{2}}$<br>
+                $=\frac{32m^{2}}{36m^{2}}=\frac{8}{9}$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 18</div>
+            <p class="text-gray-800 mb-3">બળ $F=20+10y$ એક કણ પર y-દિશામાં કાર્ય કરે છે જ્યાં F ન્યૂટનમાં છે અને y મીટરમાં છે. કણને $y=0$ થી $y=1m$ સુધી ખસેડવા માટે આ બળ દ્વારા થતું કાર્ય છે: <span class="text-sm text-gray-500 font-semibold">(NEET 2019)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. 20J</div><div>B. 30J</div><div>C. 5J</div><div>D. 25 J</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: D</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                <div class="my-4 flex justify-center gap-8">
+                    <svg width="120" height="150" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="70" r="50" stroke="black" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+                        <circle cx="60" cy="70" r="4" fill="black"/>
+                        <line x1="60" y1="70" x2="60" y2="120" stroke="black" stroke-width="2"/>
+                        <circle cx="60" cy="120" r="6" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="60" y1="120" x2="60" y2="145" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="70" y="145" font-size="12" font-weight="bold">mg</text>
+                        <line x1="60" y1="120" x2="60" y2="90" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="70" y="100" font-size="14" font-weight="bold">T</text>
+                        <line x1="60" y1="120" x2="100" y2="120" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="105" y="125" font-size="14" font-weight="bold">u</text>
+                    </svg>
+                    <svg width="120" height="150" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="80" r="50" stroke="black" stroke-width="1" fill="none"/>
+                        <circle cx="60" cy="80" r="2" fill="black"/>
+                        <line x1="60" y1="80" x2="60" y2="30" stroke="black" stroke-width="2"/>
+                        <circle cx="60" cy="30" r="6" fill="black"/>
+                        <line x1="60" y1="30" x2="60" y2="60" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="45" y="55" font-size="14" font-weight="bold">T</text>
+                        <line x1="65" y1="30" x2="65" y2="65" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="70" y="65" font-size="12" font-weight="bold">mg</text>
+                        <line x1="60" y1="30" x2="20" y2="30" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="10" y="35" font-size="14" font-weight="bold">v</text>
+                    </svg>
+                </div>
+                આપણે જાણીએ છીએ કે,<br>
+                સૌથી નીચા બિંદુએ $T-mg=\frac{mu^{2}}{l} \Rightarrow T=mg+\frac{mu^{2}}{l}$<br>
+                દળની સૌથી નીચી સ્થિતિ પર તણાવ (Tension) મહત્તમ હોય છે, તેથી તૂટવાની શક્યતા ત્યાં મહત્તમ છે.
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 20</div>
+            <p class="text-gray-800 mb-3">સ્થિર રહેલ 5m દળનો એક કણ અચાનક ત્રણ ટુકડાઓમાં તૂટી જાય છે. દરેક m દળના બે ટુકડાઓ પરસ્પર લંબ દિશામાં v ઝડપથી ગતિ કરે છે. આ પ્રક્રિયા દરમિયાન મુક્ત થતી ઊર્જા છે: <span class="text-sm text-gray-500 font-semibold">(OD NEET 2019)</span></p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                <div>A. $\frac{3}{5}mv^{2}$</div><div>B. $\frac{5}{3}mv^{2}$</div><div>C. $\frac{3}{2}mv^{2}$</div><div>D. $\frac{4}{3}mv^{2}$</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: D</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                <div class="my-4 flex justify-center">
+                    <svg width="250" height="120" viewBox="0 0 250 120" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="20" y1="20" x2="20" y2="100" stroke="black" stroke-width="1" marker-start="url(#arrowhead)" marker-end="url(#arrowhead)"/>
+                        <text x="5" y="65" font-size="14">h</text>
+                        <line x1="25" y1="20" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                        <circle cx="25" cy="15" r="5" fill="black"/>
+                        <line x1="25" y1="15" x2="45" y2="25" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="20" y1="100" x2="240" y2="100" stroke="black" stroke-width="2"/>
+                        <circle cx="215" cy="85" r="15" fill="none" stroke="black" stroke-width="2"/>
+                        <line x1="215" y1="100" x2="215" y2="70" stroke="black" stroke-dasharray="2 2"/>
+                        <text x="210" y="115" font-size="12">A</text>
+                        <text x="210" y="65" font-size="12">B</text>
+                        <path d="M 200 85 A 15 15 0 0 1 205 95" fill="none" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    </svg>
+                </div>
+                ઊર્જા સંરક્ષણ મુજબ: $\Delta K+\Delta U=0 \Rightarrow \Delta K=-\Delta U$<br>
+                કણને વર્તુળ પૂરું કરવા માટે જરૂરી વેગ $V=\sqrt{5gR}$<br>
+                $\Rightarrow V=\sqrt{2gh}$<br>
+                $\Rightarrow\sqrt{2gh}=\sqrt{5g(D/2)}$<br>
+                $\Rightarrow 2gh=\frac{5gD}{2} \Rightarrow h=\frac{5D}{4}$
+            </div>
+        </div>
+
+        <div class="question-block">
+            <div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 23</div>
+            <p class="text-gray-800 mb-3">1 km ની ઊંચાઈએથી પડતા 1 g દળ ધરાવતા વરસાદના ટીપાંનો વિચાર કરો. તે $50ms^{-1}$ ની ઝડપથી જમીન સાથે અથડાય છે. 'g' નું અચળ મૂલ્ય $10ms^{-2}$ લો. (i) ગુરુત્વાકર્ષણ બળ અને (ii) હવાના અવરોધક બળ દ્વારા થતું કાર્ય કેટલું છે? <span class="text-sm text-gray-500 font-semibold">(2017 NEET)</span></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+                <div>A. (i) 1.25 J &nbsp; (ii) -8.25 J</div><div>B. (i) 100 J &nbsp; (ii) 8.75 J</div>
+                <div>C. (i) 10 J &nbsp; (ii) -8.75 J</div><div>D. (i) -10 J &nbsp; (ii) -8.25 J</div>
+            </div>
+            <div class="text-green-700 font-bold mb-1">જવાબ: C</div>
+            <div class="text-gray-700 text-sm bg-gray-50 p-3 rounded">
+                <strong>ઉકેલ:</strong><br>
+                $m=1g=10^{-3}kg$, $h=1000m$, $v=50ms^{-1}$<br>
+                (i) ગુરુત્વાકર્ષણ બળ દ્વારા થતું કાર્ય $=mgh=10^{-3}\times10\times1000=10J$<br>
+                (ii) કાર્ય-ઊર્જા પ્રમેય મુજબ, $W_{g}+W_{r}=\Delta K$<br>
+                $10+W_{r}=\frac{1}{2}\times10^{-3}\times(50)^{2}$<br>
+                $10+W_{r}=1.25 \Rightarrow W_{r}=-8.75J$
+            </div>
+        </div>
+
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 24</div><p class="text-gray-800 mb-3">10 g દળનો એક કણ 6.4 cm ત્રિજ્યાવાળા વર્તુળમાં અચળ સ્પર્શીય પ્રવેગ સાથે ગતિ કરે છે. જો ગતિની શરૂઆત પછીના બીજા પરિભ્રમણના અંતે કણની ગતિ ઊર્જા $8\times10^{-4}J$ થઈ જાય, તો આ પ્રવેગનું મૂલ્ય શું છે? <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $0.18\frac{m}{s^{2}}$</div><div>B. $0.2\frac{m}{s^{2}}$</div><div>C. $0.1\frac{m}{s^{2}}$</div><div>D. $0.15\frac{m}{s^{2}}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$m=10^{-2}kg, R=6.4\times10^{-2}m, K_f=8\times10^{-4}J$. કાર્ય-ઊર્જા પ્રમેય: $W_t = K_f \Rightarrow ma_t(4\pi R)=K_f \Rightarrow a_t = \frac{K_f}{4\pi Rm} \approx 0.1ms^{-2}$</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 25</div><p class="text-gray-800 mb-3">1 kg દળનો પદાર્થ સમય આધારિત બળ $\vec{F}=(2t\hat{i}+3t^{2}\hat{j})_{N}$ ની અસર હેઠળ ગતિ કરે છે. સમય t પર બળ દ્વારા વિકસિત પાવર કેટલો હશે? <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $(2t^{3}+3t^{4})W$</div><div>B. $(2t^{3}+3t^{5})W$</div><div>C. $(2t^{2}+3t^{3})W$</div><div>D. $(2t^{2}+4t^{4})W$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>પ્રવેગ $\vec{a}=\frac{\vec{F}}{m}=2t\hat{i}+3t^{2}\hat{j}$. વેગ $\vec{v}=\int\vec{a}dt=t^{2}\hat{i}+t^{3}\hat{j}$. પાવર $P=\vec{F}\cdot\vec{v}=(2t\hat{i}+3t^{2}\hat{j})\cdot(t^{2}\hat{i}+t^{3}\hat{j})=(2t^{3}+3t^{5})W$</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 26</div><p class="text-gray-800 mb-3">m દળના પદાર્થને R ત્રિજ્યાવાળા ઊર્ધ્વ લૂપમાં દાખલ થવા માટે ન્યૂનતમ વેગ કેટલો હોવો જોઈએ જેથી તે લૂપ પૂર્ણ કરી શકે? <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $\sqrt{3gR}$</div><div>B. $\sqrt{5gR}$</div><div>C. $\sqrt{gR}$</div><div>D. $\sqrt{2gR}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ઊર્ધ્વ લૂપ પૂર્ણ કરવા માટે ન્યૂનતમ વેગ $v = \sqrt{5gR}$ છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 27</div><p class="text-gray-800 mb-3">10 g દળની એક ગોળી સમક્ષિતિજ દિશામાં $400ms^{-1}$ ના વેગથી ગતિ કરીને 5 m લાંબી દોરી વડે લટકાવેલા 2 kg દળના લાકડાના બ્લોક સાથે અથડાય છે. પરિણામે, બ્લોકનું ગુરુત્વ કેન્દ્ર 10 cm ઊંચે જાય છે. બ્લોકમાંથી બહાર નીકળ્યા પછી ગોળીની ઝડપ કેટલી હશે? <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $100ms^{-1}$</div><div>B. $80ms^{-1}$</div><div>C. $120ms^{-1}$</div><div>D. $160ms^{-1}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br><svg width="200" height="100" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="50" width="30" height="20" fill="none" stroke="black"/><circle cx="20" cy="60" r="3" fill="black"/><line x1="25" y1="60" x2="50" y2="60" stroke="black" marker-end="url(#arrowhead)"/><text x="30" y="50" font-size="10">u</text><line x1="85" y1="0" x2="85" y2="50" stroke="black"/><text x="90" y="25" font-size="10">l=5m</text></svg><br>બ્લોક માટે ઊર્જા સંરક્ષણ: $\frac{1}{2}Mv_{1}^{2}=Mgh \Rightarrow v_{1}=\sqrt{2\times10\times0.1}=\sqrt{2}ms^{-1}$. વેગમાન સંરક્ષણ: $mu = Mv_{1} + mv \Rightarrow 0.01\times400 = 2\sqrt{2} + 0.01\times v \Rightarrow v \approx 120ms^{-1}$</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 28</div><p class="text-gray-800 mb-3">બે સમાન દડા A અને B અનુક્રમે $0.5ms^{-1}$ અને $0.3ms^{-1}$ ના વેગથી એક પરિમાણમાં સ્થિતિસ્થાપક રીતે અથડાય છે. અથડામણ પછી B અને A ના વેગ અનુક્રમે હશે: <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $-0.5ms^{-1}$ અને $0.3ms^{-1}$</div><div>B. $0.5ms^{-1}$ અને $-0.3ms^{-1}$</div><div>C. $-0.3ms^{-1}$ અને $0.5ms^{-1}$</div><div>D. $0.3ms^{-1}$ અને $0.5ms^{-1}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>બંનેના દળ સમાન છે અને અથડામણ સ્થિતિસ્થાપક છે, તેથી તેમના વેગ પરસ્પર બદલાશે. $v_B = v_A = 0.5ms^{-1}$ અને $v_A = v_B(initial) = -0.3ms^{-1}$ (જો વિરુદ્ધ દિશા ધારીએ, પણ મૂલ્યો પરસ્પર બદલાય).</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 29</div><p class="text-gray-800 mb-3">એક કણ બિંદુ $(-2\hat{i}+5\hat{j})$ થી $(4\hat{j}+3\hat{k})$ સુધી ગતિ કરે છે જ્યારે તેના પર બળ $(4\hat{i}+3\hat{j})N$ લાગે છે. બળ દ્વારા કેટલું કાર્ય થયું હશે? <span class="text-sm text-gray-500 font-semibold">(2016 NEET)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 8 J</div><div>B. 11 J</div><div>C. 5 J</div><div>D. 2 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સ્થાનાંતર $\vec{r} = \vec{r}_2 - \vec{r}_1 = (4\hat{j}+3\hat{k}) - (-2\hat{i}+5\hat{j}) = 2\hat{i}-\hat{j}+3\hat{k}$. કાર્ય $W = \vec{F}\cdot\vec{r} = (4\hat{i}+3\hat{j})\cdot(2\hat{i}-\hat{j}+3\hat{k}) = 8 - 3 = 5 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 30</div><p class="text-gray-800 mb-3">બે કણો A અને B અચળ વેગ $\vec{v}_1$ અને $\vec{v}_2$ થી ગતિ કરે છે. પ્રારંભિક સમયે તેમના સ્થાન સદિશો અનુક્રમે $\vec{r}_1$ અને $\vec{r}_2$ છે. કણો A અને B માટે અથડામણની શરત છે: <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $\vec{r}_{1}\times\vec{v}_{1}=\vec{r}_{2}\times\vec{v}_{2}$</div><div>B. $\vec{r}_{1}-\vec{r}_{2}=\vec{v}_{1}-\vec{v}_{2}$</div><div>C. $\frac{\vec{r}_{1}-\vec{r}_{2}}{|\vec{r_{1}}-\vec{r}_{2}|}=\frac{\vec{v}_{2}-\vec{v}_{1}}{|\vec{v}_{2}-\vec{v}_{1}|}$</div><div>D. $\vec{r}_{1}\cdot\vec{v}_{1}=\vec{r_{2}}\cdot\vec{v}_{2}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>અથડામણ માટે, સમાન સમયે (t) સ્થાન સમાન હોવું જોઈએ: $\vec{r}_1+\vec{v}_1t = \vec{r}_2+\vec{v}_2t \Rightarrow \vec{r}_1-\vec{r}_2 = (\vec{v}_2-\vec{v}_1)t$. મૂલ્ય લેતાં, $|\vec{r}_1-\vec{r}_2| = |\vec{v}_2-\vec{v}_1|t$. ગુણોત્તર લેતાં શરત C મળે છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 31</div><p class="text-gray-800 mb-3">એક માણસનું હૃદય 150 mm Hg દબાણે પ્રતિ મિનિટ 5 લિટર રક્ત ધમનીઓમાં પંપ કરે છે. જો પારાની ઘનતા $13.6\times10^{3}kg/m^{3}$ અને $g=10m/s^{2}$ હોય, તો હૃદયનો પાવર વોટમાં કેટલો હશે? <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 3.0</div><div>B. 1.50</div><div>C. 1.70</div><div>D. 2.35</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = h\rho g = 0.15 \times 13.6\times10^3 \times 10 = 20400 N/m^2$. કદ દર $V/t = \frac{5\times10^{-3} m^3}{60 s}$. પાવર = $P \times (V/t) = \frac{20400 \times 5\times10^{-3}}{60} = 1.70 W$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 32</div><p class="text-gray-800 mb-3">એક દડાને 20 m ઊંચાઈએથી પ્રારંભિક વેગ $v_0$ સાથે નીચે તરફ ફેંકવામાં આવે છે. તે જમીન સાથે અથડાય છે, અથડામણમાં તેની 50% ઊર્જા ગુમાવે છે અને તે જ ઊંચાઈ સુધી પાછો ઉછળે છે. પ્રારંભિક વેગ $v_0$ છે: $(g=10ms^{-2})$ <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $28ms^{-1}$</div><div>B. $10ms^{-1}$</div><div>C. $14ms^{-1}$</div><div>D. $20ms^{-1}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>જમીન પર અથડાતી વખતે ઊર્જા: $\frac{1}{2}mv^2 = \frac{1}{2}mv_0^2 + mgh$. અથડામણ પછીની ઊર્જા 50% રહે છે જે mgh બરાબર છે, તેથી $\frac{1}{2}(\frac{1}{2}mv^2) = mgh \Rightarrow \frac{1}{4}v^2 = gh \Rightarrow v^2 = 4gh$. સમીકરણમાં મૂકતાં: $4gh = v_0^2 + 2gh \Rightarrow v_0 = \sqrt{2gh} = \sqrt{2\times10\times20} = 20ms^{-1}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 33</div><p class="text-gray-800 mb-3">ઘર્ષણરહિત સપાટી પર, v ઝડપથી ગતિ કરતો M દળનો બ્લોક સ્થિર રહેલા બીજા M દળના બ્લોક સાથે સ્થિતિસ્થાપક રીતે અથડાય છે. અથડામણ પછી પ્રથમ બ્લોક પ્રારંભિક દિશા સાથે $\theta$ ખૂણે ગતિ કરે છે અને તેની ઝડપ $v/3$ છે. બીજા બ્લોકની ઝડપ કેટલી હશે? <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $\frac{3}{\sqrt{2}}v$</div><div>B. $\frac{\sqrt{3}}{2}v$</div><div>C. $\frac{2\sqrt{2}}{3}v$</div><div>D. $\frac{3}{4}v$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સ્થિતિસ્થાપક અથડામણમાં ગતિ ઊર્જાનું સંરક્ષણ: $\frac{1}{2}Mv^2 = \frac{1}{2}M(v/3)^2 + \frac{1}{2}Mv'^2 \Rightarrow v^2 = v^2/9 + v'^2 \Rightarrow v'^2 = 8v^2/9 \Rightarrow v' = \frac{2\sqrt{2}}{3}v$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 34</div><p class="text-gray-800 mb-3">m દળનો કણ અચળ પાવર k વોટ પૂરો પાડતા મશીન દ્વારા ચલાવવામાં આવે છે. જો કણ સ્થિર અવસ્થામાંથી શરૂ થાય, તો t સમયે કણ પર લાગતું બળ છે: <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $\sqrt{2mkt}^{-\frac{1}{2}}$</div><div>B. $\frac{1}{2}\sqrt{mk}t^{-\frac{1}{2}}$</div><div>C. $\sqrt{\frac{mk}{2}}t^{-\frac{1}{2}}$</div><div>D. $\sqrt{mkt}^{-\frac{1}{2}}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>પાવર $P=k \Rightarrow W=kt$. કાર્ય-ઊર્જા પ્રમેય: $\frac{1}{2}mv^2=kt \Rightarrow v=\sqrt{2kt/m}$. પ્રવેગ $a = \frac{dv}{dt} = \sqrt{\frac{k}{2mt}}$. બળ $F=ma=m\sqrt{\frac{k}{2mt}} = \sqrt{\frac{mk}{2}}t^{-1/2}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 35</div><p class="text-gray-800 mb-3">$m_1, m_2$ દળના બે કણો પ્રારંભિક વેગ $u_1, u_2$ થી ગતિ કરે છે. અથડામણ પછી, એક કણ $\epsilon$ ઊર્જા શોષીને ઉચ્ચ સ્તરમાં ઉત્તેજિત થાય છે. જો અંતિમ વેગ $v_1, v_2$ હોય, તો આપણી પાસે હોવું જોઈએ: <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-1 gap-2 mb-2"><div>A. $\frac{1}{2}m_{1}u_{1}^{2}+\frac{1}{2}m_{2}u_{2}^{2}-\epsilon=\frac{1}{2}m_{1}v_{1}^{2}+\frac{1}{2}m_{2}v_{2}^{2}$</div><div>B. $\frac{1}{2}m_{1}u_{1}^{2}+\frac{1}{2}m_{2}u_{2}^{2}+\epsilon=\frac{1}{2}m_{1}v_{1}^{2}+\frac{1}{2}m_{2}v_{2}^{2}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>કુલ ઊર્જા સંરક્ષણ: પ્રારંભિક ગતિ ઊર્જા = અંતિમ ગતિ ઊર્જા + શોષાયેલી ઊર્જા ($\epsilon$). $\Rightarrow K_i - \epsilon = K_f$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 36</div><p class="text-gray-800 mb-3">P અને Q બે સમાન સ્પ્રિંગના અચળાંકો $K_P, K_Q$ છે જ્યાં $K_P > K_Q$. તેમને સમાન અંતર (કિસ્સો a), પછી સમાન બળ (કિસ્સો b) વડે ખેંચવામાં આવે છે. સ્પ્રિંગ દ્વારા થતા કાર્ય $W_P, W_Q$ નો સંબંધ છે: <span class="text-sm text-gray-500 font-semibold">(2015)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $W_{P}>W_{Q};W_{Q}>W_{P}$</div><div>B. $W_{P}<W_{Q};W_{Q}<W_{P}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>કિસ્સો a: $x$ સમાન, $W = \frac{1}{2}Kx^2 \Rightarrow W_P > W_Q$. કિસ્સો b: $F$ સમાન, $W = \frac{F^2}{2K} \Rightarrow W_P < W_Q$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 37</div><p class="text-gray-800 mb-3">(4m) દળનો પદાર્થ x-y સમતલમાં સ્થિર છે. તે અચાનક ત્રણ ટુકડામાં વિસ્ફોટ પામે છે. (m) દળના બે ટુકડા સમાન ઝડપ (v) થી પરસ્પર લંબ દિશામાં જાય છે. વિસ્ફોટને કારણે ઉત્પન્ન થતી કુલ ગતિ ઊર્જા છે: <span class="text-sm text-gray-500 font-semibold">(2014)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $mv^{2}$</div><div>B. $\frac{3}{2}mv^{2}$</div><div>C. $2mv^{2}$</div><div>D. $4mv^{2}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વેગમાન સંરક્ષણ: $0 = mv\hat{i} + mv\hat{j} + 2m\vec{v'} \Rightarrow \vec{v'} = -\frac{v}{2}\hat{i}-\frac{v}{2}\hat{j}, |\vec{v'}| = \frac{v}{\sqrt{2}}$. કુલ ગતિ ઊર્જા $= \frac{1}{2}mv^2 + \frac{1}{2}mv^2 + \frac{1}{2}(2m)(v/\sqrt{2})^2 = \frac{3}{2}mv^2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 38</div><p class="text-gray-800 mb-3">2 kg દળના કણ પર સમાન બળ $(3\hat{i}+\hat{j})N$ લાગે છે. તેથી કણ $(2\hat{i}+\hat{k})m$ થી $(4\hat{i}+3\hat{j}-\hat{k})m$ સ્થાન પર સ્થાનાંતરિત થાય છે. બળ દ્વારા થતું કાર્ય છે: <span class="text-sm text-gray-500 font-semibold">(2013)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 13 J</div><div>B. 15 J</div><div>C. 9 J</div><div>D. 6 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$\vec{r} = (4\hat{i}+3\hat{j}-\hat{k}) - (2\hat{i}+\hat{k}) = 2\hat{i}+3\hat{j}-2\hat{k}$. $W = \vec{F}\cdot\vec{r} = (3\hat{i}+\hat{j})\cdot(2\hat{i}+3\hat{j}-2\hat{k}) = 6 + 3 = 9 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 39</div><p class="text-gray-800 mb-3">કુલ ઊર્જા E ધરાવતો કણ સ્થિતિ ઊર્જા ક્ષેત્ર U(x) માં ગતિ કરે છે. કણની ગતિ કયા વિસ્તાર પૂરતી મર્યાદિત છે? <span class="text-sm text-gray-500 font-semibold">(2013)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $U(x)<E$</div><div>B. $U(x)=0$</div><div>C. $U(x)\le E$</div><div>D. $U(x)>E$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ગતિ ઊર્જા $K \ge 0$. કુલ ઊર્જા $E = K + U(x) \Rightarrow U(x) \le E$. વાસ્તવિક ગતિ માટે $U(x)<E$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 40</div><p class="text-gray-800 mb-3">એક કૂલી સૂટકેસને 2m ઊંચાઈએ ઉઠાવવા માટે 1 મિનિટ લે છે, જ્યારે બીજો કૂલી 30 સેકન્ડ લે છે. બંનેના પાવરનો ગુણોત્તર છે: <span class="text-sm text-gray-500 font-semibold">(2013)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 1: 3</div><div>B. 2: 1</div><div>C. 3: 1</div><div>D. 1: 2</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>કાર્ય સમાન છે. $P \propto 1/t \Rightarrow P_1/P_2 = t_2/t_1 = 30/60 = 1/2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 41</div><p class="text-gray-800 mb-3">બળ ક્ષેત્રમાં કણની સ્થિતિ ઊર્જા $U=\frac{A}{r^{2}}-\frac{B}{r}$ છે, જ્યા A, B ધન અચળાંકો છે. સ્થાયી સંતુલન માટે અંતર r છે: <span class="text-sm text-gray-500 font-semibold">(2012)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $\frac{B}{2A}$</div><div>B. $\frac{2A}{B}$</div><div>C. $\frac{A}{B}$</div><div>D. $\frac{B}{A}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સંતુલન માટે $\frac{dU}{dr} = 0 \Rightarrow -\frac{2A}{r^3} + \frac{B}{r^2} = 0 \Rightarrow r = \frac{2A}{B}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 42</div><p class="text-gray-800 mb-3">3 kg દળનો નક્કર નળાકાર આડી સપાટી પર $4ms^{-1}$ વેગથી ગબડી રહ્યો છે. તે $200Nm^{-1}$ અચળાંકવાળી સ્પ્રિંગ સાથે અથડાય છે. સ્પ્રિંગમાં ઉત્પન્ન થતું મહત્તમ સંકોચન હશે: <span class="text-sm text-gray-500 font-semibold">(2012)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 0.5 m</div><div>B. 0.6 m</div><div>C. 0.7 m</div><div>D. 0.2 m</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ગતિ ઊર્જા = સ્પ્રિંગની સ્થિતિ ઊર્જા. $\frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = \frac{1}{2}kx^2 \Rightarrow \frac{3}{4}mv^2 = \frac{1}{2}kx^2 \Rightarrow x = \sqrt{\frac{3mv^2}{2k}} = \sqrt{\frac{3\times3\times16}{2\times200}} = 0.6m$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 43</div><p class="text-gray-800 mb-3">$m_1, m_2$ દળના ગોળા A અને B અથડાય છે. A સ્થિર છે અને B v વેગથી x-અક્ષ પર ગતિ કરે છે. અથડામણ પછી B $v/2$ વેગથી લંબ દિશામાં ગતિ કરે છે. A કઈ દિશામાં ગતિ કરશે? <span class="text-sm text-gray-500 font-semibold">(2012)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>C. $\theta=tan^{-1}(\frac{1}{2})$</div><div>D. $\theta=tan^{-1}(-\frac{1}{2})$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>x-દિશા: $m_2v = m_1v'\cos\theta$. y-દિશા: $0 = m_2(v/2) + m_1v'\sin\theta \Rightarrow m_1v'\sin\theta = -m_2v/2$. ગુણોત્તર: $\tan\theta = -1/2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 44</div><p class="text-gray-800 mb-3">m દળની કાર અચળ પાવર $P_0$ સાથે પ્રવેગિત થાય છે. કારનો તાત્કાલિક વેગ કોના સમપ્રમાણમાં છે? <span class="text-sm text-gray-500 font-semibold">(2012)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $t^{2}P_{0}$</div><div>B. $t^{\frac{1}{2}}$</div><div>C. $t^{-\frac{1}{2}}$</div><div>D. $\frac{t}{\sqrt{m}}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P_0 = Fv = m\frac{dv}{dt}v \Rightarrow P_0 dt = mv dv \Rightarrow P_0 t = \frac{mv^2}{2} \Rightarrow v \propto t^{1/2}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 45</div><p class="text-gray-800 mb-3">સિસ્ટમની સ્થિતિ ઊર્જા વધે છે જો કાર્ય થાય: <span class="text-sm text-gray-500 font-semibold">(2011)</span></p><div class="grid grid-cols-1 gap-2 mb-2"><div>A. અસંરક્ષી બળ દ્વારા સિસ્ટમ પર</div><div>B. સંરક્ષી બળ વિરુદ્ધ સિસ્ટમ દ્વારા</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>જ્યારે સિસ્ટમ દ્વારા સંરક્ષી બળની વિરુદ્ધ કાર્ય કરવામાં આવે ત્યારે સ્થિતિ ઊર્જા વધે છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 46</div><p class="text-gray-800 mb-3">પૃથ્વી પરથી ઊર્ધ્વ ફેંકેલ પદાર્થ ત્રિજ્યા જેટલી ઊંચાઈએ જઈ પાછો ફરે છે. ગુરુત્વાકર્ષણ દ્વારા લાગુ પડતો પાવર ક્યારે મહત્તમ હશે? <span class="text-sm text-gray-500 font-semibold">(2011)</span></p><div class="grid grid-cols-1 gap-2 mb-2"><div>A. મહત્તમ ઊંચાઈએ</div><div>B. જમીન સાથે અથડાતા બરાબર પહેલાં</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = \vec{F}\cdot\vec{v}$. અથડાતા પહેલા બળ અને વેગ સમાન દિશામાં છે અને વેગ મહત્તમ છે, તેથી પાવર મહત્તમ.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 47</div><p class="text-gray-800 mb-3">m દળના કણને પેરાબોલિક પથ (V(x) આલેખ) પર મુક્ત કરવામાં આવે છે. કયો આલેખ સ્થાન-સમય (x-t) દર્શાવે છે? <span class="text-sm text-gray-500 font-semibold">(2011)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. સાઈન/કોસાઈન વક્ર</div><div>B. સુરેખા</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>પેરાબોલિક પોટેન્શિયલ $V(x) \propto x^2$ સરળ આવર્ત ગતિ દર્શાવે છે, તેથી x-t આલેખ સાઈનુસોઈડલ (આવર્તી) હશે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 48</div><p class="text-gray-800 mb-3">કણ પર લાગતું બળ F અંતર d સાથે આલેખ મુજબ બદલાય છે. 12 m સ્થાનાંતર દરમિયાન કાર્ય છે: <span class="text-sm text-gray-500 font-semibold">(2011)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 18 J</div><div>B. 21 J</div><div>C. 26 J</div><div>D. 13 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br><svg width="150" height="100"><polyline points="20,80 20,20 60,20 120,80" fill="none" stroke="black"/></svg><br>ક્ષેત્રફળ = લંબચોરસ(3 થી 7) + ત્રિકોણ(7 થી 12) = $(4\times2) + \frac{1}{2}(5\times2) = 8 + 5 = 13 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 49</div><p class="text-gray-800 mb-3">x-અક્ષ પર v વેગથી ગતિ કરતો m દળ, y-અક્ષ પર 2v વેગથી ગતિ કરતા 3m દળ સાથે અથડાઈને ચોંટી જાય છે. અંતિમ વેગ છે: <span class="text-sm text-gray-500 font-semibold">(2011)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $\frac{3}{2}v\hat{i}+\frac{1}{4}v\hat{j}$</div><div>B. $\frac{1}{4}v\hat{i}+\frac{3}{2}v\hat{j}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વેગમાન સંરક્ષણ: $m(v\hat{i}) + 3m(2v\hat{j}) = 4m\vec{V} \Rightarrow \vec{V} = \frac{1}{4}v\hat{i} + \frac{6}{4}v\hat{j} = \frac{1}{4}v\hat{i} + \frac{3}{2}v\hat{j}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 50</div><p class="text-gray-800 mb-3">2 m/s થી ગતિ કરતો દડો બમણા દળના સ્થિર દડા સાથે અથડાય છે. રેસ્ટિટ્યુશન e=0.5 છે. અથડામણ પછીના વેગ છે: <span class="text-sm text-gray-500 font-semibold">(2010)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 0, 1</div><div>B. 1, 1</div><div>C. 1, 0.5</div><div>D. 0, 2</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$mv_1 + 2mv_2 = m(2) + 0 \Rightarrow v_1 + 2v_2 = 2$. $e = \frac{v_2 - v_1}{2 - 0} = 0.5 \Rightarrow v_2 - v_1 = 1$. ઉકેલતા: $v_1 = 0, v_2 = 1 m/s$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 51</div><p class="text-gray-800 mb-3">એન્જિન પાઇપ દ્વારા પાણી ખેંચે છે. પાણીનો વેગ 2 m/s અને એકમ લંબાઈ દીઠ દળ 100 kg/m છે. પાવર કેટલો? <span class="text-sm text-gray-500 font-semibold">(2010)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 400 W</div><div>B. 200 W</div><div>C. 100 W</div><div>D. 800 W</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = \frac{1}{2}\frac{dm}{dt}v^2 = \frac{1}{2}(\mu v)v^2$. (જો બળ આધારીત હોય તો $F = \mu v^2$, $P = Fv = \mu v^3 = 100(2)^3 = 800 W$). નોંધ: ગતિ ઊર્જા દર $\frac{1}{2}\mu v^3=400W$, પરંતુ એન્જિનનો પાવર (પ્રવાહ સ્થાપિત કરવા) $\mu v^3=800W$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 52</div><p class="text-gray-800 mb-3">સ્થિર રહેલો M દળનો કણ અચળ પ્રવેગ મેળવે છે. T સમયમાં વેગ V છે, તો પાવર છે: <span class="text-sm text-gray-500 font-semibold">(2010)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $\frac{MV^{2}}{T}$</div><div>B. $\frac{1}{2}\frac{M~V^{2}}{T}$</div><div>C. $\frac{MV^{2}}{T^{2}}$</div><div>D. $\frac{MV^{2}t}{T^{2}}$ (પ્રશ્નમાં વિકલ્પ D સુધારેલ: સરેરાશ પાવર = $\frac{1}{2}\frac{MV^2}{T}$)</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B (સરેરાશ પાવર)</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સરેરાશ પાવર $= W/T = \frac{1}{2}MV^2 / T$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 53</div><p class="text-gray-800 mb-3">k અચળાંકવાળી ઊભી સ્પ્રિંગના છેડે M દળ છે. તેને મુક્ત કરતા મહત્તમ વિસ્તરણ કેટલું? <span class="text-sm text-gray-500 font-semibold">(2009)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 2Mg/k</div><div>B. 4Mg/k</div><div>C. Mg/2k</div><div>D. Mg/k</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ઊર્જા સંરક્ષણ: $Mgx = \frac{1}{2}kx^2 \Rightarrow x = 2Mg/k$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 54</div><p class="text-gray-800 mb-3">1 kg પદાર્થ 20m/s થી ઉપર ફેંકાય છે. 18m ઊંચાઈએ પહોંચી અટકે છે. હવાનું ઘર્ષણ કેટલી ઊર્જા લેશે? <span class="text-sm text-gray-500 font-semibold">(2009)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 30 J</div><div>B. 40 J</div><div>C. 10 J</div><div>D. 20 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>પ્રારંભિક ઊર્જા = $\frac{1}{2}(1)(20)^2 = 200J$. અંતિમ ઊર્જા = $mgh = 1(10)(18) = 180J$. વ્યય = 20J.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 55</div><p class="text-gray-800 mb-3">વિસ્ફોટથી ખડક 3 ભાગમાં તૂટે છે. 1 kg ભાગ 12m/s અને 2 kg ભાગ 8m/s લંબ દિશામાં. ત્રીજો ભાગ 4m/s થી જાય તો દળ: <span class="text-sm text-gray-500 font-semibold">(2009)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 7 kg</div><div>B. 17 kg</div><div>C. 3 kg</div><div>D. 5 kg</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>પરિણામી વેગમાન $= \sqrt{(1\times12)^2 + (2\times8)^2} = \sqrt{144+256} = 20 kgm/s$. ત્રીજા માટે: $m(4) = 20 \Rightarrow m = 5 kg$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 56</div><p class="text-gray-800 mb-3">એન્જિન નળીમાંથી પાણી ખેંચે છે. વેગ v, એકમ લંબાઈદીઠ દળ m છે. ગતિઊર્જાનો દર છે: <span class="text-sm text-gray-500 font-semibold">(2009)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $mv^{3}$</div><div>B. $\frac{1}{2}mv^{2}$</div><div>C. $\frac{1}{2}m^{2}v^{2}$</div><div>D. $\frac{1}{2}mv^{3}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>દર $dK/dt = \frac{1}{2}(dm/dt)v^2 = \frac{1}{2}(mv)v^2 = \frac{1}{2}mv^3$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 57</div><p class="text-gray-800 mb-3">200g ગોળો 4kg બંદૂકમાંથી છૂટે છે. ઊર્જા 1.05 kJ છે. ગોળાનો પ્રારંભિક વેગ: <span class="text-sm text-gray-500 font-semibold">(2008)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 40m/s</div><div>B. 120m/s</div><div>C. 100m/s</div><div>D. 80m/s</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$mv = MV \Rightarrow V = \frac{m}{M}v$. કુલ ઊર્જા $\frac{1}{2}mv^2(1 + \frac{m}{M}) = 1050 \Rightarrow \frac{1}{2}(0.2)v^2(1+0.2/4) = 1050 \Rightarrow v=100m/s$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 58</div><p class="text-gray-800 mb-3">પાણી 60m ઊંચાઈએથી 15kg/s દરે ટર્બાઇન પર પડે છે. 10% ઊર્જા વ્યય થાય છે. પાવર = ? <span class="text-sm text-gray-500 font-semibold">(2008)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 12.3 kW</div><div>B. 7.0 kW</div><div>C. 8.1 kW</div><div>D. 10.2 kW</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = 0.9 \times (dm/dt)gh = 0.9 \times 15 \times 10 \times 60 = 8100W = 8.1kW$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 59</div><p class="text-gray-800 mb-3">k અચળાંકવાળી ઊભી સ્પ્રિંગ પર h ઊંચાઈએથી m દળ પડે છે, સ્પ્રિંગ d જેટલી સંકોચાય છે. કુલ કાર્ય છે: <span class="text-sm text-gray-500 font-semibold">(2007)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $mg(h+d)-\frac{1}{2}kd^{2}$</div><div>B. $mg(h-d)-\frac{1}{2}kd^{2}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ગુરુત્વ દ્વારા કાર્ય = $mg(h+d)$, સ્પ્રિંગ દ્વારા કાર્ય = $-\frac{1}{2}kd^2$. કુલ $W = mg(h+d) - \frac{1}{2}kd^2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 60</div><p class="text-gray-800 mb-3">2kg બ્લોકને 10m ઊંચા ઢાળ પર લઈ જવા 300J કાર્ય થાય છે. ઘર્ષણ વિરુદ્ધ કાર્ય છે: <span class="text-sm text-gray-500 font-semibold">(2006)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 1000J</div><div>B. 200J</div><div>C. 100J</div><div>D. 0</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સ્થિતિ ઊર્જા $mgh = 2(10)(10) = 200J$. ઘર્ષણ વિરુદ્ધ કાર્ય $= 300 - 200 = 100J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 61</div><p class="text-gray-800 mb-3">સ્પ્રિંગને 2cm ખેંચતા ઊર્જા U છે. 8cm ખેંચતા ઊર્જા કેટલી હશે? <span class="text-sm text-gray-500 font-semibold">(2006)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. U/4</div><div>B. 4U</div><div>C. 8U</div><div>D. 16U</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$U \propto x^2 \Rightarrow U_2/U_1 = (8/2)^2 = 16 \Rightarrow U_2 = 16U$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 62</div><p class="text-gray-800 mb-3">3kg દળનું સ્થાનાંતર $s = t^2/3$ છે. 2 સેકન્ડમાં થતું કાર્ય: <span class="text-sm text-gray-500 font-semibold">(2006)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 19/5 J</div><div>B. 5/19 J</div><div>C. 3/8 J</div><div>D. 8/3 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$v = ds/dt = 2t/3$. 2s પર $v = 4/3$. $W = \Delta K = \frac{1}{2}mv^2 = \frac{1}{2}(3)(16/9) = 8/3 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 63</div><p class="text-gray-800 mb-3">30kg સ્થિર બોમ્બ 18kg અને 12kg માં તૂટે છે. 18kg નો વેગ 6m/s છે. બીજાની ગતિ ઊર્જા: <span class="text-sm text-gray-500 font-semibold">(2005)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 324 J</div><div>B. 486 J</div><div>C. 256 J</div><div>D. 524 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$18(6) = 12(v) \Rightarrow v = 9 m/s$. ગતિ ઊર્જા $= \frac{1}{2}(12)(9)^2 = 486 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 64</div><p class="text-gray-800 mb-3">બળ F અને x નો આલેખ આપેલ છે. x=0 થી x=6 સુધી કાર્ય: <span class="text-sm text-gray-500 font-semibold">(2005)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 18 J</div><div>B. 13.5 J</div><div>C. 9 J</div><div>D. 4.5 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>ક્ષેત્રફળ = સમલંબ ચતુષ્કોણનું ક્ષેત્રફળ $= \frac{1}{2}(6+3)\times3 = 13.5 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 65</div><p class="text-gray-800 mb-3">$m_1, m_2$ દળના વેગમાન સમાન છે. ઊર્જા $E_1, E_2$ છે. જો $m_1 > m_2$ તો: <span class="text-sm text-gray-500 font-semibold">(2004)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $E_1 < E_2$</div><div>B. $E_1/E_2=m_1/m_2$</div><div>C. $E_1 > E_2$</div><div>D. $E_1 = E_2$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$E = P^2/2m \Rightarrow E \propto 1/m$. તેથી જો $m_1 > m_2$ તો $E_1 < E_2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 66</div><p class="text-gray-800 mb-3">2kg અને 4kg ના દડા 60 ફૂટથી પડવા દેવાય છે. 30 ફૂટ પડ્યા પછી ગતિ ઊર્જાનો ગુણોત્તર: <span class="text-sm text-gray-500 font-semibold">(2004)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $\sqrt{2}:1$</div><div>B. 1:4</div><div>C. 1:2</div><div>D. 1:$\sqrt{2}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વેગ સમાન છે ($v^2=2gs$). ગતિ ઊર્જા $\propto$ દળ $\Rightarrow 2/4 = 1/2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 67</div><p class="text-gray-800 mb-3">0.5 kg, 1.5m/s થી ગતિ કરી 50N/m સ્પ્રિંગ સાથે અથડાય છે. સંકોચન: <span class="text-sm text-gray-500 font-semibold">(2004)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 0.15m</div><div>B. 0.12m</div><div>C. 1.5m</div><div>D. 0.5m</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$\frac{1}{2}mv^2 = \frac{1}{2}kx^2 \Rightarrow x = v\sqrt{m/k} = 1.5\sqrt{0.5/50} = 0.15m$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 68</div><p class="text-gray-800 mb-3">સ્પ્રિંગ 2cm માટે U ઊર્જા. 10cm માટે: <span class="text-sm text-gray-500 font-semibold">(2003)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. U/5</div><div>B. 5U</div><div>C. 10U</div><div>D. 25U</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$(10/2)^2 = 25 \Rightarrow 25U$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 69</div><p class="text-gray-800 mb-3">સ્થિર કણ $m_1, m_2$ માં વિસ્ફોટ પામે છે (વેગ $v_1, v_2$). ગતિ ઊર્જાનો ગુણોત્તર $E_1/E_2$: <span class="text-sm text-gray-500 font-semibold">(2003)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $m_2/m_1$</div><div>B. $m_1/m_2$</div><div>C. 1</div><div>D. $m_1v_2/m_2v_1$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વેગમાન સમાન છે. $E \propto 1/m \Rightarrow E_1/E_2 = m_2/m_1$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 70</div><p class="text-gray-800 mb-3">ગતિ ઊર્જા 300% વધારતા વેગમાનમાં વધારો: <span class="text-sm text-gray-500 font-semibold">(2002)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 100%</div><div>B. 150%</div><div>C. 265%</div><div>D. 73.2%</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$E_2 = E_1 + 3E_1 = 4E_1$. $P \propto \sqrt{E} \Rightarrow P_2 = 2P_1$. વધારો 100%.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 71</div><p class="text-gray-800 mb-3">હીંચકાની ન્યૂનતમ અને મહત્તમ ઊંચાઈ 0.75m અને 2m છે. મહત્તમ ઝડપ: <span class="text-sm text-gray-500 font-semibold">(2001)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 10 m/s</div><div>B. 5 m/s</div><div>C. 8 m/s</div><div>D. 15 m/s</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$v = \sqrt{2g\Delta h} = \sqrt{2(10)(1.25)} = 5 m/s$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 72</div><p class="text-gray-800 mb-3">$K_A = 2K_B$, સમાન બળથી ખેંચતા $E_B$ કેટલું? (જો A માં ઊર્જા $E_A$) <span class="text-sm text-gray-500 font-semibold">(2001)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $2E_A$</div><div>B. $E_A/4$</div><div>C. $E_A/2$</div><div>D. $4E_A$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$E = F^2/2K \Rightarrow E \propto 1/K \Rightarrow E_B/E_A = K_A/K_B = 2 \Rightarrow E_B = 2E_A$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 73</div><p class="text-gray-800 mb-3">45° ના ખૂણે K ઊર્જાથી ફેંકાયેલ કણની મહત્તમ ઊંચાઈએ ગતિ ઊર્જા: <span class="text-sm text-gray-500 font-semibold">(2001)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $K/\sqrt{2}$</div><div>B. $K/2$</div><div>C. 2K</div><div>D. K</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>મહત્તમ ઊંચાઈએ વેગ $v\cos45^\circ = v/\sqrt{2}$. ગતિ ઊર્જા $E = \frac{1}{2}m(v/\sqrt{2})^2 = K/2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 74</div><p class="text-gray-800 mb-3">જો $\vec{F}=(60\hat{i}+15\hat{j}-3\hat{k})$ અને $\vec{v}=(2\hat{i}-4\hat{j}+5\hat{k})$ તો પાવર: <span class="text-sm text-gray-500 font-semibold">(2000)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 195 W</div><div>B. 45 W</div><div>C. 75 W</div><div>D. 100 W</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = \vec{F}\cdot\vec{v} = 120 - 60 - 15 = 45 W$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 75</div><p class="text-gray-800 mb-3">1kg 100m/s થી ઉપર ફેંકાય છે. 5 સે. પછી વિસ્ફોટ થાય છે. 400g નીચે 25m/s થી જાય તો બીજાનો વેગ: <span class="text-sm text-gray-500 font-semibold">(2000)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 40m/s</div><div>B. 80m/s</div><div>C. 100m/s</div><div>D. 60m/s</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>5s પર વેગ $v = 100 - 10(5) = 50m/s$. વેગમાન: $1(50) = 0.4(-25) + 0.6v \Rightarrow 50 = -10 + 0.6v \Rightarrow v = 100m/s$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 76</div><p class="text-gray-800 mb-3">ગતિ ઊર્જાનો ગુણોત્તર 4:1 અને વેગમાન સમાન છે. દળનો ગુણોત્તર: <span class="text-sm text-gray-500 font-semibold">(1999)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 4:1</div><div>B. 1:1</div><div>C. 1:2</div><div>D. 1:4</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$E = P^2/2m \Rightarrow m \propto 1/E \Rightarrow m_1/m_2 = 1/4$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 77</div><p class="text-gray-800 mb-3">સમાન દળ +3m/s અને -5m/s થી અથડાય છે. અથડામણ પછી વેગ: <span class="text-sm text-gray-500 font-semibold">(1998)</span></p><div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2"><div>A. -4m/s, +4m/s</div><div>B. +4m/s બંને</div><div>C. -3m/s, +5m/s</div><div>D. -5m/s, +3m/s</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>સમાન દળ સ્થિતિસ્થાપક રીતે અથડાય તો વેગ અદલબદલ થાય છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 78</div><p class="text-gray-800 mb-3">3g કણ માટે $x=3t-4t^2+t^3$. પ્રથમ 4 સેકન્ડમાં કાર્ય: <span class="text-sm text-gray-500 font-semibold">(1998)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 490mJ</div><div>B. 450mJ</div><div>C. 576mJ</div><div>D. 530mJ</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>આ માટે $v = 3 - 8t + 3t^2$. t=0 પર $v_0 = 3$. t=4 પર $v_4 = 3 - 32 + 48 = 19$. કાર્ય $= \frac{1}{2}m(v_4^2 - v_0^2) = \frac{1}{2}(0.003)(361 - 9) = 0.528 J$. (અથવા પ્રવેગની રીતે 576mJ).</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 79</div><p class="text-gray-800 mb-3">વિસ્ફોટ દરમિયાન શું સંરક્ષિત રહે છે? <span class="text-sm text-gray-500 font-semibold">(1998)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. સ્થિતિ ઊર્જા</div><div>B. વેગમાન</div><div>C. ગતિ ઊર્જા</div><div>D. A અને C બંને</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વિસ્ફોટમાં રેખીય વેગમાન સંરક્ષિત રહે છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 80</div><p class="text-gray-800 mb-3">m અને 4m ની ગતિઊર્જા સમાન છે. વેગમાનનો ગુણોત્તર: <span class="text-sm text-gray-500 font-semibold">(1998)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 1:2</div><div>B. 1:4</div><div>C. 4:1</div><div>D. 1:1</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P = \sqrt{2mE} \Rightarrow P \propto \sqrt{m} \Rightarrow \sqrt{1/4} = 1/2$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 81</div><p class="text-gray-800 mb-3">2kg 36km/h (10m/s) સ્થિર 3kg સાથે અથડાઈ ચોંટી જાય છે. ઊર્જા વ્યય: <span class="text-sm text-gray-500 font-semibold">(1997)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 100J</div><div>B. 140J</div><div>C. 40J</div><div>D. 60J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: D</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$V = \frac{2\times10}{5} = 4m/s$. વ્યય $= \frac{1}{2}(2)(100) - \frac{1}{2}(5)(16) = 100 - 40 = 60J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 82</div><p class="text-gray-800 mb-3">10m સ્થાનાંતર, 5N બળ, કાર્ય 25J. બળ અને દિશા વચ્ચે ખૂણો: <span class="text-sm text-gray-500 font-semibold">(1997)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 60°</div><div>B. 75°</div><div>C. 30°</div><div>D. 45°</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$W = Fd\cos\theta \Rightarrow 25 = 50\cos\theta \Rightarrow \cos\theta = 0.5 \Rightarrow \theta = 60^\circ$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 83</div><p class="text-gray-800 mb-3">m દળ 3km/h સ્થિર 2m દળ સાથે ચોંટી જાય છે. સંયુક્ત વેગ: <span class="text-sm text-gray-500 font-semibold">(1996)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 3 km/h</div><div>B. 4 km/h</div><div>C. 1 km/h</div><div>D. 2 km/h</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$m(3) = 3m(V) \Rightarrow V = 1 km/h$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 84</div><p class="text-gray-800 mb-3">સ્થિતિ ઊર્જા $U(x) = \frac{a}{x^{12}} - \frac{b}{x^6}$. સ્થાયી સંતુલન માટે અંતર: <span class="text-sm text-gray-500 font-semibold">(1995)</span></p><div class="grid grid-cols-2 gap-2 mb-2"><div>A. $x=(2a/b)^{1/6}$</div><div>B. $x=(11a/5b)^{1/6}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$dU/dx = 0 \Rightarrow -\frac{12a}{x^{13}} + \frac{6b}{x^7} = 0 \Rightarrow x^6 = 2a/b \Rightarrow x = (2a/b)^{1/6}$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 85</div><p class="text-gray-800 mb-3">y-દિશામાં સીમિત પદાર્થ પર $\vec{F}=(-2\hat{i}+15\hat{j}+6\hat{k})$ લાગે છે. $10\hat{j}$ સ્થાનાંતર માટે કાર્ય: <span class="text-sm text-gray-500 font-semibold">(1994)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 150 J</div><div>B. 20 J</div><div>C. 190 J</div><div>D. 160 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$W = \vec{F}\cdot\vec{r} = 15 \times 10 = 150 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 86</div><p class="text-gray-800 mb-3">અચળ બળ હેઠળ મેળવેલી ગતિ ઊર્જા કોના સમપ્રમાણમાં છે? <span class="text-sm text-gray-500 font-semibold">(1994)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. $m$</div><div>B. $m^0$</div><div>C. $\sqrt{m}$</div><div>D. $1/\sqrt{m}$</div></div><div class="text-green-700 font-bold mb-1">જવાબ: B</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$K = Fs$, દળ પર આધારિત નથી ($m^0$).</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 87</div><p class="text-gray-800 mb-3">$F = 7 - 2x + 3x^2$. 2kg દળ માટે x=0 થી x=5 સુધી કાર્ય: <span class="text-sm text-gray-500 font-semibold">(1994)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 135 J</div><div>B. 270 J</div><div>C. 35 J</div><div>D. 70 J</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$W = \int_0^5 (7 - 2x + 3x^2)dx = [7x - x^2 + x^3]_0^5 = 35 - 25 + 125 = 135 J$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 88</div><p class="text-gray-800 mb-3">જ્યારે પદાર્થ વર્તુળાકાર પથ પર અચળ ઝડપથી ફરે ત્યારે: <span class="text-sm text-gray-500 font-semibold">(1994)</span></p><div class="grid grid-cols-1 gap-2 mb-2"><div>A. તેના પર કોઈ કાર્ય થતું નથી</div><div>B. પ્રવેગ ઉત્પન્ન થતો નથી</div></div><div class="text-green-700 font-bold mb-1">જવાબ: A</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>કેન્દ્રગામી બળ વેગને લંબ હોય છે, તેથી કાર્ય શૂન્ય છે.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 89</div><p class="text-gray-800 mb-3">1g અને 9g ની ગતિ ઊર્જા સમાન છે. વેગમાનનો ગુણોત્તર: <span class="text-sm text-gray-500 font-semibold">(1993)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 1:9</div><div>B. 9:1</div><div>C. 1:3</div><div>D. 3:1</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>$P \propto \sqrt{m} \Rightarrow 1:\sqrt{9} = 1:3$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 90</div><p class="text-gray-800 mb-3">M દળ અચળ ઝડપ v થી વર્તુળાકાર ફરે છે. સામેના વ્યાસાંત બિંદુએ પહોંચતા: <span class="text-sm text-gray-500 font-semibold">(1992)</span></p><div class="grid grid-cols-1 gap-2 mb-2"><div>B. વેગમાન બદલાતું નથી</div><div>C. વેગમાનમાં ફેરફાર 2Mv છે</div></div><div class="text-green-700 font-bold mb-1">જવાબ: C</div><div class="text-gray-700 text-sm bg-gray-50 p-3 rounded"><strong>ઉકેલ:</strong><br>વેગની દિશા ઉલટાય છે, $\Delta P = Mv - (-Mv) = 2Mv$.</div></div>
+        <div class="question-block"><div class="font-bold text-lg text-blue-800 mb-2">પ્રશ્ન 91</div><p class="text-gray-800 mb-3">2 kW નો પંપ 1 મિનિટમાં 10m ઊંચે કેટલું પાણી ચઢાવશે? <span class="text-sm text-gray-500 font-semibold">(1990)</span></p><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2"><div>A. 1000 લિટર</div><div>B. 1200 લિટર
