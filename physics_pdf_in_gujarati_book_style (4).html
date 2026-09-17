@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physics PDF in Gujarati</title>
+
+<script>
+window.MathJax = { 
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } 
+};
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;700&display=swap');
+
+@page { size: A4; margin: 12mm 8mm; } /* માર્જિન વધુ ઘટાડ્યું જેથી જગ્યાનો પૂરો ઉપયોગ થાય */
+body { 
+    font-family: 'Noto Sans Gujarati', Arial, sans-serif; 
+    line-height: 1.6; 
+    font-size: 22px; /* ટેક્સ્ટ સાઈઝ મોટી અને સ્પષ્ટ */
+    color: #000; 
+    background: #fff; 
+    margin: 0; 
+    padding: 10px; 
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact; 
+}
+.container { 
+    width: 100%;
+    max-width: 100%; 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+.print-btn { 
+    display: block; 
+    margin: 10px auto 20px auto; 
+    padding: 12px 24px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    background-color: #000; 
+    color: #fff; 
+    border: 2px solid #000; 
+    border-radius: 4px; 
+    cursor: pointer;
+}
+.print-btn:hover { background-color: #333; }
+
+/* Book Style Elements */
+.q-wrapper { 
+    margin-bottom: 25px; 
+    page-break-inside: auto; /* અડધા પેજ ખાલી ન રહે તે માટે */
+    break-inside: auto;
+}
+.q-text { 
+    margin-bottom: 15px; 
+    text-align: justify;
+    font-size: 24px; 
+    color: #000;
+}
+
+/* Options side-by-side */
+.options-row { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px; 
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+.opt-item { 
+    display: flex;
+    align-items: flex-start;
+    font-size: 24px; 
+    color: #000;
+    flex: 1 1 22%; /* 4 વિકલ્પો એક લાઈનમાં આવે તે માટે */
+    min-width: 150px;
+}
+.opt-label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Distinct Answer Box */
+.ans-box { 
+    margin-bottom: 10px; 
+    font-size: 24px; 
+    color: #000;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+.ans-title {
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Distinct Solution Box - Full Width */
+.sol-box { 
+    font-size: 22px; 
+    color: #000;
+    border-top: 1px dashed #000; 
+    border-bottom: 1px dashed #000; 
+    padding: 15px 0; /* આજુબાજુની જગ્યા હટાવીને Full Width કર્યું */
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    page-break-inside: auto; /* લાંબો ઉકેલ પેજ તોડી શકે જેથી જગ્યા ન બગડે */
+    break-inside: auto;
+    text-align: left;
+}
+.sol-title {
+    font-weight: bold;
+    font-size: 24px; 
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.sol-content { 
+    width: 100%;
+    overflow-x: auto;
+    page-break-inside: auto;
+    break-inside: auto;
+}
+
+.diagram { 
+    width: 100%; 
+    text-align: left; /* આકૃતિઓ ડાબી બાજુ વ્યવસ્થિત રહે */
+    margin: 15px 0; 
+    display: block; 
+    page-break-inside: avoid;
+    break-inside: avoid; 
+}
+.diagram svg { max-width: 100%; height: auto; border: none; }
+
+@media print {
+    body { padding: 0; background: #fff; font-size: 16pt; }
+    .q-text, .opt-item, .ans-box, .sol-title { font-size: 16pt; }
+    .sol-box, .sol-content { font-size: 15pt; }
+    .print-btn { display: none; }
+    .q-wrapper { margin-bottom: 20px; }
+    .sol-box { padding: 10px 0; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+<div class="container" id="content-container">
+
+<b>પ્રશ્ન 1</b><br>
+કાર્ય, ઊર્જા અને પાવર<br>
+એક ક્રેનનો પાવર, જે 1000 kg દળને 20 m ની ઊંચાઈ સુધી 10 s માં લઈ જાય છે તે છે: $(g=9.8{m/s}^{2})$<br>
+NEET 2026<br><br>
+<b>વિકલ્પો:</b><br>
+A. 19.6 W<br>
+B. 39.2 W<br>
+C. 19.6 kW<br>
+D. 39.2 kW<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+$Power=\frac{Work}{Time}$<br>
+$=\frac{mgh}{t}$<br>
+$=\frac{10^{3}\times9.8\times20}{10}=19.6~kW$
+<hr>
+
+<b>પ્રશ્ન 2</b><br>
+M દળનો એક કણ સમક્ષિતિજ અક્ષ પર $x=0$ થી $x=L$ સુધી ગતિ કરે છે. ગતિક ઘર્ષણાંક $x$ ના વિધેય તરીકે $\mu_{k}(x)=\mu_{0}-\alpha x$ મુજબ બદલાય છે. જ્યાં $\mu_{0}$, $\alpha$ યોગ્ય પરિમાણો ધરાવતા અચળાંકો છે, જેથી $\mu_{k}(L)=0$ થાય. ગતિ દરમિયાન ઘર્ષણ બળ દ્વારા થયેલું કુલ કાર્ય $n\mu_{0}MgL$ છે, જ્યાં g એ ગુરુત્વપ્રવેગ છે. n નું મૂલ્ય છે:<br>
+RE-NEET 2026<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{1}{2}$<br>
+B. 3<br>
+C. 1<br>
+D. $\frac{1}{3}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+આપેલ છે $\mu_{k}(x)=\mu_{0}-\alpha x$ અને $\mu_{k}(L)=0=\mu_{0}-\alpha L\Rightarrow\mu_{0}=\alpha L$<br>
+ઘર્ષણ બળ દ્વારા થયેલા કાર્યનું મૂલ્ય, $W_{f}=\int dW_{f}$ જ્યાં $W_{f}=f_{k}dx=\mu_{k}Ndx=\mu_{k}Mgdx=(\mu_{0}-\alpha x)Mgdx$<br>
+$\therefore W_{f}=\int_{0}^{L}\mu_{0}Mgdx-\int_{0}^{L}\alpha Mgxdx=\mu_{0}Mg[x]_{0}^{L}-\alpha Mg[\frac{x^{2}}{2}]_{0}^{L}$<br>
+$\Rightarrow n\mu_{0}MgL=\mu_{0}MgL-(\frac{\mu_{0}}{L})Mg(\frac{L^{2}}{2})=\frac{\mu_{0}MgL}{2}$<br>
+$\Rightarrow n=\frac{1}{2}$
+<hr>
+
+<b>પ્રશ્ન 3</b><br>
+m દળ ધરાવતા એક ભારે લોલકને $l$ લંબાઈની હલકી દોરી વડે લટકાવવામાં આવેલ છે. આકૃતિમાં દર્શાવ્યા મુજબ લોલકને સમક્ષિતિજ વેગ $v_{0}$ આપવામાં આવે છે. જો કોઈ બિંદુ P પર દોરી ઢીલી પડી જાય અને સમક્ષિતિજ સાથે $\theta$ ખૂણો બનાવે, તો બિંદુ P પર લોલકની ઝડપ v અને તેની પ્રારંભિક ઝડપ $v_{0}$ નો ગુણોત્તર છે:<br>
+<div class="diagram">
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Circular Path -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="8,4" />
+  <!-- Center O -->
+  <circle cx="100" cy="100" r="3" fill="#000" />
+  <text x="80" y="95" fill="#000" font-size="16">O</text>
+  <!-- Vertical and Horizontal Reference -->
+  <line x1="100" y1="100" x2="100" y2="180" stroke="#000" stroke-width="2" />
+  <line x1="100" y1="100" x2="180" y2="100" stroke="#000" stroke-width="2" stroke-dasharray="6,4" />
+  <!-- Point P and String -->
+  <line x1="100" y1="100" x2="160" y2="40" stroke="#000" stroke-width="2" />
+  <circle cx="160" cy="40" r="4" fill="#000" />
+  <text x="170" y="35" fill="#000" font-size="16">P</text>
+  <!-- Angle Theta -->
+  <path d="M 125 100 A 25 25 0 0 0 118 82" fill="none" stroke="#000" stroke-width="2" />
+  <text x="130" y="85" fill="#000" font-size="16">θ</text>
+  <!-- Bob at bottom -->
+  <circle cx="100" cy="180" r="5" fill="#000" />
+  <text x="95" y="198" fill="#000" font-size="16">m</text>
+  <line x1="100" y1="180" x2="140" y2="180" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="150" y="185" fill="#000" font-size="16">v₀</text>
+</svg>
+</div>
+NEET 2025<br><br>
+<b>વિકલ્પો:</b><br>
+A. $(\frac{cos~\theta}{2+3~sin~\theta})^{\frac{1}{2}}$<br>
+B. $(\frac{sin~\theta}{2+3~sin~\theta})^{\frac{1}{2}}$<br>
+C. $(sin~\theta)^{\frac{1}{2}}$<br>
+D. $(\frac{1}{2+3~sin~\theta})^{\frac{1}{2}}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrowSol" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#000" stroke-width="1.5" />
+  <line x1="100" y1="100" x2="100" y2="180" stroke="#000" stroke-width="2" />
+  <line x1="100" y1="100" x2="160" y2="40" stroke="#000" stroke-width="2" />
+  <line x1="100" y1="100" x2="180" y2="100" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" />
+  <circle cx="100" cy="100" r="3" fill="#000" />
+  <text x="80" y="95" fill="#000" font-size="16">O</text>
+  <rect x="95" y="175" width="10" height="10" fill="none" stroke="#000" />
+  <text x="95" y="198" fill="#000" font-size="16">Q</text>
+  <circle cx="160" cy="40" r="4" fill="#000" />
+  <text x="170" y="35" fill="#000" font-size="16">P</text>
+  <path d="M 125 100 A 25 25 0 0 0 118 82" fill="none" stroke="#000" stroke-width="1.5" />
+  <text x="130" y="95" fill="#000" font-size="16">θ</text>
+  <!-- Vectors at P -->
+  <line x1="160" y1="40" x2="160" y2="80" stroke="#000" stroke-width="2" marker-end="url(#arrowSol)" />
+  <text x="165" y="75" fill="#000" font-size="14">mg</text>
+  <line x1="160" y1="40" x2="120" y2="80" stroke="#000" stroke-width="2" marker-end="url(#arrowSol)" />
+  <text x="70" y="70" fill="#000" font-size="14">mg sin θ</text>
+  <!-- Velocity tangent pointing UP-LEFT -->
+  <line x1="160" y1="40" x2="130" y2="10" stroke="#000" stroke-width="2" marker-end="url(#arrowSol)" />
+  <text x="120" y="20" fill="#000" font-size="16">v</text>
+  <line x1="160" y1="40" x2="200" y2="40" stroke="#000" stroke-width="1.5" />
+  <path d="M 160 55 A 15 15 0 0 0 175 40" fill="none" stroke="#000" stroke-width="1.5" />
+  <text x="178" y="35" fill="#000" font-size="12">90 - θ</text>
+  <line x1="100" y1="180" x2="140" y2="180" stroke="#000" stroke-width="2" marker-end="url(#arrowSol)" />
+  <text x="145" y="185" fill="#000" font-size="16">v₀</text>
+</svg>
+</div>
+બિંદુ P પર, $mg~sin~\theta=\frac{mv^{2}}{l}$ &nbsp; (1)<br>
+બિંદુ P અને Q પર યાંત્રિક ઊર્જાના સંરક્ષણના નિયમ મુજબ,<br>
+$\frac{1}{2}mv_{0}^{2}=\frac{1}{2}mv^{2}+mg(l+l~sin~\theta)$<br>
+$\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+gl(1+sin~\theta)$<br>
+સમીકરણ (1) નો ઉપયોગ કરતા $gl=\frac{v^{2}}{sin~\theta}$ મૂકતા,<br>
+$\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+\frac{v^{2}}{sin~\theta}(1+sin~\theta)$<br>
+$\frac{v_{0}^{2}}{2}=\frac{v^{2}}{2}+\frac{v^{2}}{sin~\theta}+v^{2}$<br>
+$\frac{v_{0}^{2}}{2}=\frac{3}{2}v^{2}+\frac{2v^{2}}{2~sin~\theta}$<br>
+$v_{0}^{2}=v^{2}[3+\frac{2}{sin~\theta}]$<br>
+$\frac{v}{v_{0}}=(\frac{sin~\theta}{3~sin~\theta+2})^{\frac{1}{2}}$
+<hr>
+
+<b>પ્રશ્ન 4</b><br>
+બે સમાન કાર A અને B ની ગતિ ઊર્જા અનુક્રમે 100 J અને 225 J છે. બ્રેક લગાવવા પર, કાર A 1000 m પછી ઊભી રહે છે અને કાર B 1500 m પછી ઊભી રહે છે. જો $F_{A}$ અને $F_{B}$ અનુક્રમે કાર A અને કાર B પર બ્રેક દ્વારા લાગુ કરાયેલ બળ હોય, તો ગુણોત્તર $\frac{F_{A}}{F_{B}}$ છે:<br>
+NEET 2025<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{1}{3}$<br>
+B. $\frac{1}{2}$<br>
+C. $\frac{3}{2}$<br>
+D. $\frac{2}{3}$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+કાર્ય-ઊર્જા પ્રમેય મુજબ, બ્રેકિંગ બળ દ્વારા થયેલું કાર્ય ગતિ ઊર્જામાં થતા ફેરફાર જેટલું હોય છે. આમ, દરેક કાર માટે:<br>
+$FS=\Delta KE$<br>
+આને આ મુજબ ફરીથી ગોઠવી શકાય:<br>
+$-FS=k_{f}-k_{i}\Rightarrow FS=k_{i}-k_{f}$<br>
+બંને કાર ઊભી રહે ત્યારે અંતિમ ગતિ ઊર્જા $k_{f}$ શૂન્ય હોવાથી, સમીકરણ સરળ બને છે:<br>
+$FS=k_{i}$<br>
+કાર A અને કાર B માટે, બ્રેક દ્વારા લાગુ કરાયેલા બળ $F_{A}$ અને $F_{B}$ માટે:<br>
+$F_{A}\cdot S_{A}=k_{A}$ અને $F_{B}\cdot S_{B}=k_{B}$<br>
+બળના ગુણોત્તર માટે ઉકેલતા:<br>
+$\frac{F_{A}}{F_{B}}=\frac{k_{A}}{k_{B}}\times\frac{S_{B}}{S_{A}}$<br>
+આપેલ ગતિ ઊર્જા અને થોભવાના અંતરની કિંમતો મૂકતા:<br>
+$\frac{F_{A}}{F_{B}}=\frac{100}{225}\times\frac{1500}{1000}$<br>
+આનું સાદું રૂપ આપતા:<br>
+$=\frac{150}{225}=\frac{2}{3}$<br>
+તેથી, બળનો ગુણોત્તર $\frac{F_{A}}{F_{B}}$ એ $\frac{2}{3}$ છે.
+<hr>
+
+<b>પ્રશ્ન 5</b><br>
+સમક્ષિતિજ x-દિશામાં 10J ગતિ ઊર્જા સાથે ગતિ કરતા પદાર્થને $\vec{F}=(-2\hat{i}+3\hat{j})_{N}$ બળ દ્વારા $x=(3\hat{i})_{m}$ જેટલું સ્થાનાંતર કરાવવામાં આવે છે. સ્થાનાંતર x ના અંતે પદાર્થની ગતિ ઊર્જા કેટલી હશે?<br>
+[NEET 2024 Re]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 10J<br>
+B. 16J<br>
+C. 4J<br>
+D. 6J<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+કાર્ય ઊર્જા પ્રમેય,<br>
+$W_{all}=\Delta K\cdot E$ ($W_{all}=$ તમામ બળો દ્વારા થયેલ કાર્ય)<br>
+$\Rightarrow K_{f}-K_{i}=\vec{F}\cdot\Delta\vec{x}$<br>
+$\Rightarrow K_{f}-10=(-2\hat{i}+3\hat{j})\cdot(3\hat{i})$<br>
+$K_{f}-10=-6$<br>
+$K_{f}=4J$
+<hr>
+
+<b>પ્રશ્ન 6</b><br>
+એક પદાર્થ જમીનથી 10m ની ઊંચાઈ પરથી નીચે પડે છે. જમીન સાથે અથડાયા પછી તે તેની 50% ગતિ ઊર્જા ગુમાવે છે. આ પદાર્થ જમીન પરથી પાછો ફેંકાઈને (rebounce) કેટલી ઊંચાઈ સુધી જઈ શકશે?<br>
+[NEET 2024 Re]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 7.5m<br>
+B. 10m<br>
+C. 2.5m<br>
+D. 5m<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+જમીન સાથે અથડાતા પહેલા બરાબર પહેલાની ગતિ ઊર્જા (K.E.) $K_{1}=mgh_{1}=mg(10)$<br>
+જમીન સાથે અથડાયા પછી બરાબર તરતની ગતિ ઊર્જા (K.E.)<br>
+હવે, $K_{2}=mgh_{2}$<br>
+$=K_{1}-\frac{50}{100}K_{1}=\frac{50}{100}K_{1}=\frac{K_{1}}{2}=K_{2}$<br>
+$\Rightarrow\frac{K_{1}}{2}=mgh_{2}$<br>
+$\Rightarrow\frac{mg(10)}{2}=mgh_{2}\Rightarrow h_{2}=5m$
+<hr>
+
+<b>પ્રશ્ન 7</b><br>
+એક લાંબી સ્પ્રિંગને 2cm ખેંચતા તેની સ્થિતિ ઊર્જા U થાય છે. જો સ્પ્રિંગને 8cm ખેંચવામાં આવે, તો તેમાં સંગ્રહિત સ્થિતિ ઊર્જા કેટલી થશે?<br>
+[NEET 2023]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 4U<br>
+B. 8U<br>
+C. 16U<br>
+D. 2U<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+સ્પ્રિંગમાં સંગ્રહિત સ્થિતિ ઊર્જા $U=\frac{1}{2}Kx^{2}$<br>
+$U=\frac{1}{2}K(2)^{2}$ જ્યાં $x=2~cm$<br>
+$U=\frac{1}{2}(K)\cdot(4)$<br>
+$U=2K$<br>
+$U^{\prime}=\frac{1}{2}K(8)^{2}$<br>
+$U^{\prime}=\frac{1}{2}K\times64=32K$<br>
+સમીકરણ (i) ને (ii) વડે ભાગતા<br>
+$\frac{U}{U^{\prime}}=\frac{2K}{32K}=\frac{1}{16}$<br>
+$U^{\prime}=16U$
+<hr>
+
+<b>પ્રશ્ન 8</b><br>
+કોઈપણ સમયે t પર, 5N બળની અસર હેઠળ કોઈ કણનું સ્થાનાંતર $2t-1$ (SI એકમમાં) આપવામાં આવે છે. તાત્ક્ષણિક પાવરનું મૂલ્ય (SI એકમમાં) છે:<br>
+[NEET 2024]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 10<br>
+B. 5<br>
+C. 7<br>
+D. 6<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+$x=2t-1$<br>
+$v=\frac{dx}{dt}=2m~s^{-1}$<br>
+$P=F.v$<br>
+$=2\times5=10W$
+<hr>
+
+<b>પ્રશ્ન 9</b><br>
+m દળની બુલેટ M દળના બ્લોક સાથે સ્થિતિસ્થાપક રીતે અથડાય છે. ઊર્જાનું સ્થાનાંતરણ મહત્તમ ત્યારે થશે, જ્યારે:<br>
+[NEET 2023 mpr]<br><br>
+<b>વિકલ્પો:</b><br>
+A. $M=m$<br>
+B. $M=2m$<br>
+C. $M \ll m$<br>
+D. $M \gg m$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+સ્થિતિસ્થાપક અથડામણમાં મહત્તમ ઊર્જાનું સ્થાનાંતરણ ત્યારે થાય છે જ્યારે $M=m$ હોય.
+<hr>
+
+<b>પ્રશ્ન 10</b><br>
+કણ અચળ બળ $(10\hat{i}+10\hat{j}+20\hat{k})_{N}$ ની અસર હેઠળ સમક્ષિતિજ દિશામાં $(5\hat{i}-3\hat{j}+6\hat{k})ms^{-1}$ ના વેગથી ગતિ કરે છે. કણને પૂરો પાડવામાં આવતો તાત્ક્ષણિક પાવર છે:<br>
+[NEET 2023 mpr]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 200W<br>
+B. શૂન્ય<br>
+C. 100W<br>
+D. 140W<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$P=\vec{F}\cdot\vec{V}$<br>
+$P=(10\hat{i}+10\hat{j}+20\hat{k})\cdot(5\hat{i}-3\hat{j}+6\hat{k})$<br>
+$P=50-30+120$<br>
+$P=140W$
+<hr>
+
+<b>પ્રશ્ન 11</b><br>
+મહત્તમ 2000kg (લિફ્ટ + મુસાફરો) વજન ક્ષમતા ધરાવતી ઇલેક્ટ્રિક લિફ્ટ $1.5ms^{-1}$ ની અચળ ઝડપથી ઉપર તરફ જઈ રહી છે. ગતિનો વિરોધ કરતું ઘર્ષણ બળ 3000N છે. મોટર દ્વારા લિફ્ટને પહોંચાડવામાં આવતો ન્યૂનતમ પાવર વૉટ્સમાં છે: $(g=10ms^{-2})$<br>
+[NEET-2022]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 23000<br>
+B. 20000<br>
+C. 34500<br>
+D. 23500<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+$F_{vp}=2000g+3000$<br>
+$=23000N$<br>
+ન્યૂનતમ પાવર $P_{\mathfrak{min}}=\vec{F}\cdot\vec{V}$<br>
+$P_{min}=Fv=23000\times\frac{3}{2}$<br>
+$=34500W$
+<hr>
+
+<b>પ્રશ્ન 12</b><br>
+100kW ના ટ્રાન્સમીટર દ્વારા 1 કલાકમાં આદર્શ રીતે કેટલી ઊર્જા ઉત્સર્જિત થશે?<br>
+[NEET-2022]<br><br>
+<b>વિકલ્પો:</b><br>
+A. $36\times10^{7}J$<br>
+B. $36\times10^{4}J$<br>
+C. $36\times10^{5}J$<br>
+D. $1\times10^{5}J$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+$Energy=Power\times time$<br>
+$E=100\times10^{3}\times3600$<br>
+$=36\times10^{7}J$
+<hr>
+
+<b>પ્રશ્ન 13</b><br>
+$0.3~kg~m/s$ રેખીય વેગમાન ધરાવતા 5g દળના પદાર્થ દ્વારા 5s માં કાપવામાં આવેલ અંતર છે:<br>
+[NEET Re-2022]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 0.3m<br>
+B. 300m<br>
+C. 30m<br>
+D. 3m<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$P=mv$<br>
+$0.3=\frac{5}{1000}\times v\Rightarrow v=60m/s$<br>
+5s માં કાપેલું અંતર $=60\times5$<br>
+$=300m$
+<hr>
+
+<b>પ્રશ્ન 14</b><br>
+200 cm લંબાઈ અને 500 g દળ ધરાવતો સમાન સળિયો 40 cm ના નિશાન પર મૂકેલા આધાર (wedge) પર સંતુલિત છે. આકૃતિમાં દર્શાવ્યા મુજબ 2 kg દળને સળિયા પર 20 cm ના સ્થાને લટકાવવામાં આવેલ છે અને બીજું અજ્ઞાત દળ 'm' 160 cm ના નિશાન પર લટકાવવામાં આવેલ છે. 'm' નું મૂલ્ય શોધો જેથી સળિયો સંતુલનમાં રહે. $(g=10~m/s^{2})$<br>
+<div class="diagram">
+<svg viewBox="0 0 400 150" width="100%" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rod -->
+  <rect x="50" y="30" width="300" height="30" fill="none" stroke="#000" stroke-width="2" />
+  <!-- Wedge at 40cm mark (x=110) -->
+  <polygon points="110,60 120,80 100,80" fill="none" stroke="#000" stroke-width="2" />
+  <!-- Mass 2kg at 20cm mark (x=80) -->
+  <line x1="80" y1="30" x2="80" y2="100" stroke="#000" stroke-width="2" />
+  <rect x="65" y="100" width="30" height="20" fill="none" stroke="#000" stroke-width="2" />
+  <text x="68" y="115" font-size="14" font-weight="bold">2 kg</text>
+  <!-- Mass m at 160cm mark (x=290) -->
+  <line x1="290" y1="30" x2="290" y2="100" stroke="#000" stroke-width="2" />
+  <rect x="275" y="100" width="30" height="20" fill="none" stroke="#000" stroke-width="2" />
+  <text x="282" y="115" font-size="14" font-weight="bold">m</text>
+  <!-- Markings -->
+  <text x="45" y="20" font-size="14">0</text>
+  <text x="70" y="20" font-size="14">20 cm</text>
+  <text x="100" y="20" font-size="14">40 cm</text>
+  <text x="275" y="20" font-size="14">160 cm</text>
+  <text x="335" y="20" font-size="14">200 cm</text>
+</svg>
+</div>
+[NEET 2021]<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{1}{2}kg$<br>
+B. $\frac{1}{3}kg$<br>
+C. $\frac{1}{6}kg$<br>
+D. $\frac{1}{12}kg$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 400 150" width="100%" height="150" xmlns="http://www.w3.org/2000/svg">
+  <rect x="50" y="30" width="300" height="30" fill="none" stroke="#000" stroke-width="2" />
+  <polygon points="110,60 120,80 100,80" fill="none" stroke="#000" stroke-width="2" />
+  <text x="105" y="95" font-size="14">O</text>
+  <line x1="80" y1="30" x2="80" y2="100" stroke="#000" stroke-width="2" />
+  <rect x="65" y="100" width="30" height="20" fill="none" stroke="#000" stroke-width="2" />
+  <text x="68" y="115" font-size="14" font-weight="bold">2 kg</text>
+  <line x1="290" y1="30" x2="290" y2="100" stroke="#000" stroke-width="2" />
+  <rect x="275" y="100" width="30" height="20" fill="none" stroke="#000" stroke-width="2" />
+  <text x="282" y="115" font-size="14" font-weight="bold">m</text>
+  <circle cx="200" cy="45" r="3" fill="#000" />
+  <text x="190" y="75" font-size="14">CM</text>
+  <text x="45" y="20" font-size="14">0</text>
+  <text x="70" y="20" font-size="14">20</text>
+  <text x="105" y="20" font-size="14">40</text>
+  <text x="190" y="20" font-size="14">100</text>
+  <text x="275" y="20" font-size="14">160 cm</text>
+</svg>
+</div>
+આપેલ છે કે<br>
+સળિયાનું દળ $=500$ g; સળિયાની લંબાઈ = 200 cm<br>
+સળિયો સંતુલનમાં ત્યારે રહેશે, જ્યારે બિંદુ O ની સાપેક્ષે કુલ ટોર્ક શૂન્ય થશે.<br>
+2 kg દળને કારણે બિંદુ O પાસે ટોર્ક<br>
+$\vec{\tau}=\vec{r}\times\vec{F}=rF~sin~\theta(\hat{n})$<br>
+$\tau_{1}=20\times20\times10^{-2}\times sin~90^{\circ}(\hat{k})=4N~m(\hat{k})$<br>
+સળિયાના દળને કારણે ટોર્ક:<br>
+$\tau_{2}=5\times60\times10^{-2}\times sin~90^{\circ}(-\hat{k})=3N~m(-\hat{k})$<br>
+દળ m ને કારણે ટોર્ક<br>
+$\tau_{3}=mg\times120\times10^{-2}\times sin~90^{\circ}(-\hat{k})=12mN~m(-\hat{k})$<br>
+બિંદુ O ની સાપેક્ષે કુલ ટોર્ક શૂન્ય થશે<br>
+તેથી $\vec{\tau}_{1}+\vec{\tau}_{2}+\vec{\tau}_{3}=0$<br>
+$\Rightarrow 4-3-12m=0$<br>
+$\Rightarrow 12m=1$<br>
+$m=\frac{1}{12}kg$
+<hr>
+
+<b>પ્રશ્ન 15</b><br>
+એક કણને પૃથ્વીની સપાટીથી S ઊંચાઈએથી મુક્ત કરવામાં આવે છે. એક ચોક્કસ ઊંચાઈએ તેની ગતિ ઊર્જા તેની સ્થિતિ ઊર્જા કરતાં ત્રણ ગણી છે. તે ક્ષણે પૃથ્વીની સપાટીથી ઊંચાઈ અને કણની ઝડપ અનુક્રમે છે:<br>
+[NEET 2021]<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{S}{4},$ $\frac{3gS}{2}$<br>
+B. $\frac{S}{4},$ $\frac{\sqrt{3gS}}{2}$<br>
+C. $\frac{S}{2},$ $\frac{\sqrt{3gS}}{2}$<br>
+D. $\frac{S}{4}$ , $\sqrt{\frac{3gS}{2}}$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 150 200" width="150" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow15" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <line x1="10" y1="180" x2="140" y2="180" stroke="#000" stroke-width="4" />
+  <text x="50" y="195" font-size="14">EARTH</text>
+  <circle cx="75" cy="30" r="10" fill="#fff" stroke="#000" stroke-width="2" />
+  <line x1="75" y1="45" x2="75" y2="70" stroke="#000" stroke-width="2" marker-end="url(#arrow15)" />
+  <text x="85" y="65" font-size="16">v</text>
+  <line x1="30" y1="30" x2="30" y2="180" stroke="#000" stroke-width="1.5" marker-start="url(#arrow15)" marker-end="url(#arrow15)" />
+  <text x="15" y="105" font-size="16">S</text>
+  <line x1="110" y1="100" x2="110" y2="180" stroke="#000" stroke-width="1.5" marker-start="url(#arrow15)" marker-end="url(#arrow15)" />
+  <text x="120" y="145" font-size="16">y</text>
+  <line x1="20" y1="30" x2="40" y2="30" stroke="#000" stroke-width="1" />
+  <line x1="100" y1="100" x2="120" y2="100" stroke="#000" stroke-width="1" />
+  <circle cx="75" cy="100" r="10" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4,2" />
+</svg>
+</div>
+ધારો કે પદાર્થની જરૂરી ઊંચાઈ y છે.<br>
+જ્યારે પદાર્થ સ્થિર અવસ્થામાંથી $(S-y)$ ઊંચાઈ પરથી નીચે પડે છે<br>
+ત્યારે અચળ પ્રવેગ હેઠળ<br>
+$v^{2}=0^{2}+2g(S-y)$<br>
+$v=\sqrt{2g(S-y)}$ ......(1)<br>
+જ્યારે પદાર્થ જમીનથી y ઊંચાઈ પર હોય. m દળના પદાર્થની સ્થિતિ ઊર્જા<br>
+$U=mgy$<br>
+આપેલી શરત મુજબ ગતિ ઊર્જા, $K=3U$<br>
+$\frac{1}{2}m(v)^{2}=3\times mg(y)$<br>
+$\frac{1}{2}\times m\times 2g(S-y)=3\times mgy$ (સમીકરણ (1) પરથી)<br>
+$S-y=3y$<br>
+$\therefore y=\frac{S}{4}$<br>
+$\therefore v=\sqrt{2\times g(S-\frac{S}{4})}=\sqrt{\frac{3gS}{2}}$
+<hr>
+
+<b>પ્રશ્ન 16</b><br>
+ટર્બાઇન ચલાવવા માટે 60 m ની ઊંચાઈએથી 15 kg/s ના દરે પાણી પડે છે. ઘર્ષણ બળને કારણે થતો વ્યય ઇનપુટ ઊર્જાના 10% છે. ટર્બાઇન દ્વારા કેટલો પાવર ઉત્પન્ન થશે? $(g=10~m/s^{2})$<br>
+[NEET 2021]<br><br>
+<b>વિકલ્પો:</b><br>
+A. 10.2 kW<br>
+B. 8.1 kW<br>
+C. 12.3 kW<br>
+D. 7.0 kW<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+ટર્બાઇન પર આપાત પાવર $=\frac{d(mgh)}{d~t}$<br>
+$=gh\frac{d~m}{d~t}$<br>
+$=10\times 60\times 15$<br>
+$=9000~W$<br>
+હવે, વ્યય 10% છે<br>
+ઉત્પન્ન પાવર $= (1-\frac{10}{100})\times 9000$<br>
+$= 8100 W$<br>
+$= 8.1~kW$
+<hr>
+
+<b>પ્રશ્ન 17</b><br>
+u ઝડપથી ગતિ કરતો 4m દળનો પદાર્થ A, સ્થિર રહેલા 2m દળના અન્ય પદાર્થ B સાથે અથડાય છે. આ અથડામણ હેડ-ઓન અને સ્થિતિસ્થાપક (elastic) છે. અથડામણ પછી અથડાતા પદાર્થ A દ્વારા ગુમાવવામાં આવતી ઊર્જાનો અંશ છે:<br>
+(NEET 2019)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{5}{9}$<br>
+B. $\frac{1}{9}$<br>
+C. $\frac{8}{9}$<br>
+D. $\frac{4}{9}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અથડાતા પદાર્થની ગતિ ઊર્જામાં આંશિક ઘટાડો (Fractional loss),<br>
+$\frac{\Delta KE}{KE}=\frac{4\times (m_{1}m_{2})}{(m_{1}+m_{2})^{2}}$<br>
+$=\frac{4\times (4m)\times 2m}{(4m+2m)^{2}}$<br>
+$=\frac{32m^{2}}{36m^{2}}=\frac{8}{9}$
+<hr>
+
+<b>પ્રશ્ન 18</b><br>
+y-દિશામાં કણ પર બળ $F=20+10y$ લાગે છે, જ્યાં F ન્યૂટનમાં અને y મીટરમાં છે. કણને $y=0$ થી $y=1m$ સુધી ખસેડવા માટે આ બળ દ્વારા થયેલ કાર્ય છે:<br>
+(NEET 2019)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 20J<br>
+B. 30J<br>
+C. 5J<br>
+D. 25 J<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+ચલ બળ દ્વારા થયેલું કાર્ય<br>
+કાર્ય, $W=\int_{yi}^{yf}Fd~y\Rightarrow\int_{y=0}^{yf}F\cdot d~y$<br>
+જ્યાં, $F=20+10y$<br>
+$\therefore W=\int_{0}^{1}(20+10y)d~y$<br>
+$=[20y+\frac{10y^{2}}{2}]_{0}^{1}=25J$
+<hr>
+
+<b>પ્રશ્ન 19</b><br>
+m દળને એક પાતળા તાર સાથે બાંધીને શિરોલંબ વર્તુળમાં ઘુમાવવામાં આવે છે. તાર તૂટવાની શક્યતા ક્યારે સૌથી વધુ હોય છે?<br>
+(NEET 2019)<br><br>
+<b>વિકલ્પો:</b><br>
+A. શિરોલંબથી $60^{\circ}$ ના ખૂણે હોય ત્યારે<br>
+B. દળ તેના ઉચ્ચતમ બિંદુ પર હોય ત્યારે<br>
+C. તાર સમક્ષિતિજ હોય ત્યારે<br>
+D. દળ તેના ન્યૂનતમ બિંદુ પર હોય ત્યારે<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 150 200" width="150" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow19" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <circle cx="75" cy="75" r="60" fill="none" stroke="#000" stroke-width="2" />
+  <circle cx="75" cy="75" r="4" fill="#000" />
+  <line x1="75" y1="75" x2="75" y2="135" stroke="#000" stroke-width="3" />
+  <circle cx="75" cy="135" r="6" fill="#fff" stroke="#000" stroke-width="2" />
+  <line x1="75" y1="135" x2="75" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow19)" />
+  <text x="85" y="110" font-size="16" font-weight="bold">T</text>
+  <line x1="75" y1="135" x2="75" y2="175" stroke="#000" stroke-width="2" marker-end="url(#arrow19)" />
+  <text x="85" y="170" font-size="14" font-weight="bold">mg</text>
+  <line x1="75" y1="135" x2="120" y2="135" stroke="#000" stroke-width="2" marker-end="url(#arrow19)" />
+  <text x="125" y="140" font-size="16" font-weight="bold">u</text>
+</svg>
+</div>
+આપણે જાણીએ છીએ કે,<br>
+$T-mg=\frac{mu^{2}}{l}$<br>
+$\Rightarrow T=mg+\frac{mu^{2}}{l}$<br>
+દળ જ્યારે તેના ન્યૂનતમ સ્થાને હોય ત્યારે તણાવ મહત્તમ હોય છે, તેથી તૂટવાની શક્યતા સૌથી વધુ હોય છે.
+<hr>
+
+<b>પ્રશ્ન 20</b><br>
+સ્થિર રહેલો 5m દળનો કણ અચાનક તેની જાતે ત્રણ ટુકડામાં વિસ્ફોટ પામે છે. સમાન m દળના બે ટુકડાઓ એકબીજાને લંબ દિશામાં v ઝડપથી ગતિ કરે છે. આ પ્રક્રિયા દરમિયાન મુક્ત થતી ઊર્જા કેટલી હશે?<br>
+(OD NEET 2019)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{3}{5}mv^{2}$<br>
+B. $\frac{5}{3}mv^{2}$<br>
+C. $\frac{3}{2}mv^{2}$<br>
+D. $\frac{4}{3}mv^{2}$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$3m\vec{v}+mv\hat{i}+mv\hat{j}=0$<br>
+$\Rightarrow\vec{v}=-\frac{v}{3}\hat{i}-\frac{v}{3}\hat{j}$<br>
+$|\vec{v}|=\frac{\sqrt{2}}{3}v$<br>
+મુક્ત થયેલ ઊર્જા<br>
+$=\frac{1}{2}mv^{2}+\frac{1}{2}mv^{2}+\frac{1}{2}(3m)(\frac{2}{9})v^{2}$<br>
+$=\frac{4}{3}mv^{2}$
+<hr>
+
+<b>પ્રશ્ન 21</b><br>
+m દળ ધરાવતો એક ગતિ કરતો બ્લોક, 4m દળ ધરાવતા અન્ય સ્થિર બ્લોક સાથે અથડાય છે. હલકો બ્લોક અથડામણ પછી સ્થિર થઈ જાય છે. જો હલકા બ્લોકનો પ્રારંભિક વેગ v હોય, તો રેસ્ટિટ્યુશન ગુણાંક (e) નું મૂલ્ય કેટલું હશે?<br>
+(2018)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 0.5<br>
+B. 0.25<br>
+C. 0.8<br>
+D. 0.4<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+રેસ્ટિટ્યુશન ગુણાંક (e) -<br>
+$e=\frac{v_{2}-v_{1}}{u_{2}-u_{1}}$<br>
+અથડામણ પછીના સાપેક્ષ વેગ અને અથડામણ પહેલાના સાપેક્ષ વેગનો ગુણોત્તર.<br>
+ધારો કે અથડામણ પછી 4m દળનો વેગ v છે<br>
+તો $mv=4mv$<br>
+$v=\frac{v}{4}$<br>
+$e=\frac{velocity~of~seperation}{velocity~of~approach}=\frac{\frac{v}{4}}{v}$<br>
+$=\frac{1}{4}$<br>
+$e=0.25$
+<hr>
+
+<b>પ્રશ્ન 22</b><br>
+શરૂઆતમાં સ્થિર રહેલો એક પદાર્થ h ઊંચાઈ પરથી ઘર્ષણરહિત ટ્રેક પર સરકીને (આકૃતિમાં દર્શાવ્યા મુજબ) $AB=D$ વ્યાસનું શિરોલંબ વર્તુળ પૂરું કરે છે. ઊંચાઈ h નું મૂલ્ય છે:<br>
+<div class="diagram">
+<svg viewBox="0 0 250 150" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow22" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Track -->
+  <path d="M 30 20 L 150 120 L 210 120" fill="none" stroke="#000" stroke-width="2" />
+  <!-- Loop -->
+  <circle cx="210" cy="100" r="20" fill="none" stroke="#000" stroke-width="2" />
+  <!-- Height h -->
+  <line x1="30" y1="20" x2="30" y2="120" stroke="#000" stroke-width="1.5" marker-start="url(#arrow22)" marker-end="url(#arrow22)" />
+  <text x="15" y="75" font-size="16">h</text>
+  <!-- Ground line -->
+  <line x1="30" y1="120" x2="240" y2="120" stroke="#000" stroke-width="2" />
+  <!-- Block -->
+  <circle cx="30" cy="15" r="5" fill="#000" />
+  <line x1="210" y1="80" x2="210" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+  <text x="205" y="135" font-size="14">A</text>
+  <text x="205" y="75" font-size="14">B</text>
+</svg>
+</div>
+(2018)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{3}{2}D$<br>
+B. D<br>
+C. $\frac{7}{5}D$<br>
+D. $\frac{5}{4}D$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 250 150" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow22b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <path d="M 30 20 L 150 120 L 210 120" fill="none" stroke="#000" stroke-width="2" />
+  <circle cx="210" cy="100" r="20" fill="none" stroke="#000" stroke-width="2" />
+  <line x1="30" y1="20" x2="30" y2="120" stroke="#000" stroke-width="1.5" marker-start="url(#arrow22b)" marker-end="url(#arrow22b)" />
+  <text x="15" y="75" font-size="16">h</text>
+  <line x1="30" y1="120" x2="240" y2="120" stroke="#000" stroke-width="2" />
+  <circle cx="30" cy="15" r="5" fill="#000" />
+  <line x1="210" y1="80" x2="210" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+  <text x="205" y="135" font-size="14">A</text>
+  <text x="205" y="75" font-size="14">B</text>
+</svg>
+</div>
+આપેલ છે: શરૂઆતમાં સ્થિર રહેલો પદાર્થ h ઊંચાઈ પરથી ઘર્ષણરહિત માર્ગ પર સરકીને શિરોલંબ વર્તુળ પૂરું કરે છે જેનો વ્યાસ $AB=D$ છે. ઊંચાઈ h શોધવી છે.<br>
+સંરક્ષી બળો માટે ઊર્જા $K+U=E$ અહીં E અચળ છે<br>
+$\Delta K+\Delta U=0$<br>
+$\Rightarrow\Delta K=-\Delta U$<br>
+કણને વર્તુળ પૂરું કરવા માટે $V=\sqrt{5gR}$<br>
+$\Rightarrow V=\sqrt{2gh}$ (અહીં પ્રારંભિક સ્થિતિ પરથી સમીકરણ સરખાવતા)<br>
+$\Rightarrow\sqrt{2gh}=\sqrt{\frac{5gD}{2}}$<br>
+$\Rightarrow 2gh=\frac{5gD}{2}$<br>
+$\Rightarrow h=\frac{5D}{4}$<br>
+એ ઊંચાઈ h છે.
+<hr>
+
+<b>પ્રશ્ન 23</b><br>
+ધારો કે 1 km ની ઊંચાઈ પરથી 1 g દળનું વરસાદનું ટીપું પડે છે. તે જમીન પર $50ms^{-1}$ ની ઝડપે અથડાય છે. 'g' ને $10ms^{-2}$ ના મૂલ્ય સાથે અચળ ધારો. (i) ગુરુત્વાકર્ષણ બળ અને (ii) હવામાં રહેલા અવરોધક બળ દ્વારા થયેલું કાર્ય કેટલું હશે?<br>
+(2017 NEET)<br><br>
+<b>વિકલ્પો:</b><br>
+A. (i) 1.25 J &nbsp; (ii) -8.25 J<br>
+B. (i) 100 J &nbsp; (ii) 8.75 J<br>
+C. (i) 10 J &nbsp; (ii) -8.75 J<br>
+D. (i) -10 J &nbsp; (ii) -8.25 J<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અહીં<br>
+$m=1g=10^{-3}kg, h=1~km=1000m, v=50ms^{-1}, g=10ms^{-2}$<br>
+(i) ગુરુત્વાકર્ષણ બળ દ્વારા થયેલ કાર્ય<br>
+$=mgh=10^{-3}\times 10\times 1000=10J$<br>
+(ii) ગુરુત્વાકર્ષણ બળ અને હવાના અવરોધક બળ દ્વારા થયેલું કુલ કાર્ય વરસાદના ટીપાની ગતિ ઊર્જાના ફેરફાર બરાબર હોય છે.<br>
+$\therefore W_{g}+W_{r}=\frac{1}{2}mv^{2}-0$<br>
+$10+W_{r}=\frac{1}{2}\times 10^{-3}\times 50\times 50 \text{ અથવા } W_{r}=-8.75J$
+<hr>
+
+<b>પ્રશ્ન 24</b><br>
+10 g દળનો કણ 6.4 cm ત્રિજ્યાના વર્તુળમાં અચળ સ્પર્શીય પ્રવેગ સાથે ગતિ કરે છે. જો ગતિની શરૂઆત પછી બીજા પરિભ્રમણના અંતે કણની ગતિ ઊર્જા $8\times 10^{-4}J$ થઈ જાય, તો આ પ્રવેગનું મૂલ્ય શું હશે?<br>
+(2016 NEET Phase-I)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $0.18\frac{m}{s^{2}}$<br>
+B. $0.2\frac{m}{s^{2}}$<br>
+C. $0.1\frac{m}{s^{2}}$<br>
+D. $0.15\frac{m}{s^{2}}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અહીં, $m=10g=10^{-2}kg$<br>
+$R=6.4cm=6.4\times 10^{-2}m, K_{f}=8\times 10^{-4}J$<br>
+$K_{i}=0, a_{t}=?$<br>
+કાર્ય ઊર્જા પ્રમેયનો ઉપયોગ કરતા,<br>
+તમામ બળો દ્વારા થયેલું કાર્ય = ગતિ ઊર્જામાં ફેરફાર (Change in KE)<br>
+$W_{tangential~force}+W_{centripetal~force}=K_{f}-K_{i}$<br>
+$\Rightarrow F_{t}\times s+0=K_{f}-0\Rightarrow ma_{t}\times (2\times 2\pi R)=K_{f}$<br>
+$\Rightarrow a_{t}=\frac{K_{f}}{4\pi Rm}=\frac{8\times 10^{-4}}{4\times \frac{22}{7}\times 6.4\times 10^{-2}\times 10^{-2}}$<br>
+$=0.099\approx 0.1ms^{-2}$
+<hr>
+
+<b>પ્રશ્ન 25</b><br>
+1 kg દળનો એક પદાર્થ સમય આધારિત બળ $\vec{F}=(2t\hat{i}+3t^{2}\hat{j})_{N}$ ની અસર હેઠળ ગતિ કરવાનું શરૂ કરે છે, જ્યાં $\hat{i}$ અને $\hat{j}$ અનુક્રમે x અને y અક્ષ પરના એકમ સદિશો છે. સમય t પર આ બળ દ્વારા ઉત્પન્ન થતો પાવર કેટલો હશે?<br>
+(2016 NEET Phase-I)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $(2t^{3}+3t^{4})W$<br>
+B. $(2t^{3}+3t^{5})W$<br>
+C. $(2t^{2}+3t^{3})W$<br>
+D. $(2t^{2}+4t^{4})W$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$\vec{F}=(2t\hat{i}+3t^{2}\hat{j})_{N}$, m= 1kg<br>
+પદાર્થનો પ્રવેગ, $\vec{a}=\frac{\vec{F}}{m}=\frac{(2t\hat{i}+3t^{2}\hat{j})_{N}}{1kg}$<br>
+સમય t પર પદાર્થનો વેગ,<br>
+$\vec{v}=\int\vec{a}d~t=\int(2t\hat{i}+3t^{2}\hat{j})d~t=t^{2}\hat{i}+t^{3}\hat{j}ms^{-1}$<br>
+સમય t પર બળ દ્વારા ઉત્પન્ન થતો પાવર,<br>
+$P=\vec{F}\cdot\vec{v}=(2t\hat{i}+3t^{2}\hat{j})\cdot(t^{2}\hat{i}+t^{3}\hat{j})_{W}$<br>
+$=(2t^{3}+3t^{5})W$
+<hr>
+
+<b>પ્રશ્ન 26</b><br>
+m દળના પદાર્થને R ત્રિજ્યાના શિરોલંબ લૂપમાં દાખલ કરવા માટે ન્યૂનતમ વેગ કેટલો હોવો જોઈએ જેથી તે લૂપ પૂર્ણ કરી શકે?<br>
+(2016 NEET Phase-I)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\sqrt{3gR}$<br>
+B. $\sqrt{5gR}$<br>
+C. $\sqrt{gR}$<br>
+D. $\sqrt{2gR}$<br><br>
+<b>ઉત્તર:</b> B
+<hr>
+
+<b>પ્રશ્ન 27</b><br>
+$400ms^{-1}$ ના વેગથી સમક્ષિતિજ દિશામાં ગતિ કરતી 10 g દળની બુલેટ 2 kg દળના લાકડાના બ્લોક સાથે અથડાય છે જે 5 m લંબાઈની હલકી ન ખેંચાય તેવી દોરી વડે લટકાવેલો છે. પરિણામે, બ્લોકનું ગુરુત્વકેન્દ્ર 10 cm શિરોલંબ અંતર ઊંચે જાય છે. બ્લોકમાંથી સમક્ષિતિજ રીતે બહાર આવ્યા પછી બુલેટની ઝડપ કેટલી હશે?<br>
+(2016 NEET Phase-II)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $100ms^{-1}$<br>
+B. $80ms^{-1}$<br>
+C. $120ms^{-1}$<br>
+D. $160ms^{-1}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 350 200" width="350" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow27" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Ceiling -->
+  <line x1="120" y1="20" x2="180" y2="20" stroke="#000" stroke-width="4" />
+  <!-- Initial String & Block -->
+  <line x1="150" y1="20" x2="150" y2="150" stroke="#000" stroke-width="2" />
+  <rect x="130" y="150" width="40" height="40" fill="none" stroke="#000" stroke-width="2" />
+  <text x="140" y="175" font-size="16">M</text>
+  <!-- Bullet before -->
+  <circle cx="40" cy="170" r="4" fill="#000" />
+  <line x1="45" y1="170" x2="70" y2="170" stroke="#000" stroke-width="2" marker-end="url(#arrow27)" />
+  <text x="50" y="160" font-size="16">u</text>
+  <text x="35" y="190" font-size="14">m</text>
+  <!-- Path & Height -->
+  <line x1="10" y1="170" x2="130" y2="170" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" />
+  <!-- Final String & Block -->
+  <line x1="150" y1="20" x2="220" y2="120" stroke="#000" stroke-width="2" stroke-dasharray="4,4" />
+  <rect x="200" y="120" width="40" height="40" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="2,2" />
+  <!-- Bullet after -->
+  <line x1="250" y1="140" x2="280" y2="140" stroke="#000" stroke-width="2" marker-end="url(#arrow27)" />
+  <text x="260" y="130" font-size="16">v</text>
+  <!-- Block velocity -->
+  <line x1="220" y1="140" x2="245" y2="110" stroke="#000" stroke-width="2" marker-end="url(#arrow27)" />
+  <text x="235" y="105" font-size="16">v₁</text>
+  <!-- Height indicator -->
+  <line x1="170" y1="170" x2="220" y2="170" stroke="#000" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="220" y1="170" x2="220" y2="140" stroke="#000" stroke-width="1.5" marker-start="url(#arrow27)" marker-end="url(#arrow27)" />
+  <text x="225" y="160" font-size="14">h = 10 cm</text>
+  <!-- Labels -->
+  <text x="60" y="210" font-size="12">Before collision</text>
+  <text x="200" y="210" font-size="12">After collision</text>
+</svg>
+</div>
+બુલેટનું દળ, $m=10g=0.01kg$<br>
+બુલેટની પ્રારંભિક ઝડપ, $u=400ms^{-1}$<br>
+બ્લોકનું દળ, $M=2kg$<br>
+દોરીની લંબાઈ, $l=5m$<br>
+અથડામણ પછી બ્લોકની ઝડપ $=v_{1}$<br>
+બ્લોકમાંથી બહાર આવતી વખતે બુલેટની ઝડપ, $v=?$<br>
+બ્લોક માટે ઊર્જા સંરક્ષણના સિદ્ધાંતનો ઉપયોગ કરતા<br>
+$(K~E+PE)_{Reference}=(K~E+PE)_{h}$<br>
+$\Rightarrow\frac{1}{2}M{v_{1}}^{2}=M~gh \text{ અથવા } v_{1}=\sqrt{2gh}$<br>
+$v_{1}=\sqrt{2\times 10\times 0.1}=\sqrt{2}ms^{-1}$<br>
+બ્લોક અને બુલેટ તંત્ર માટે વેગમાન સંરક્ષણના નિયમનો ઉપયોગ કરતા,<br>
+(M×0 + mu) અથડામણ પહેલા = (M×v₁ + mv) અથડામણ પછી<br>
+$\Rightarrow 0.01\times 400=2\sqrt{2}+0.01\times v$<br>
+$\Rightarrow v=\frac{4-2\sqrt{2}}{0.01}=117.15ms^{-1}\approx 120ms^{-1}$
+<hr>
+
+<b>પ્રશ્ન 28</b><br>
+બે સમાન દડાઓ A અને B અનુક્રમે $0.5ms^{-1}$ અને $0.3ms^{-1}$ ના વેગ સાથે એક પરિમાણમાં સ્થિતિસ્થાપક રીતે અથડાય છે. અથડામણ પછી અનુક્રમે B અને A ના વેગ હશે:<br>
+(2016 NEET Phase-II)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $-0.5ms^{-1}$ અને $0.3ms^{-1}$<br>
+B. $0.5ms^{-1}$ અને $-0.3ms^{-1}$<br>
+C. $-0.3ms^{-1}$ અને $0.5ms^{-1}$<br>
+D. $0.3ms^{-1}$ અને $0.5ms^{-1}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+દડાઓનું દળ સમાન છે અને અથડામણ સ્થિતિસ્થાપક છે, તેથી અથડામણ પછી તેમના વેગની અદલાબદલી થશે.<br>
+$\therefore v_{A}=+u_{B}=-0.3ms^{-1}$ અને $v_{B}=+u_{A}=0.5ms^{-1}$
+<hr>
+
+<b>પ્રશ્ન 29</b><br>
+જ્યારે $(4\hat{i}+3\hat{j})_{N}$ નું બળ લાગુ કરવામાં આવે છે ત્યારે એક કણ બિંદુ $(-2\hat{i}+5\hat{j})$ થી $(4\hat{j}+3\hat{k})$ બિંદુ સુધી ગતિ કરે છે. બળ દ્વારા કેટલું કાર્ય કરવામાં આવ્યું હશે?<br>
+(2016 NEET Phase-II)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 8 J<br>
+B. 11 J<br>
+C. 5 J<br>
+D. 2 J<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અહીં $\vec{r}_{1}=(-2\hat{i}+5\hat{j})_{m},$ $\vec{r}_{2}=(4\hat{j}+3\hat{k})_{m}$<br>
+$\vec{F}=(4\hat{i}+3\hat{j})_{N}$, $W=?$<br>
+$\vec{r}_{1}$ થી $\vec{r}_{2}$ સુધી ખસેડવા માટે બળ F દ્વારા થયેલું કાર્ય<br>
+$W=\vec{F}\cdot(\vec{r}_{2}-\vec{r}_{1})$<br>
+$W=(4\hat{i}+3\hat{j})\cdot(4\hat{j}+3\hat{k}-(-2\hat{i}+5\hat{j}))$<br>
+$\Rightarrow (4\hat{i}+3\hat{j})\cdot(2\hat{i}-\hat{j}+3\hat{k})$<br>
+$=8+(-3)=5J$
+<hr>
+
+<b>પ્રશ્ન 30</b><br>
+બે કણો A અને B અચળ વેગ $\vec{v}_{1}$ અને $\vec{v}_{2}$ સાથે ગતિ કરે છે. પ્રારંભિક સમયે તેમના સ્થાન સદિશો અનુક્રમે $\vec{r}_{1}$ અને $\vec{r}_{2}$ છે. કણો A અને B ની અથડામણ માટેની શરત છે:<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\vec{r}_{1}\times\vec{v}_{1}=\vec{r}_{2}\times\vec{v}_{2}$<br>
+B. $\vec{r}_{1}-\vec{r}_{2}=\vec{v}_{1}-\vec{v}_{2}$<br>
+C. $\frac{\vec{r}_{1}-\vec{r}_{2}}{|\vec{r}_{1}-\vec{r}_{2}|}=\frac{\vec{v}_{2}-\vec{v}_{1}}{|\vec{v}_{2}-\vec{v}_{1}|}$<br>
+D. $\vec{r}_{1}\cdot\vec{v}_{1}=\vec{r}_{2}\cdot\vec{v}_{2}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+ધારો કે કણો A અને B સમય t પર અથડાય છે. તેમની અથડામણ માટે, બંને કણોના સ્થાન સદિશો સમય t પર સમાન હોવા જોઈએ, એટલે કે<br>
+$\vec{r}_{1}+\vec{v}_{1}t=\vec{r}_{2}+\vec{v}_{2}t$<br>
+$\vec{r}_{1}-\vec{r}_{2}=\vec{v}_{2}t-\vec{v}_{1}t$<br>
+$=(\vec{v}_{2}-\vec{v}_{1})t........(i)$<br>
+અને, $|\vec{r}_{1}-\vec{r}_{2}|=|\vec{v}_{2}-\vec{v}_{1}|t$<br>
+અથવા $t=\frac{|\vec{r}_{1}-\vec{r}_{2}|}{|\vec{v}_{2}-\vec{v}_{1}|}$<br>
+સમીકરણ (i) માં આ t ની કિંમત મૂકતા, આપણે મેળવીએ છીએ<br>
+$\frac{\vec{r}_{1}-\vec{r}_{2}}{|\vec{r}_{1}-\vec{r}_{2}|}=\frac{(\vec{v}_{2}-\vec{v}_{1})}{|\vec{v}_{2}-\vec{v}_{1}|}$
+<hr>
+
+<b>પ્રશ્ન 31</b><br>
+માણસનું હૃદય ધમનીઓ દ્વારા પ્રતિ મિનિટ 5 લીટર લોહી 150 mm પારાના દબાણે પંપ કરે છે. જો પારાની ઘનતા $13.6\times 10^{3}\frac{kg}{m^{3}}$ અને $g=10\frac{m}{s^{2}}$ હોય, તો હૃદયનો પાવર વૉટમાં છે:<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 3.0<br>
+B. 1.50<br>
+C. 1.70<br>
+D. 2.35<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અહીં, માણસના હૃદય દ્વારા પંપ થયેલ લોહીનું કદ,<br>
+$V=5 \text{ લીટર} = 5\times 10^{-3}m^{3} (1 \text{ લીટર} = 10^{-3}m^{3})$<br>
+જે સમયમાં આ કદનું લોહી પંપ થાય છે,<br>
+$t=1~min=60$ s<br>
+દબાણ જેના પર લોહી પંપ થાય છે,<br>
+$P=150mm \text{ of Hg}=0.15$ m of Hg<br>
+$=(0.15m)(13.6\times 10^{3}\frac{kg}{m^{3}})(10\frac{m}{s^{2}})$<br>
+$(\because P=h\rho g)$<br>
+$=20.4\times 10^{3}\frac{N}{m^{2}}$<br>
+$\therefore \text{હૃદયનો પાવર} =\frac{PV}{t}$<br>
+$=\frac{(20.4\times 10^{3}\frac{N}{m^{2}})(5\times 10^{-3}m^{3})}{60s}=1.70W$
+<hr>
+
+<b>પ્રશ્ન 32</b><br>
+દડાને 20 m ની ઊંચાઈએથી પ્રારંભિક વેગ $v_{0}$ સાથે શિરોલંબ નીચે તરફ ફેંકવામાં આવે છે. તે જમીન સાથે અથડાય છે, અથડામણમાં તેની 50 ટકા ઊર્જા ગુમાવે છે અને તે જ ઊંચાઈ સુધી પાછો આવે છે (rebounds). પ્રારંભિક વેગ $v_{0}$ છે:<br>
+(Take $g=10ms^{-2})$<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $28ms^{-1}$<br>
+B. $10ms^{-1}$<br>
+C. $14ms^{-1}$<br>
+D. $20ms^{-1}$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 150 200" width="150" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow32" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <circle cx="75" cy="40" r="12" fill="#fff" stroke="#000" stroke-width="2" />
+  <line x1="75" y1="55" x2="75" y2="95" stroke="#000" stroke-width="3" marker-end="url(#arrow32)" />
+  <text x="85" y="80" font-size="18">v₀</text>
+  <!-- Ground -->
+  <line x1="10" y1="180" x2="140" y2="180" stroke="#000" stroke-width="4" />
+  <rect x="10" y="180" width="130" height="5" fill="#000" />
+  <!-- Height line -->
+  <line x1="30" y1="40" x2="30" y2="180" stroke="#000" stroke-width="1.5" marker-start="url(#arrow32)" marker-end="url(#arrow32)" />
+  <text x="15" y="115" font-size="18">h</text>
+  <line x1="25" y1="40" x2="75" y2="40" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2"/>
+</svg>
+</div>
+ધારો કે v એ દડાનો વેગ છે જેની સાથે તે જમીન પર અથડાય છે. તો ઊર્જાના સંરક્ષણના નિયમ મુજબ, ગતિ ઊર્જામાં વધારો = સ્થિતિ ઊર્જામાં ઘટાડો<br>
+$\frac{1}{2}mv^{2}-\frac{1}{2}mv_{0}^{2}=mgh$<br>
+(જ્યાં m એ દડાનું દળ છે)<br>
+અથવા $v^{2}-{v_{0}}^{2}=2gh............(i)$<br>
+હવે, જ્યારે દડો જમીન સાથે અથડાય છે, ત્યારે તેની 50% ઊર્જા નષ્ટ થઈ જાય છે અને તે h ઊંચાઈ સુધી પાછો આવે છે.<br>
+$\therefore\frac{50}{100}(\frac{1}{2}mv^{2})=mgh$<br>
+$\frac{1}{4}v^{2}=gh \text{ અથવા } v^{2}=4gh$<br>
+સમીકરણ (i) માં આ $v^{2}$ ની કિંમત મૂકતા, આપણે મેળવીએ છીએ<br>
+$4gh-{v_{0}}^{2}=2gh$<br>
+અથવા ${v_{0}}^{2}=4gh-2gh=2gh$ અથવા $v_{0}=\sqrt{2gh}$<br>
+અહીં, $g=10ms^{-2}$ અને h = 20m<br>
+$v_{0}=\sqrt{2(10ms^{-2})(20m)}=20ms^{-1}$
+<hr>
+
+<b>પ્રશ્ન 33</b><br>
+ઘર્ષણરહિત સપાટી પર, M દળનો એક બ્લોક v ઝડપે ગતિ કરી રહ્યો છે જે સમાન દળ M ના બીજા બ્લોક (જે શરૂઆતમાં સ્થિર છે) સાથે સ્થિતિસ્થાપક રીતે અથડાય છે. અથડામણ પછી પ્રથમ બ્લોક તેની પ્રારંભિક દિશા સાથે $\theta$ ખૂણે ગતિ કરે છે અને તેની ઝડપ $\frac{v}{3}$ છે. અથડામણ પછી બીજા બ્લોકની ઝડપ કેટલી હશે?<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{3}{\sqrt{2}}v$<br>
+B. $\frac{\sqrt{3}}{2}v$<br>
+C. $\frac{2\sqrt{2}}{3}v$<br>
+D. $\frac{3}{4}v$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 350 200" width="350" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow33" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Before -->
+  <rect x="20" y="80" width="30" height="30" fill="none" stroke="#000" stroke-width="2" />
+  <text x="25" y="100" font-size="16">M</text>
+  <text x="30" y="70" font-size="14">1</text>
+  <line x1="55" y1="95" x2="105" y2="95" stroke="#000" stroke-width="2" marker-end="url(#arrow33)" />
+  <text x="75" y="90" font-size="16">v</text>
+  <rect x="150" y="80" width="30" height="30" fill="none" stroke="#000" stroke-width="2" />
+  <text x="155" y="100" font-size="16">M</text>
+  <text x="160" y="70" font-size="14">2</text>
+  <line x1="185" y1="95" x2="330" y2="95" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" />
+  <!-- After 1 -->
+  <g transform="translate(240, 40) rotate(-30)">
+     <rect x="0" y="0" width="30" height="30" fill="none" stroke="#000" stroke-width="2" />
+     <text x="5" y="20" font-size="16">M</text>
+     <text x="10" y="-10" font-size="14">1</text>
+     <line x1="35" y1="15" x2="75" y2="15" stroke="#000" stroke-width="2" marker-end="url(#arrow33)" />
+     <text x="80" y="20" font-size="16">v/3</text>
+  </g>
+  <!-- After 2 -->
+  <g transform="translate(230, 130) rotate(20)">
+     <rect x="0" y="0" width="30" height="30" fill="none" stroke="#000" stroke-width="2" />
+     <text x="5" y="20" font-size="16">M</text>
+     <text x="10" y="45" font-size="14">2</text>
+     <line x1="35" y1="15" x2="75" y2="15" stroke="#000" stroke-width="2" marker-end="url(#arrow33)" />
+     <text x="80" y="20" font-size="16">v'</text>
+  </g>
+  <!-- Lines -->
+  <path d="M 185 95 L 230 70" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" />
+  <path d="M 185 95 L 220 140" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" />
+  <!-- Angle -->
+  <path d="M 215 95 A 30 30 0 0 0 205 82" fill="none" stroke="#000" stroke-width="1.5" />
+  <text x="220" y="85" font-size="14">θ</text>
+  <text x="40" y="160" font-size="14">Before collision</text>
+  <text x="230" y="190" font-size="14">After collision</text>
+</svg>
+</div>
+ધારો કે V (અથવા $v^{\prime}$) એ અથડામણ પછી બીજા બ્લોકની ઝડપ છે.<br>
+કારણ કે અથડામણ સ્થિતિસ્થાપક છે, તેથી ગતિ ઊર્જાનું સંરક્ષણ થાય છે.<br>
+ગતિ ઊર્જાના સંરક્ષણ મુજબ,<br>
+$\frac{1}{2}M~v^{2}+0=\frac{1}{2}M(\frac{v}{3})^{2}+\frac{1}{2}M{v^{\prime}}^{2}$<br>
+$v^{2}=\frac{v^{2}}{9}+{v^{\prime}}^{2}$<br>
+અથવા ${v^{\prime}}^{2}=v^{2}-\frac{v^{2}}{9}=\frac{9v^{2}-v^{2}}{9}=\frac{8}{9}v^{2}$<br>
+$v^{\prime}=\sqrt{\frac{8}{9}v^{2}}=\frac{\sqrt{8}}{3}v=\frac{2\sqrt{2}}{3}v$
+<hr>
+
+<b>પ્રશ્ન 34</b><br>
+m દળના કણને એક મશીન દ્વારા ચલાવવામાં આવે છે જે અચળ પાવર k વૉટ્સ આપે છે. જો કણ સ્થિર અવસ્થામાંથી શરૂઆત કરતો હોય, તો સમય t પર કણ પર લાગતું બળ છે:<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\sqrt{2mk}t^{-\frac{1}{2}}$<br>
+B. $\frac{1}{2}\sqrt{mk}t^{-\frac{1}{2}}$<br>
+C. $\sqrt{\frac{mk}{2}}t^{-\frac{1}{2}}$<br>
+D. $\sqrt{mk}t^{-\frac{1}{2}}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+m દળના કણ પર લાગતો અચળ પાવર k વૉટ્સ છે.<br>
+$P=k$<br>
+$\frac{d~W}{d~t}=k;$ $d~W=kd~t$<br>
+બંને બાજુ સંકલન કરતા, $\int_{0}^{W}d~W=\int_{0}^{t}kd~t$<br>
+$\Rightarrow W=kt........(i)$<br>
+કાર્ય ઊર્જા પ્રમેયનો ઉપયોગ કરતા,<br>
+$W=\frac{1}{2}mv^{2}-\frac{1}{2}m(0)^{2}$<br>
+$kt=\frac{1}{2}mv^{2}$ [સમીકરણ (i) નો ઉપયોગ કરતા]<br>
+$v=\sqrt{\frac{2kt}{m}}$<br>
+કણનો પ્રવેગ, $a=\frac{d~v}{d~t}$<br>
+$a=\frac{d}{dt}(\sqrt{\frac{2k}{m}}t^{\frac{1}{2}})=\frac{1}{2}\sqrt{\frac{2k}{m}}t^{-\frac{1}{2}}=\sqrt{\frac{k}{2mt}}$<br>
+કણ પર લાગતું બળ,<br>
+$F=ma=m\sqrt{\frac{k}{2mt}}=\sqrt{\frac{m^{2}k}{2mt}}=\sqrt{\frac{mk}{2}}t^{-\frac{1}{2}}$
+<hr>
+
+<b>પ્રશ્ન 35</b><br>
+બે કણો કે જેમના દળ $m_{1}$, $m_{2}$ છે, તેઓ પ્રારંભિક વેગ $u_{1}$ અને $u_{2}$ સાથે ગતિ કરે છે. અથડામણ પછી, એક કણ $\epsilon$ જેટલી ઊર્જાનું શોષણ કરી ઉચ્ચ સ્તરમાં ઉત્તેજિત થાય છે. જો કણોના અંતિમ વેગ $v_{1}$ અને $v_{2}$ હોય તો આપણે નીચે મુજબ મેળવીએ છીએ:<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{1}{2}m_{1}{u_{1}}^{2}+\frac{1}{2}m_{2}{u_{2}}^{2}-\epsilon=\frac{1}{2}m_{1}{v_{1}}^{2}+\frac{1}{2}m_{2}{v_{2}}^{2}$<br>
+B. $\frac{1}{2}m_{1}{u_{1}}^{2}+\frac{1}{2}m_{2}{u_{2}}^{2}+\epsilon=\frac{1}{2}m_{1}{v_{1}}^{2}+\frac{1}{2}m_{2}{v_{2}}^{2}$<br>
+C. $m_{1}{u_{1}}^{2}+m_{2}{u_{2}}^{2}-\epsilon=m_{1}{v_{1}}^{2}+m_{2}{v_{2}}^{2}$<br>
+D. $\frac{1}{2}m_{1}{u_{1}}^{2}+\frac{1}{2}m_{2}{u_{2}}^{2}=\frac{1}{2}m_{1}{v_{1}}^{2}+\frac{1}{2}m_{2}{v_{2}}^{2}-\epsilon$<br><br>
+<b>ઉત્તર:</b> A
+<hr>
+
+<b>પ્રશ્ન 36</b><br>
+બે સમાન સ્પ્રિંગ P અને Q ના સ્પ્રિંગ અચળાંકો $K_{P}$ અને $K_{Q}$ છે કે જેથી $K_{P} &gt; K_{Q}$. તેઓને પ્રથમ સમાન પ્રમાણમાં ખેંચવામાં આવે છે (કેસ a), પછી સમાન બળથી ખેંચવામાં આવે છે (કેસ b). સ્પ્રિંગ્સ દ્વારા કરવામાં આવેલ કાર્ય $W_{P}$ અને $W_{Q}$ નો સંબંધ, કેસ (a) અને કેસ (b) માટે અનુક્રમે છે:<br>
+(2015)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $W_{P} &gt; W_{Q} ; W_{Q} &gt; W_{P}$<br>
+B. $W_{P} &lt; W_{Q} ; W_{Q} &lt; W_{P}$<br>
+C. $W_{P}=W_{Q} ; W_{P} &gt; W_{Q}$<br>
+D. $W_{P}=W_{Q} ; W_{P}=W_{Q}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+અહીં $K_{P} &gt; K_{Q}$<br>
+કેસ (a): દરેક સ્પ્રિંગમાં ખેંચાણ (x) સમાન છે.<br>
+$W_{P}=\frac{1}{2}K_{P}x^{2},$ $W_{Q}=\frac{1}{2}K_{Q}x^{2}$<br>
+$\therefore W_{P} &gt; W_{Q}$<br>
+કેસ (b): ખેંચાણનું બળ સમાન છે.<br>
+તેથી, $x_{1}=\frac{F}{K_{P}}$ અને $x_{2}=\frac{F}{K_{Q}}$<br>
+$W_{P}=\frac{1}{2}K_{P}{x_{1}}^{2}=\frac{1}{2}\frac{F^{2}}{K_{P}}$<br>
+$W_{Q}=\frac{1}{2}K_{Q}{x_{2}}^{2}=\frac{1}{2}\frac{F^{2}}{K_{Q}}$ $\therefore W_{P} &lt; W_{Q}$
+<hr>
+
+<b>પ્રશ્ન 37</b><br>
+(4m) દળનો એક પદાર્થ x-y સમતલમાં સ્થિર પડેલો છે. તે અચાનક ત્રણ ટુકડામાં વિસ્ફોટ પામે છે. (m) દળના દરેક એવા બે ટુકડાઓ એકબીજાને લંબ દિશામાં સમાન ઝડપ (v) થી ગતિ કરે છે. વિસ્ફોટને કારણે ઉત્પન્ન થતી કુલ ગતિ ઊર્જા છે:<br>
+(2014)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $mv^{2}$<br>
+B. $\frac{3}{2}mv^{2}$<br>
+C. $2mv^{2}$<br>
+D. $4mv^{2}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$p_{i}=p_{f}$<br>
+$0=mv\hat{i}+mv\hat{j}+2m\vec{v}$<br>
+$\vec{v}=-\frac{v}{2}\hat{i}-\frac{v}{2}\hat{j}$<br>
+$|\vec{v}|=\frac{v}{\sqrt{2}}$<br>
+$K~E=\frac{1}{2}mv^{2}+\frac{1}{2}mv^{2}+\frac{1}{2}2m(\frac{v}{\sqrt{2}})^{2}=mv^{2}+\frac{mv^{2}}{2}=\frac{3}{2}mv^{2}$
+<hr>
+
+<b>પ્રશ્ન 38</b><br>
+2 kg દળના કણ પર સમાન બળ $(3\hat{i}+\hat{j})$ ન્યૂટન લાગે છે. આથી કણ સ્થાન $(2\hat{i}+\hat{k})$ મીટરથી $(4\hat{i}+3\hat{j}-\hat{k})$ મીટર સ્થાન પર સ્થાનાંતરિત થાય છે. કણ પર બળ દ્વારા થયેલ કાર્ય છે:<br>
+(2013 NEET)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 13 J<br>
+B. 15 J<br>
+C. 9 J<br>
+D. 6 J<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+અહીં, $\vec{F}=(3\hat{i}+\hat{j})_{N}$<br>
+પ્રારંભિક સ્થાન, $\vec{r}_{1}=(2\hat{i}+\hat{k})_{m}$<br>
+અંતિમ સ્થાન, $\vec{r}_{2}=(4\hat{i}+3\hat{j}-\hat{k})_{m}$<br>
+સ્થાનાંતર, $\vec{r}=\vec{r}_{2}-\vec{r}_{1}$<br>
+$\vec{r}=(4\hat{i}+3\hat{j}-\hat{k})_{m}-(2\hat{i}+\hat{k})_{m}=2\hat{i}+3\hat{j}-2\hat{k}m$<br>
+કાર્ય,<br>
+$W=\vec{F}\cdot\vec{r}=(3\hat{i}+\hat{j})\cdot(2\hat{i}+3\hat{j}-2\hat{k})=6+3=9J$
+<hr>
+
+<b>પ્રશ્ન 39</b><br>
+કુલ ઊર્જા E ધરાવતો એક કણ સ્થિતિ ઊર્જા વિસ્તાર U(x) માં ગતિ કરી રહ્યો છે. કણની ગતિ તે વિસ્તાર સુધી મર્યાદિત છે જ્યાં:<br>
+(KN NEET 2013)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $U(x) &lt; E$<br>
+B. $U(x)=0$<br>
+C. $U(x)\le E$<br>
+D. $U(x) &gt; E$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+કારણ કે કણ સ્થિતિ ઊર્જા ક્ષેત્રમાં ગતિ કરી રહ્યો છે.<br>
+$\therefore$ ગતિ ઊર્જા $&gt; 0$<br>
+અને, કુલ ઊર્જા $E=K.E.+P.E\Rightarrow U(x) &lt; E$ (અહીં $U(x)$ એ $P.E.$ છે)
+<hr>
+
+<b>પ્રશ્ન 40</b><br>
+એક કુલી 1 મિનિટમાં 2 m ની ઊંચાઈ સુધી સૂટકેસ ઊંચકે છે પરંતુ બીજો કુલી તે જ સૂટકેસને તે જ ઊંચાઈ સુધી ઊંચકવામાં 30 s લે છે. બે કુલીઓના પાવરનો ગુણોત્તર છે:<br>
+(KN NEET 2013)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 1: 3<br>
+B. 2: 1<br>
+C. 3: 1<br>
+D. 1: 2<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+પાવર, $P=\frac{Work~done}{Time~taken}$<br>
+અહીં બંને કિસ્સામાં થયેલું કાર્ય $(=mgh)$ સમાન છે.<br>
+$\frac{P_{1}}{P_{2}}=\frac{t_{2}}{t_{1}}=\frac{30s}{1min}=\frac{30s}{60s}=\frac{1}{2}$
+<hr>
+
+<b>પ્રશ્ન 41</b><br>
+બળ ક્ષેત્રમાં કણની સ્થિતિ ઊર્જા $U=\frac{A}{r^{2}}-\frac{B}{r}$ છે જ્યાં A અને B ધન અચળાંકો છે અને r એ ક્ષેત્રના કેન્દ્રથી કણનું અંતર છે. સ્થાયી સંતુલન (stable equilibrium) માટે, કણનું અંતર છે:<br>
+(2012)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{B}{2A}$<br>
+B. $\frac{2A}{B}$<br>
+C. $\frac{A}{B}$<br>
+D. $\frac{B}{A}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+અહીં, $U=\frac{A}{r^{2}}-\frac{B}{r}$<br>
+સંતુલન માટે, $\frac{d~U}{d~r}=0$<br>
+$\therefore-\frac{2A}{r^{3}}+\frac{B}{r^{2}}=0$ અથવા $\frac{2A}{r^{3}}=\frac{B}{r^{2}}$ અથવા $r=\frac{2A}{B}$<br>
+સ્થાયી સંતુલન માટે, $\frac{d^{2}U}{d~r^{2}} &gt; 0$<br>
+$\frac{d^{2}U}{d~r^{2}}=\frac{6A}{r^{4}}-\frac{2B}{r^{3}}$<br>
+$\frac{d^{2}U}{d~r^{2}}|_{r=\frac{2A}{B}}=\frac{6A}{(\frac{2A}{B})^{4}}-\frac{2B}{(\frac{2A}{B})^{3}}=\frac{6AB^{4}}{16A^{4}}-\frac{2B^{4}}{8A^{3}}=\frac{B^{4}}{8A^{3}} &gt; 0$<br>
+તેથી સ્થાયી સંતુલન માટે, કણનું અંતર $\frac{2A}{B}$ છે.
+<hr>
+
+<b>પ્રશ્ન 42</b><br>
+3 kg દળનો નક્કર નળાકાર સમક્ષિતિજ સપાટી પર $4ms^{-1}$ ના વેગથી ગબડી રહ્યો છે. તે $200N~m^{-1}$ બળ અચળાંક ધરાવતી સમક્ષિતિજ સ્પ્રિંગ સાથે અથડાય છે. સ્પ્રિંગમાં ઉત્પન્ન થતું મહત્તમ સંકોચન હશે:<br>
+(2012)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 0.5 m<br>
+B. 0.6 m<br>
+C. 0.7 m<br>
+D. 0.2 m<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+મહત્તમ સંકોચન વખતે નક્કર નળાકાર ઊભો રહી જશે.<br>
+યાંત્રિક ઊર્જાના સંરક્ષણના નિયમ મુજબ<br>
+નળાકારની ગતિ ઊર્જામાં ઘટાડો = સ્પ્રિંગની સ્થિતિ ઊર્જામાં વધારો<br>
+$\frac{1}{2}mv^{2}+\frac{1}{2}I~\omega^{2}=\frac{1}{2}kx^{2}$<br>
+$\frac{1}{2}mv^{2}+\frac{1}{2}(\frac{mR^{2}}{2})(\frac{v}{R})^{2}=\frac{1}{2}kx^{2}$<br>
+$(\because v=R\omega$ અને નક્કર નળાકાર માટે, $I=1/2mR^2)$<br>
+$\frac{1}{2}mv^{2}+\frac{1}{4}mv^{2}=\frac{1}{2}kx^{2}$<br>
+$\frac{3}{4}mv^{2}=\frac{1}{2}kx^{2} \text{ અથવા } x^{2}=\frac{3}{2}\frac{mv^{2}}{k}$<br>
+અહીં, $m=3kg, v=4ms^{-1}, k=200N~m^{-1}$<br>
+આપેલી કિંમતો મૂકતા, આપણે મેળવીએ છીએ<br>
+$x^{2}=\frac{3\times 3\times 4\times 4}{2\times 200}$<br>
+$x^{2}=\frac{36}{100}$ અથવા $x=0.6m$
+<hr>
+
+<b>પ્રશ્ન 43</b><br>
+અનુક્રમે $m_{1}$ અને $m_{2}$ દળ ધરાવતા બે ગોળાઓ A અને B અથડાય છે. શરૂઆતમાં A સ્થિર છે અને B એ x-અક્ષ સાથે v વેગથી ગતિ કરી રહ્યો છે. અથડામણ પછી B નો વેગ તેની મૂળ દિશાને લંબ દિશામાં $\frac{v}{2}$ છે. અથડામણ પછી દળ A કઈ દિશામાં ગતિ કરશે?<br>
+(2012)<br><br>
+<b>વિકલ્પો:</b><br>
+A. B ની સમાન દિશામાં<br>
+B. B ની વિરુદ્ધ દિશામાં<br>
+C. x-અક્ષ સાથે $\theta=tan^{-1}(\frac{1}{2})$<br>
+D. x-અક્ષ સાથે $\theta=tan^{-1}(-\frac{1}{2})$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 300 250" width="300" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow43" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Before Collision -->
+  <circle cx="40" cy="140" r="15" fill="none" stroke="#000" stroke-width="2" />
+  <text x="35" y="145" font-size="16">B</text>
+  <text x="30" y="115" font-size="14">m₂</text>
+  <line x1="60" y1="140" x2="90" y2="140" stroke="#000" stroke-width="2" marker-end="url(#arrow43)" />
+  <text x="70" y="135" font-size="16">v</text>
+  <circle cx="120" cy="140" r="15" fill="none" stroke="#000" stroke-width="2" />
+  <text x="115" y="145" font-size="16">A</text>
+  <text x="110" y="115" font-size="14">m₁</text>
+  <!-- Axes -->
+  <line x1="120" y1="140" x2="280" y2="140" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow43)" />
+  <text x="285" y="145" font-size="16">x</text>
+  <line x1="120" y1="140" x2="120" y2="30" stroke="#000" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow43)" />
+  <text x="130" y="35" font-size="16">y</text>
+  <!-- After Collision -->
+  <circle cx="120" cy="90" r="15" fill="none" stroke="#000" stroke-width="2" />
+  <text x="115" y="95" font-size="16">B</text>
+  <line x1="120" y1="70" x2="120" y2="40" stroke="#000" stroke-width="2" marker-end="url(#arrow43)" />
+  <text x="130" y="60" font-size="16">v/2</text>
+  <circle cx="200" cy="180" r="15" fill="none" stroke="#000" stroke-width="2" />
+  <text x="195" y="185" font-size="16">A</text>
+  <line x1="215" y1="187.5" x2="250" y2="205" stroke="#000" stroke-width="2" marker-end="url(#arrow43)" />
+  <text x="255" y="210" font-size="16">v'</text>
+  <!-- Paths -->
+  <line x1="120" y1="140" x2="185" y2="172.5" stroke="#000" stroke-width="1" stroke-dasharray="4,2"/>
+  <path d="M 160 140 A 40 40 0 0 1 155 157" fill="none" stroke="#000" stroke-width="1.5" />
+  <text x="165" y="155" font-size="14">θ</text>
+</svg>
+</div>
+x-અક્ષ પર રેખીય વેગમાન સંરક્ષણના નિયમ મુજબ, આપણે મેળવીએ છીએ<br>
+$m_{1}\times 0+m_{2}\times v=m_{1}v^{\prime}cos\theta$<br>
+$m_{2}v=m_{1}v^{\prime}cos\theta.......(i)$<br>
+અથવા $cos\theta=\frac{m_{2}v}{m_{1}v^{\prime}}$<br>
+y-અક્ષ પર રેખીય વેગમાન સંરક્ષણના નિયમ મુજબ, આપણે મેળવીએ છીએ<br>
+$m_{1}\times 0+m_{2}\times 0=m_{1}v^{\prime}sin\theta+m_{2}\frac{v}{2}$<br>
+$-m_{2}\frac{v}{2}=m_{1}v^{\prime}sin~\theta$<br>
+$sin~\theta=-\frac{m_{2}v}{2m_{1}v^{\prime}}$ ....(ii)<br>
+(ii) ને (i) વડે ભાગતા, આપણે મેળવીએ છીએ<br>
+$tan~\theta=-\frac{1}{2}$ અથવા $\theta=tan^{-1}(-\frac{1}{2})$ x-અક્ષ સાથે
+<hr>
+
+<b>પ્રશ્ન 44</b><br>
+m દળની કાર સ્થિર અવસ્થામાંથી શરૂ થાય છે અને પ્રવેગિત થાય છે જેથી કારને પૂરો પાડવામાં આવતો તાત્ક્ષણિક પાવર અચળ મૂલ્ય $P_{0}$ ધરાવે છે. કારનો તાત્ક્ષણિક વેગ શેના સમપ્રમાણમાં છે?<br>
+(2012 Mains)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $t^{2}P_{0}$<br>
+B. $t^{\frac{1}{2}}$<br>
+C. $t^{-\frac{1}{2}}$<br>
+D. $\frac{t}{\sqrt{m}}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$P_{0}=Fv \text{ અહી } F=ma=m\frac{d~v}{d~t}$<br>
+$\therefore P_{0}=mv\frac{d~v}{d~t}$ અથવા $P_{0}d~t=mvd~v$<br>
+બંને બાજુ સંકલન કરતા, આપણે મેળવીએ છીએ $\int_{0}^{t}P_{0}d~t=m\int_{0}^{v}vd~v$<br>
+$P_{0}t=\frac{mv^{2}}{2},v=(\frac{2P_{0}t}{m})^{\frac{1}{2}} \text{ અથવા } v \propto \sqrt{t}$
+<hr>
+
+<b>પ્રશ્ન 45</b><br>
+જો કાર્ય કરવામાં આવે તો તંત્રની સ્થિતિ ઊર્જા વધે છે જ્યારે:<br>
+(2011)<br><br>
+<b>વિકલ્પો:</b><br>
+A. અસંરક્ષી બળ દ્વારા તંત્ર પર કાર્ય થાય<br>
+B. સંરક્ષી બળની વિરુદ્ધ તંત્ર દ્વારા કાર્ય થાય<br>
+C. અસંરક્ષી બળની વિરુદ્ધ તંત્ર દ્વારા કાર્ય થાય<br>
+D. સંરક્ષી બળ દ્વારા તંત્ર પર કાર્ય થાય<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+જ્યારે સંરક્ષી બળની વિરુદ્ધ તંત્ર દ્વારા કાર્ય કરવામાં આવે છે ત્યારે તેની સ્થિતિ ઊર્જા વધે છે.
+<hr>
+
+<b>પ્રશ્ન 46</b><br>
+પૃથ્વી પરથી શિરોલંબ દિશામાં પ્રક્ષિપ્ત કરેલ પદાર્થ પૃથ્વી પર પાછા ફરતા પહેલા પૃથ્વીની ત્રિજ્યા જેટલી ઊંચાઈ સુધી પહોંચે છે. ગુરુત્વાકર્ષણ બળ દ્વારા લગાડવામાં આવતો પાવર ક્યારે મહત્તમ હોય છે?<br>
+(2011)<br><br>
+<b>વિકલ્પો:</b><br>
+A. પદાર્થના ઉચ્ચતમ સ્થાને<br>
+B. પદાર્થ પૃથ્વી સાથે અથડાય તે બરાબર પહેલાની ક્ષણે<br>
+C. તે સમગ્ર ગતિ દરમિયાન અચળ રહે છે<br>
+D. પદાર્થને પ્રક્ષિપ્ત કર્યા પછી તરત જ ક્ષણે<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+પાવર, $P=\vec{F}\cdot\vec{v}=F~V~cos\theta$<br>
+પૃથ્વી પર અથડાતા બરાબર પહેલા $\theta=0^{\circ}$. તેથી, ગુરુત્વાકર્ષણ બળ દ્વારા લગાડવામાં આવતો પાવર પદાર્થ પૃથ્વી સાથે અથડાય તે બરાબર પહેલાની ક્ષણે મહત્તમ હોય છે.
+<hr>
+
+<b>પ્રશ્ન 47</b><br>
+m દળના કણને સ્થિર અવસ્થામાંથી મુક્ત કરવામાં આવે છે અને આકૃતિમાં દર્શાવ્યા મુજબ તે પરવલયાકાર માર્ગે ગતિ કરે છે. ઉગમબિંદુથી દળનું સ્થાનાંતર નાનું છે તેમ ધારીને, કયો આલેખ સમયના વિધેય તરીકે કણનું સ્થાન સાચી રીતે દર્શાવે છે?<br>
+<div class="diagram">
+<svg viewBox="0 0 200 150" width="200" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow47" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Axes -->
+  <line x1="20" y1="120" x2="180" y2="120" stroke="#000" stroke-width="1.5" marker-end="url(#arrow47)" />
+  <text x="185" y="125" font-size="14">(x)</text>
+  <line x1="100" y1="130" x2="100" y2="20" stroke="#000" stroke-width="1.5" marker-end="url(#arrow47)" />
+  <text x="80" y="25" font-size="14">V(x)</text>
+  <text x="85" y="135" font-size="14">0</text>
+  <!-- Parabola (Corrected) -->
+  <path d="M 40 20 Q 100 120 160 20" fill="none" stroke="#000" stroke-width="2" />
+  <!-- Particle -->
+  <circle cx="140" cy="50" r="4" fill="#000" />
+  <line x1="140" y1="50" x2="130" y2="70" stroke="#000" stroke-width="1.5" marker-end="url(#arrow47)" />
+  <text x="150" y="45" font-size="16">m</text>
+  <line x1="140" y1="55" x2="140" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+</svg>
+</div>
+(2011)<br><br>
+<b>વિકલ્પો:</b><br>
+A. <svg viewBox="0 0 150 100" width="120" height="80" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="50" x2="140" y2="50" stroke="#000" stroke-width="1.5"/><line x1="30" y1="90" x2="30" y2="10" stroke="#000" stroke-width="1.5"/><text x="145" y="55" font-size="12">t</text><text x="15" y="15" font-size="12">x(t)</text><path d="M 30 20 C 50 20, 60 80, 80 80 C 100 80, 110 20, 130 20" fill="none" stroke="#000" stroke-width="2"/></svg><br>
+B. <svg viewBox="0 0 150 100" width="120" height="80" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="50" x2="140" y2="50" stroke="#000" stroke-width="1.5"/><line x1="30" y1="90" x2="30" y2="10" stroke="#000" stroke-width="1.5"/><text x="145" y="55" font-size="12">t</text><text x="15" y="15" font-size="12">x(t)</text><line x1="30" y1="50" x2="130" y2="20" stroke="#000" stroke-width="2"/></svg><br>
+C. <svg viewBox="0 0 150 100" width="120" height="80" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="50" x2="140" y2="50" stroke="#000" stroke-width="1.5"/><line x1="30" y1="90" x2="30" y2="10" stroke="#000" stroke-width="1.5"/><text x="145" y="55" font-size="12">t</text><text x="15" y="15" font-size="12">x(t)</text><path d="M 30 80 Q 80 20 130 80" fill="none" stroke="#000" stroke-width="2"/></svg><br>
+D. <svg viewBox="0 0 150 100" width="120" height="80" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="50" x2="140" y2="50" stroke="#000" stroke-width="1.5"/><line x1="30" y1="90" x2="30" y2="10" stroke="#000" stroke-width="1.5"/><text x="145" y="55" font-size="12">t</text><text x="15" y="15" font-size="12">x(t)</text><line x1="30" y1="20" x2="130" y2="20" stroke="#000" stroke-width="2"/></svg><br><br>
+<b>ઉત્તર:</b> A
+<hr>
+
+<b>પ્રશ્ન 48</b><br>
+સીધી રેખામાં ગતિ કરતા કણ પર લાગતું બળ F આકૃતિમાં દર્શાવ્યા મુજબ અંતર d સાથે બદલાય છે. કણના 12 m ના સ્થાનાંતર દરમિયાન કણ પર થયેલ કાર્ય છે:<br>
+<div class="diagram">
+<svg viewBox="0 0 250 150" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow48" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Axes -->
+  <line x1="30" y1="120" x2="230" y2="120" stroke="#000" stroke-width="1.5" marker-end="url(#arrow48)" />
+  <text x="235" y="125" font-size="14">d(m)</text>
+  <line x1="30" y1="130" x2="30" y2="20" stroke="#000" stroke-width="1.5" marker-end="url(#arrow48)" />
+  <text x="40" y="25" font-size="14">F(N)</text>
+  <text x="15" y="135" font-size="14">0</text>
+  <text x="80" y="135" font-size="14">3</text>
+  <text x="140" y="135" font-size="14">7</text>
+  <text x="195" y="135" font-size="14">12</text>
+  <text x="15" y="65" font-size="14">2</text>
+  <line x1="30" y1="60" x2="90" y2="60" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+  <!-- Graph line -->
+  <line x1="90" y1="120" x2="90" y2="60" stroke="#000" stroke-width="2" />
+  <line x1="90" y1="60" x2="150" y2="60" stroke="#000" stroke-width="2" />
+  <line x1="150" y1="60" x2="210" y2="120" stroke="#000" stroke-width="2" />
+  <line x1="150" y1="60" x2="150" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+</svg>
+</div>
+(2011)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 18 J<br>
+B. 21 J<br>
+C. 26 J<br>
+D. 13 J<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 250 150" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow48b" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <line x1="30" y1="120" x2="230" y2="120" stroke="#000" stroke-width="1.5" marker-end="url(#arrow48b)" />
+  <text x="235" y="125" font-size="14">d(m)</text>
+  <line x1="30" y1="130" x2="30" y2="20" stroke="#000" stroke-width="1.5" marker-end="url(#arrow48b)" />
+  <text x="40" y="25" font-size="14">F(N)</text>
+  <text x="15" y="135" font-size="14">0</text>
+  <text x="80" y="135" font-size="14">3</text>
+  <text x="140" y="135" font-size="14">7</text>
+  <text x="195" y="135" font-size="14">12</text>
+  <text x="15" y="65" font-size="14">2</text>
+  <line x1="30" y1="60" x2="90" y2="60" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+  <line x1="90" y1="120" x2="90" y2="60" stroke="#000" stroke-width="2" />
+  <line x1="90" y1="60" x2="150" y2="60" stroke="#000" stroke-width="2" />
+  <line x1="150" y1="60" x2="210" y2="120" stroke="#000" stroke-width="2" />
+  <line x1="150" y1="60" x2="150" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+  <text x="95" y="115" font-size="16">A</text>
+  <text x="85" y="50" font-size="16">B</text>
+  <text x="150" y="50" font-size="16">C</text>
+  <text x="155" y="115" font-size="16">D</text>
+  <text x="215" y="115" font-size="16">E</text>
+</svg>
+</div>
+કાર્ય = (F-d) આલેખ હેઠળનો વિસ્તાર<br>
+= લંબચોરસ ABCD નું ક્ષેત્રફળ + ત્રિકોણ DCE નું ક્ષેત્રફળ<br>
+$=2\times(7-3)+\frac{1}{2}\times 2\times (12-7)=8+5=13J$
+<hr>
+
+<b>પ્રશ્ન 49</b><br>
+સમક્ષિતિજ દિશામાં (x-અક્ષ પર) v વેગથી ગતિ કરતું m દળ, શિરોલંબ ઉપર તરફ (y-અક્ષ પર) 2v વેગથી ગતિ કરતા 3m દળ સાથે અથડાય છે અને ચોંટી જાય છે. આ સંયોજનનો અંતિમ વેગ છે:<br>
+(2011 Mains)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{3}{2}v\hat{i}+\frac{1}{4}v\hat{j}$<br>
+B. $\frac{1}{4}v\hat{i}+\frac{3}{2}v\hat{j}$<br>
+C. $\frac{1}{3}v\hat{i}+\frac{2}{3}v\hat{j}$<br>
+D. $\frac{2}{3}v\hat{i}+\frac{1}{3}v\hat{j}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 300 150" width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow49" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <circle cx="40" cy="40" r="5" fill="#000" />
+  <text x="35" y="55" font-size="14">m</text>
+  <line x1="45" y1="40" x2="95" y2="40" stroke="#000" stroke-width="2" marker-end="url(#arrow49)" />
+  <text x="100" y="45" font-size="16">v</text>
+  <circle cx="150" cy="110" r="8" fill="#000" />
+  <text x="140" y="130" font-size="14">3m</text>
+  <line x1="150" y1="100" x2="150" y2="50" stroke="#000" stroke-width="2" marker-end="url(#arrow49)" />
+  <text x="140" y="40" font-size="16">2v</text>
+  <line x1="220" y1="90" x2="280" y2="90" stroke="#000" stroke-width="1.5" marker-end="url(#arrow49)" />
+  <text x="285" y="95" font-size="16">x</text>
+  <line x1="220" y1="90" x2="220" y2="30" stroke="#000" stroke-width="1.5" marker-end="url(#arrow49)" />
+  <text x="210" y="40" font-size="16">y</text>
+</svg>
+</div>
+વેગમાન સંરક્ષણ મુજબ, આપણે મેળવીએ છીએ<br>
+$m(v\hat{i})+(3m)(2v\hat{j})=(m+3m)v^{\prime}$<br>
+જ્યાં v' એ અથડામણ પછીનો અંતિમ વેગ છે<br>
+$v^{\prime}=\frac{1}{4}v\hat{i}+\frac{6}{4}v\hat{j}=\frac{1}{4}v\hat{i}+\frac{3}{2}v\hat{j}$
+<hr>
+
+<b>પ્રશ્ન 50</b><br>
+$2~m/s$ ના વેગથી ગતિ કરતો દડો બમણા દળના અન્ય સ્થિર દડા સાથે હેડ-ઓન અથડામણ કરે છે. જો રેસ્ટિટ્યુશન ગુણાંક 0.5 હોય, તો અથડામણ પછી તેમના વેગ (m/s માં) હશે:<br>
+(2010)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 0, 1<br>
+B. 1, 1<br>
+C. 1, 0.5<br>
+D. 0, 2<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+અહીં, $m_{1}=m$, $m_{2}=2m$<br>
+$u_{1}=2\frac{m}{s}$, $u_{2}=0$<br>
+રેસ્ટિટ્યુશન ગુણાંક, $e=0.5$<br>
+ધારો કે અથડામણ પછી તેમના અનુરૂપ વેગ $v_{1}$ અને $v_{2}$ છે.<br>
+રેખીય વેગમાન સંરક્ષણના નિયમ લાગુ કરતા,<br>
+આપણે મેળવીએ છીએ<br>
+$m_{1}u_{1}+m_{2}u_{2}=m_{1}v_{1}+m_{2}v_{2}$<br>
+$\therefore m\times 2+2m\times 0=m\times v_{1}+2m\times v_{2}$<br>
+અથવા $2m=mv_{1}+2mv_{2}$<br>
+અથવા $2=(v_{1}+2v_{2})........(i)$<br>
+રેસ્ટિટ્યુશન ગુણાંકની વ્યાખ્યા મુજબ,<br>
+$e=\frac{v_{2}-v_{1}}{u_{1}-u_{2}}$<br>
+અથવા $e(u_{1}-u_{2})=v_{2}-v_{1}$<br>
+$0.5(2-0)=v_{2}-v_{1}$<br>
+$1=v_{2}-v_{1}..........(ii)$<br>
+સમીકરણ (i) અને (ii) ને ઉકેલતા, આપણે મેળવીએ છીએ<br>
+$v_{1}=0\frac{m}{s}$, $v_{2}=1\frac{m}{s}$
+<hr>
+
+<b>પ્રશ્ન 51</b><br>
+એક એન્જિન હોસ પાઇપ દ્વારા પાણી પંપ કરે છે. પાણી પાઇપમાંથી પસાર થાય છે અને $2~m/s$ ના વેગથી બહાર નીકળે છે. પાઇપમાં પાણીનું એકમ લંબાઈ દીઠ દળ 100 kg/m છે. એન્જિનનો પાવર કેટલો છે?<br>
+(2010)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 400 W<br>
+B. 200 W<br>
+C. 100 W<br>
+D. 800 W<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+અહીં,<br>
+પાણીનું એકમ લંબાઈ દીઠ દળ, $\mu=100~kg/m$<br>
+પાણીનો વેગ, $v=2~m/s$<br>
+એન્જિનનો પાવર, $P=\mu v^{3}=(100\frac{kg}{m})(2\frac{m}{s})^{3}=800W$
+<hr>
+
+<b>પ્રશ્ન 52</b><br>
+સ્થિર અવસ્થામાંથી શરૂ થતો M દળનો કણ સમાન પ્રવેગ હેઠળ ગતિ કરે છે. જો સમય T માં પ્રાપ્ત કરેલ ઝડપ V હોય, તો કણને અપાતો પાવર છે:<br>
+(2010 Mains)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{MV^{2}}{T}$<br>
+B. $\frac{1}{2}\frac{M~V^{2}}{T}$<br>
+C. $\frac{MV^{2}}{T^{2}}$<br>
+D. $\frac{1}{2}\frac{MV^{2}}{T}$<br><br>
+<b>ઉત્તર:</b> B<br>
+<hr>
+
+<b>પ્રશ્ન 53</b><br>
+M દળનો બ્લોક શિરોલંબ સ્પ્રિંગના નીચેના છેડે જોડાયેલ છે. સ્પ્રિંગને છત પરથી લટકાવવામાં આવી છે અને તેનો બળ અચળાંક k છે. પ્રારંભમાં ખેંચ્યા વગરની સ્પ્રિંગ સાથે દળને સ્થિર અવસ્થામાંથી મુક્ત કરવામાં આવે છે. સ્પ્રિંગની લંબાઈમાં ઉત્પન્ન થતું મહત્તમ વિસ્તરણ હશે:<br>
+(2009)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $2Mg/k$<br>
+B. $4Mg/k$<br>
+C. $Mg/2k$<br>
+D. $Mg/k$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+જ્યારે એક છેડે બાંધેલી સ્પ્રિંગ સાથે જોડાયેલા દળને અચાનક પડવા દેવામાં આવે છે, ત્યારે તે સ્પ્રિંગને x જેટલી ખેંચે છે.<br>
+દળ દ્વારા ગુમાવેલી સ્થિતિ ઊર્જા સ્પ્રિંગ દ્વારા મેળવાય છે.<br>
+$M~gx=\frac{1}{2}kx^{2}\Rightarrow x=\frac{2M~g}{k}$
+<hr>
+
+<b>પ્રશ્ન 54</b><br>
+1 kg દળના પદાર્થને $20~m/s$ ના વેગથી ઉપર તરફ ફેંકવામાં આવે છે. તે 18 m ની ઊંચાઈ પ્રાપ્ત કર્યા પછી ક્ષણવાર માટે સ્થિર થાય છે. હવાના ઘર્ષણને કારણે કેટલી ઊર્જા નષ્ટ થઈ હશે? $(g=10\frac{m}{s^{2}})$<br>
+(2009)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 30 J<br>
+B. 40 J<br>
+C. 10 J<br>
+D. 20 J<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+પ્રારંભિક વેગ $u=20~m/s$, m = 1 kg<br>
+ગતિ ઊર્જા = મહત્તમ સ્થિતિ ઊર્જા<br>
+પ્રારંભિક ગતિ ઊર્જા $=\frac{1}{2}\times 1\times 20^{2}=200J$<br>
+$mgh(max)=200J$<br>
+h = 20m<br>
+પદાર્થ દ્વારા કાપવામાં આવેલ ઊંચાઈ, $h^{\prime}=18m$<br>
+$\therefore$ હવાના ઘર્ષણને કારણે ઊર્જાનો વ્યય = mgh - mgh'<br>
+નષ્ટ થયેલ ઊર્જા $=200J-1\times 10\times 18J=20J$
+<hr>
+
+<b>પ્રશ્ન 55</b><br>
+એક વિસ્ફોટથી ખડક ત્રણ ભાગમાં ફૂટે છે. બે ભાગ એકબીજાને કાટખૂણે જાય છે. આ બે ભાગોમાં, 1 kg નો પ્રથમ ભાગ $12ms^{-1}$ ના વેગથી ગતિ કરે છે અને 2 kg નો બીજો ભાગ $8ms^{-1}$ ના વેગથી ગતિ કરે છે. જો ત્રીજો ભાગ $4ms^{-1}$ ના વેગથી ઉડી જાય, તો તેનું દળ કેટલું હશે?<br>
+(2009)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 7 kg<br>
+B. 17 kg<br>
+C. 3 kg<br>
+D. 5 kg<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$m_{1}v_{1}=1~kg\times 12~ms^{-1}$<br>
+$m_{2}v_{2}=2~kg\times 8~m/s$<br>
+જ્યારે વિસ્ફોટ ખડકને તોડે છે, ત્યારે વેગમાન સંરક્ષણના નિયમ મુજબ, પ્રારંભિક વેગમાન શૂન્ય છે અને ત્રણ ટુકડાઓ માટે,<br>
+1 kg અને 2 kg ના બે ટુકડાઓનું કુલ વેગમાન<br>
+$=\sqrt{12^{2}+16^{2}}=20kgms^{-1}$<br>
+ત્રીજા ટુકડાનું વેગમાન સમાન છે અને તે આ બે વેગમાનના પરિણામીની વિરુદ્ધ દિશામાં છે.<br>
+$\therefore$ ત્રીજા ટુકડાનું વેગમાન $=20kgms^{-1}$<br>
+વેગ $=4ms^{-1}$<br>
+$\therefore$ ત્રીજા ટુકડાનું દળ $=\frac{mv}{v}=\frac{20}{4}=5kg$
+<hr>
+
+<b>પ્રશ્ન 56</b><br>
+એન્જિન સતત હોસ મારફતે પાણી પંપ કરે છે. પાણી v વેગથી હોસમાંથી બહાર નીકળે છે અને m એ પાણીના જેટનું એકમ લંબાઈ દીઠ દળ છે. પાણીને ગતિ ઊર્જા પૂરી પાડવાનો દર શું છે?<br>
+(2009)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $mv^{3}$<br>
+B. $\frac{1}{2}mv^{2}$<br>
+C. $\frac{1}{2}m^{2}v^{2}$<br>
+D. $\frac{1}{2}mv^{3}$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+પાણીનો વેગ v છે, એકમ લંબાઈ દીઠ વહેતું દળ m છે<br>
+$\therefore$ પ્રતિ સેકન્ડ વહેતું દળ $=mv$<br>
+$\therefore$ પ્રતિ સેકન્ડ ગતિ ઊર્જાનો દર (K.E. per second)<br>
+$=\frac{1}{2}(mv)v^{2}=\frac{1}{2}mv^{3}$
+<hr>
+
+<b>પ્રશ્ન 57</b><br>
+એક વિસ્ફોટ દ્વારા 4 kg દળની બંદૂકમાંથી 200 gm દળનો શેલ બહાર ફેંકાય છે જે 1.05 kJ ઊર્જા ઉત્પન્ન કરે છે. શેલનો પ્રારંભિક વેગ છે:<br>
+(2008)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $40ms^{-1}$<br>
+B. $120ms^{-1}$<br>
+C. $100ms^{-1}$<br>
+D. $80ms^{-1}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+$mv=M~v^{\prime}\Rightarrow v^{\prime}=(\frac{m}{M})v$<br>
+બુલેટ અને બંદૂકની કુલ ગતિ ઊર્જા $=\frac{1}{2}mv^{2}+\frac{1}{2}Mv^{\prime 2}$<br>
+કુલ ગતિ ઊર્જા $=\frac{1}{2}mv^{2}+\frac{1}{2}M\cdot\frac{m^{2}}{M^{2}}v^{2}$<br>
+કુલ $.E.=\frac{1}{2}mv^{2}\{1+\frac{m}{M}\}$<br>
+$=\{\frac{1}{2}\times 0.2\}\{1+\frac{0.2}{4}\}v^{2}=1.05\times 1000J$<br>
+આથી ઉકેલતા, $v = 100ms^{-1}$ મળે છે.
+<hr>
+
+<b>પ્રશ્ન 58</b><br>
+ટર્બાઇન ચલાવવા માટે 60 m ની ઊંચાઈએથી $15~kg/s$ ના દરે પાણી પડે છે. ઘર્ષણ બળને કારણે થતો વ્યય ઊર્જાના 10% છે. ટર્બાઇન દ્વારા કેટલો પાવર ઉત્પન્ન થશે? $(g=10m/s^{2})$<br>
+(2008)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 12.3 kW<br>
+B. 7.0 kW<br>
+C. 8.1 kW<br>
+D. 10.2 kW<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+પ્રતિ સેકન્ડ પડતા પાણીનું દળ $=15~kg/s$<br>
+$h=60m$<br>
+$g=10m/s^{2}, loss=10\%$<br>
+એટલે કે 90% નો ઉપયોગ થાય છે<br>
+ઉત્પન્ન પાવર $=15\times 10\times 60\times 0.9$<br>
+$=8100W=8.1kW$
+<hr>
+
+<b>પ્રશ્ન 59</b><br>
+k બળ અચળાંક ધરાવતી એક શિરોલંબ સ્પ્રિંગ ટેબલ પર જડેલી છે. સ્પ્રિંગના મુક્ત ઉપરના છેડાથી h ઊંચાઈએથી m દળનો એક દડો શિરોલંબ દિશામાં સ્પ્રિંગ પર પડે છે જેથી સ્પ્રિંગ d અંતર જેટલી સંકોચાય છે. આ પ્રક્રિયામાં થયેલું કુલ કાર્ય છે:<br>
+(2007)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $mg(h+d)-\frac{1}{2}kd^{2}$<br>
+B. $mg(h-d)-\frac{1}{2}kd^{2}$<br>
+C. $mg(h-d)+\frac{1}{2}kd^{2}$<br>
+D. $mg(h+d)+\frac{1}{2}kd^{2}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+$=W_{mg}+W_{spring}$<br>
+કુલ કાર્ય<br>
+$=mg(h+d)-\frac{1}{2}kd^{2}$
+<hr>
+
+<b>પ્રશ્ન 60</b><br>
+10m ઊંચાઈના ઢાળવાળા સમતલ પર 2 kg ના બ્લોકને ઉપર તરફ સરકાવવામાં 300 J કાર્ય કરવામાં આવે છે. ઘર્ષણ વિરુદ્ધ થયેલ કાર્ય કેટલું હશે? (લો $g=10m/s^{2}$)<br>
+(2006)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 1000J<br>
+B. 200J<br>
+C. 100J<br>
+D. zero.<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+સ્થિતિ ઊર્જામાં વધારો (Loss in potential energy ની જગ્યાએ Gain) = mgh<br>
+$=2\times 10\times 10=200J$<br>
+ગતિ ઊર્જામાં વધારો = થયેલું કાર્ય $=300J$ (આપેલ કુલ કાર્ય છે)<br>
+$\therefore$ ઘર્ષણ વિરુદ્ધ થયેલ કાર્ય $=300-200=100J$
+<hr>
+
+<b>પ્રશ્ન 61</b><br>
+લાંબી સ્પ્રિંગને 2cm ખેંચતા તેની સ્થિતિ ઊર્જા U થાય છે. જો સ્પ્રિંગને 8cm ખેંચવામાં આવે, તો તેમાં સંગ્રહિત સ્થિતિ ઊર્જા છે:<br>
+(2006)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{U}{4}$<br>
+B. 4U<br>
+C. 8U<br>
+D. 16U<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+સ્પ્રિંગની સ્થિતિ ઊર્જા $=\frac{1}{2}\times$ બળ અચળાંક $\times$ (વિસ્તરણ)$^{2}$<br>
+અથવા<br>
+$\frac{U_{1}}{U_{2}}=(\frac{x_{1}}{x_{2}})^{2}$ અથવા $\frac{U_{1}}{U_{2}}=(\frac{2}{8})^{2}$<br>
+અથવા, $\frac{U_{1}}{U_{2}}=\frac{1}{16}$ અથવા, $U_{2}=16U_{1}=16U$ $(\because U_{1}=U)$
+<hr>
+
+<b>પ્રશ્ન 62</b><br>
+3kg દળનો પદાર્થ અચળ બળ હેઠળ છે જેના કારણે તેમાં થતું સ્થાનાંતર મીટરમાં $s=\frac{1}{3}t^{2}$ સંબંધ દ્વારા આપવામાં આવે છે, જ્યાં t સેકન્ડમાં છે. 2 સેકન્ડમાં બળ દ્વારા થયેલું કાર્ય છે:<br>
+(2006)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{19}{5}J$<br>
+B. $\frac{5}{19}J$<br>
+C. $\frac{3}{8}J$<br>
+D. $\frac{8}{3}J$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$s=\frac{t^{2}}{3};\frac{d~s}{d~t}=\frac{2t}{3};\frac{d^{2}s}{d~t^{2}}=\frac{2}{3}$<br>
+કાર્ય, $W=\int F~d~s=\int m\frac{d^{2}s}{d~t^{2}}d~s$<br>
+$=\int m\frac{d^{2}s}{d~t^{2}}\frac{d~s}{d~t}d~t=\int_{0}^{2}3\times \frac{2}{3}\times \frac{2t}{3}d~t=\frac{4}{3}\int_{0}^{2}td~t$<br>
+$=\frac{4}{3}|\frac{t^{2}}{2}|_{0}^{2}=\frac{4}{3}\times 2=\frac{8}{3}J$
+<hr>
+
+<b>પ્રશ્ન 63</b><br>
+સ્થિર રહેલો 30kg દળનો બોમ્બ 18kg અને 12kg દળના બે ટુકડાઓમાં વિસ્ફોટ પામે છે. 18kg દળનો વેગ $6ms^{-1}$ છે. અન્ય દળની ગતિ ઊર્જા છે:<br>
+(2005)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 324 J<br>
+B. 486 J<br>
+C. 256 J<br>
+D. 524 J.<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+રેખીય વેગમાન સંરક્ષણના નિયમ મુજબ, $30\times 0=18\times 6+12\times v$<br>
+$\Rightarrow -108=12v\Rightarrow v=-9m/s$<br>
+ઋણ ચિહ્ન દર્શાવે છે કે બંને ટુકડાઓ વિરુદ્ધ દિશામાં ગતિ કરે છે.<br>
+12kg ની ગતિ ઊર્જા $=\frac{1}{2}mv^{2}=\frac{1}{2}\times 12\times 81=486J$
+<hr>
+
+<b>પ્રશ્ન 64</b><br>
+કોઈ પદાર્થ પર લાગતું બળ F અંતર x સાથે આકૃતિમાં દર્શાવ્યા મુજબ બદલાય છે. બળ N માં અને x મીટરમાં છે. પદાર્થને $x=0$ થી $x=6m$ સુધી ખસેડવા માટે બળ દ્વારા કરવામાં આવેલ કાર્ય છે:<br>
+<div class="diagram">
+<svg viewBox="0 0 250 150" width="250" height="150" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow64" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Axes -->
+  <line x1="40" y1="120" x2="230" y2="120" stroke="#000" stroke-width="2" marker-end="url(#arrow64)" />
+  <text x="110" y="145" font-size="14">x in (m)</text>
+  <line x1="40" y1="120" x2="40" y2="20" stroke="#000" stroke-width="2" marker-end="url(#arrow64)" />
+  <text x="5" y="30" font-size="14">F(N)</text>
+  <!-- Y labels -->
+  <text x="25" y="125" font-size="14">0</text>
+  <line x1="35" y1="90" x2="40" y2="90" stroke="#000" stroke-width="2" />
+  <text x="25" y="95" font-size="14">1</text>
+  <line x1="35" y1="60" x2="40" y2="60" stroke="#000" stroke-width="2" />
+  <text x="25" y="65" font-size="14">2</text>
+  <line x1="35" y1="30" x2="40" y2="30" stroke="#000" stroke-width="2" />
+  <text x="25" y="35" font-size="14">3</text>
+  <!-- X labels -->
+  <text x="65" y="135" font-size="14">1</text>
+  <text x="90" y="135" font-size="14">2</text>
+  <text x="115" y="135" font-size="14">3</text>
+  <text x="140" y="135" font-size="14">4</text>
+  <text x="165" y="135" font-size="14">5</text>
+  <text x="190" y="135" font-size="14">6</text>
+  <text x="215" y="135" font-size="14">7</text>
+  <!-- Ticks -->
+  <line x1="65" y1="120" x2="65" y2="125" stroke="#000" stroke-width="2" />
+  <line x1="90" y1="120" x2="90" y2="125" stroke="#000" stroke-width="2" />
+  <line x1="115" y1="120" x2="115" y2="125" stroke="#000" stroke-width="2" />
+  <line x1="140" y1="120" x2="140" y2="125" stroke="#000" stroke-width="2" />
+  <line x1="165" y1="120" x2="165" y2="125" stroke="#000" stroke-width="2" />
+  <line x1="190" y1="120" x2="190" y2="125" stroke="#000" stroke-width="2" />
+  <!-- Graph (Trapezium) -->
+  <line x1="40" y1="30" x2="115" y2="30" stroke="#000" stroke-width="2" />
+  <line x1="115" y1="30" x2="190" y2="120" stroke="#000" stroke-width="2" />
+  <line x1="115" y1="30" x2="115" y2="120" stroke="#000" stroke-width="1.5" stroke-dasharray="4,2" />
+</svg>
+</div>
+(2005)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 18.0J<br>
+B. 13.5 J<br>
+C. 9.0J<br>
+D. 4.5J<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+કાર્ય = F-x વક્ર હેઠળનો વિસ્તાર<br>
+= સમલંબ ચતુષ્કોણનું ક્ષેત્રફળ (area of trapezium)<br>
+$=1/2\times (6+3)\times 3=\frac{9\times 3}{2}=13.5J$
+<hr>
+
+<b>પ્રશ્ન 65</b><br>
+$m_{1}$ દળનો કણ $v_{1}$ વેગથી ગતિ કરી રહ્યો છે અને $m_{2}$ દળનો અન્ય કણ $v_{2}$ વેગથી ગતિ કરી રહ્યો છે. બંનેના વેગમાન સમાન છે પરંતુ તેમની ગતિ ઊર્જા અનુક્રમે $E_{1}$ અને $E_{2}$ જુદી જુદી છે. જો $m_{1} &gt; m_{2}$ હોય તો<br>
+(2004)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $E_{1} &lt; E_{2}$<br>
+B. $\frac{E_{1}}{E_{2}}=\frac{m_{1}}{m_{2}}$<br>
+C. $E_{1} &gt; E_{2}$<br>
+D. $E_{1}=E_{2}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+ગતિ ઊર્જા $=\frac{p^{2}}{2m}$<br>
+$\frac{E_{1}}{E_{2}}=\frac{\frac{p^{2}}{2m_{1}}}{\frac{p^{2}}{2m_{2}}}\Rightarrow\frac{E_{1}}{E_{2}}=\frac{m_{2}}{m_{1}}$<br>
+$\therefore E_{1} &lt; E_{2}$ (કારણ કે $m_{1} &gt; m_{2}$)
+<hr>
+
+<b>પ્રશ્ન 66</b><br>
+2kg દળનો દડો અને બીજો 4kg દળનો દડો 60 ફૂટ ઊંચી ઇમારત પરથી એકસાથે નીચે પાડવામાં આવે છે. પૃથ્વી તરફ 30 ફૂટ નીચે પડ્યા પછી, તેમની સંબંધિત ગતિ ઊર્જાઓનો ગુણોત્તર કેટલો હશે?<br>
+(2004)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\sqrt{2}:1$<br>
+B. 1:4<br>
+C. 1: 2<br>
+D. 1: $\sqrt{2}$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+તેમની ગતિ ઊર્જાનો ગુણોત્તર આ મુજબ આપવામાં આવે છે<br>
+$\frac{KE_{1}}{KE_{2}}=\frac{(\frac{1}{2})m_{1}v_{1}^{2}}{(\frac{1}{2})m_{2}{v_{2}}^{2}}$<br>
+$\Rightarrow v^{2}=2gs$ (પ્રારંભિક વેગ શૂન્ય છે)<br>
+જે બંને માટે સમાન છે<br>
+$\therefore\frac{KE_{1}}{KE_{2}}=\frac{m_{1}}{m_{2}}=\frac{2}{4}=\frac{1}{2}$
+<hr>
+
+<b>પ્રશ્ન 67</b><br>
+સમક્ષિતિજ લીસી સપાટી પર $1.5m/s$ ની ઝડપથી ગતિ કરતું 0.5 kg દળ, લગભગ વજનરહિત અને $k=50N/m$ બળ અચળાંક ધરાવતી સ્પ્રિંગ સાથે અથડાય છે. સ્પ્રિંગનું મહત્તમ સંકોચન કેટલું હશે?<br>
+(2004)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 0.15m<br>
+B. 0.12m<br>
+C. 1.m<br>
+D. 0.5m<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+<div class="diagram">
+<svg viewBox="0 0 250 100" width="250" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="arrow67" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000" /></marker></defs>
+  <!-- Floor and Wall -->
+  <line x1="20" y1="80" x2="230" y2="80" stroke="#000" stroke-width="3" />
+  <line x1="210" y1="20" x2="210" y2="80" stroke="#000" stroke-width="3" />
+  <!-- Block -->
+  <rect x="40" y="40" width="40" height="40" fill="none" stroke="#000" stroke-width="2" />
+  <line x1="85" y1="60" x2="115" y2="60" stroke="#000" stroke-width="2" marker-end="url(#arrow67)" />
+  <text x="95" y="50" font-size="14">v</text>
+  <!-- Spring -->
+  <path d="M 210 60 L 200 50 L 190 70 L 180 50 L 170 70 L 160 50 L 150 70 L 140 60 L 130 60" fill="none" stroke="#000" stroke-width="2" />
+</svg>
+</div>
+દળની ગતિ ઊર્જા સ્પ્રિંગને સંકોચવા માટે જરૂરી ઊર્જામાં રૂપાંતરિત થાય છે જે નીચે મુજબ આપેલ છે<br>
+$\frac{1}{2}mv^{2}=\frac{1}{2}kx^{2}$<br>
+$\Rightarrow x=\sqrt{\frac{mv^{2}}{k}}=\sqrt{\frac{0.5\times (1.5)^{2}}{50}}=0.15m$
+<hr>
+
+<b>પ્રશ્ન 68</b><br>
+જ્યારે લાંબી સ્પ્રિંગને 2cm ખેંચવામાં આવે છે ત્યારે તેની સ્થિતિ ઊર્જા U છે. જો સ્પ્રિંગને 10cm ખેંચવામાં આવે, તો તેમાં સંગ્રહિત સ્થિતિ ઊર્જા કેટલી હશે?<br>
+(2003)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{U}{5}$<br>
+B. 5U<br>
+C. 10U<br>
+D. 25U<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$U=\frac{1}{2}kx^{2}$ $k=$ સ્પ્રિંગ અચળાંક<br>
+$\frac{U_{1}}{U_{2}}=\frac{{x_{1}}^{2}}{{x_{2}}^{2}}=\frac{4}{100}\Rightarrow U_{2}=25U_{1}$
+<hr>
+
+<b>પ્રશ્ન 69</b><br>
+એક સ્થિર કણ $m_{1}$ અને $m_{2}$ દળના બે કણોમાં વિસ્ફોટ પામે છે જે વિરુદ્ધ દિશામાં $v_{1}$ અને $v_{2}$ વેગથી ગતિ કરે છે. તેમની ગતિ ઊર્જાનો ગુણોત્તર $\frac{E_{1}}{E_{2}}$ છે:<br>
+(2003)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{m_{2}}{m_{1}}$<br>
+B. $\frac{m_{1}}{m_{2}}$<br>
+C. 1<br>
+D. $m_{1}\frac{v_{2}}{m_{2}}v_{1}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+$m_{1}v_{1}=m_{2}v_{2}$ (રેખીય વેગમાનનું સંરક્ષણ)<br>
+$\frac{E_{1}}{E_{2}}=\frac{(\frac{1}{2})m_{1}{v_{1}}^{2}}{(\frac{1}{2})m_{2}v_{2}^{2}}=\frac{m_{1}^{2}v_{1}^{2}}{m_{2}^{2}v_{2}^{2}}.\frac{m_{2}}{m_{1}}=\frac{m_{2}}{m_{1}}$
+<hr>
+
+<b>પ્રશ્ન 70</b><br>
+જો પદાર્થની ગતિ ઊર્જામાં 300% નો વધારો કરવામાં આવે તો વેગમાનમાં ટકાવારી ફેરફાર કેટલો થશે?<br>
+(2002)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 100%<br>
+B. 150%<br>
+C. 265%<br>
+D. 73.2%.<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+ધારો કે m એ પદાર્થનું દળ છે અને $v_{1}$ અને $v_{2}$ અનુક્રમે પદાર્થના પ્રારંભિક અને અંતિમ વેગ છે.<br>
+$\therefore$ પ્રારંભિક ગતિ ઊર્જા $=\frac{1}{2}m{v_{1}}^{2}$<br>
+અંતિમ ગતિ ઊર્જા $=\frac{1}{2}mv_{2}^{2}$<br>
+અંતિમ ગતિ ઊર્જા મેળવવા માટે પ્રારંભિક ગતિ ઊર્જામાં 300% વધારો કરવામાં આવે છે.<br>
+$\therefore \frac{1}{2}mv_{2}^{2}=\frac{1}{2}(1+\frac{300}{100})mv_{1}^{2}$<br>
+$\Rightarrow v_{2}=2v_{1}$<br>
+$\frac{v_{2}}{v_{1}}=2.....(i)$<br>
+પ્રારંભિક વેગમાન $=p_{1}=mv_{1}$<br>
+અંતિમ વેગમાન $=p_{2}=mv_{2}$<br>
+$\therefore \frac{p_{2}}{p_{1}}=\frac{mv_{2}}{mv_{1}}=\frac{v_{2}}{v_{1}}=2$<br>
+$p_{2}=2p_{1}=(1+\frac{100}{100})p_{1}$<br>
+તેથી વેગમાન 100% વધ્યું છે.
+<hr>
+
+<b>પ્રશ્ન 71</b><br>
+એક બાળક હિંચકા પર બેઠું છે. જમીનથી તેની ન્યૂનતમ અને મહત્તમ ઊંચાઈ અનુક્રમે 0.75m અને 2m છે, તો તેની મહત્તમ ઝડપ કેટલી હશે?<br>
+(2001)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $10~m/s$<br>
+B. $5~m/s$<br>
+C. $8~m/s$<br>
+D. $15~m/s$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+P.E. માં મહત્તમ ઘટાડો = K.E. માં મહત્તમ વધારો<br>
+$mg(2-0.75)=\frac{1}{2}mv^{2}\Rightarrow v=\sqrt{2g(1.25)}=5m/s$
+<hr>
+
+<b>પ્રશ્ન 72</b><br>
+$K_{A}$ અને $K_{B}(K_{A}=2K_{B})$ સ્પ્રિંગ અચળાંક ધરાવતી બે સ્પ્રિંગ A અને B સમાન મૂલ્યનું બળ લગાવીને ખેંચવામાં આવે છે. જો સ્પ્રિંગ A માં સંગ્રહિત ઊર્જા $E_{A}$ હોય તો B માં સંગ્રહિત ઊર્જા કેટલી હશે?<br>
+(2001)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $2E_{A}$<br>
+B. $\frac{E_{A}}{4}$<br>
+C. $\frac{E_{A}}{2}$<br>
+D. $4E_{A}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+ઊર્જા $=\frac{1}{2}K~x^{2}=\frac{1}{2}\frac{F^{2}}{K}$<br>
+$\frac{K_{A}}{K_{B}}=2$<br>
+$\therefore\frac{E_{A}}{E_{B}}=\frac{1}{2}$ અથવા $E_{B}=2E_{A}$
+<hr>
+
+<b>પ્રશ્ન 73</b><br>
+K જેટલી ગતિ ઊર્જા ધરાવતા કણને સમક્ષિતિજ સાથે $45^{\circ}$ ના ખૂણે પ્રક્ષિપ્ત કરવામાં આવે છે. ઉચ્ચતમ બિંદુ પર તેની ગતિ ઊર્જા કેટલી હશે?<br>
+(2001,1997)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $\frac{K}{\sqrt{2}}$<br>
+B. $\frac{K}{2}$<br>
+C. 2K<br>
+D. K<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+દડાની પ્રારંભિક ગતિ ઊર્જા $=K$ અને પ્રક્ષેપકોણ $(\theta)=45^{\circ}$<br>
+ઉચ્ચતમ બિંદુ પર દડાનો વેગ $=v~cos~\theta$<br>
+$=v~cos~45^{\circ}=\frac{v}{\sqrt{2}}$<br>
+તેથી દડાની ગતિ ઊર્જા<br>
+$\frac{1}{2}m\times(\frac{v}{\sqrt{2}})^{2}=\frac{1}{4}mv^{2}=\frac{K}{2}.$
+<hr>
+
+<b>પ્રશ્ન 74</b><br>
+જો $\vec{F}=(60\hat{i}+15\hat{j}-3\hat{k})_{N}$ અને $\vec{v}=(2\hat{i}-4\hat{j}+5\hat{k})_{m/s}$ હોય તો તાત્ક્ષણિક પાવર છે:<br>
+(2000)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 195 watt<br>
+B. 45 watt<br>
+C. 75 watt<br>
+D. 100 watt<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$P=\vec{F}\cdot\vec{v}=(60\hat{i}+15\hat{j}-3\hat{k})\cdot(2\hat{i}-4\hat{j}+5\hat{k})$<br>
+$=120-60-15=45$ watts.
+<hr>
+
+<b>પ્રશ્ન 75</b><br>
+1kg દળને $100m/s$ ના વેગથી ઉપર ફેંકવામાં આવે છે. 5 સેકન્ડ પછી, તે બે ભાગમાં વિસ્ફોટ પામે છે. 400g દળનો એક ભાગ $25m/s$ ના વેગથી નીચે આવે છે. બીજા ભાગનો વેગ કેટલો હશે? (લો $g=10ms^{-2})$<br>
+(2000)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $40~m/s$<br>
+B. $80~m/s$<br>
+C. $100~m/s$<br>
+D. $60~m/s$<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+5s પછી વેગ, $v=u-gt$<br>
+$=100-10\times 5=50m/s$<br>
+વેગમાન સંરક્ષણ દ્વારા<br>
+$1\times 50=0.4\times (-25)+0.6\times v^{\prime}$<br>
+$60=0.6\times v^{\prime}\Rightarrow v^{\prime}=100m/s$ ઉપર તરફ
+<hr>
+
+<b>પ્રશ્ન 76</b><br>
+4:1 ના ગુણોત્તરમાં ગતિ ઊર્જા ધરાવતા બે પદાર્થો સમાન રેખીય વેગમાન સાથે ગતિ કરે છે. તેમના દળનો ગુણોત્તર છે:<br>
+(1999)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 4: 1<br>
+B. 1: 1<br>
+C. 1: 2<br>
+D. 1: 4.<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+$K.E.=\frac{p^{2}}{2m}\Rightarrow\frac{K.E._{1}}{K.E._{2}}=\frac{m_{2}}{m_{1}}=\frac{4}{1}$<br>
+અથવા $\frac{m_{1}}{m_{2}}=\frac{1}{4}$
+<hr>
+
+<b>પ્રશ્ન 77</b><br>
+સમાન સીધી રેખામાં અનુક્રમે $+3~m/s$ અને $-5~m/s$ ના વેગથી ગતિ કરતા બે સમાન દળ $m_{1}$ અને $m_{2}$ સ્થિતિસ્થાપક રીતે અથડાય છે. અથડામણ પછી તેમના વેગ અનુક્રમે કેટલા હશે?<br>
+(1998)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $-4~m/s$ અને $+4~m/s$<br>
+B. બંને માટે $+4~m/s$<br>
+C. $-3~m/s$ અને $+5~m/s$<br>
+D. $-5~m/s$ અને $+3~m/s$<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+સ્થિતિસ્થાપક અથડામણ પછી સમાન દળો તેમના વેગની અદલાબદલી કરે છે.<br>
+$-5~m/s$ અને $+3~m/s$.
+<hr>
+
+<b>પ્રશ્ન 78</b><br>
+3 g ના કણ પર બળ એવી રીતે લાગે છે કે સમયના વિધેય તરીકે કણનું સ્થાન $x=3t-4t^{2}+t^{3}$ દ્વારા આપવામાં આવે છે જ્યાં x મીટરમાં અને t સેકન્ડમાં છે. પ્રથમ 4 સેકન્ડ દરમિયાન થયેલું કાર્ય છે:<br>
+(1998)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 490mJ<br>
+B. 450mJ<br>
+C. 576mJ<br>
+D. 530mJ<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+$x=3t-4t^{2}+t^{3}$ અથવા, $\frac{d^{2}x}{d~t^{2}}=-8+6t$<br>
+$\therefore\frac{d^{2}x}{d~t^{2}}|_{t=4}=16$ અને $x|_{t=4}=12$<br>
+કાર્ય $=F\times s=mas=3\times 10^{-3}\times 16\times 12$<br>
+$=576mJ$
+<hr>
+
+<b>પ્રશ્ન 79</b><br>
+હવામાં ઉડતો શેલ ચાર અસમાન ભાગોમાં વિસ્ફોટ પામે છે. નીચેનામાંથી શેનું સંરક્ષણ થશે?<br>
+(1998)<br><br>
+<b>વિકલ્પો:</b><br>
+A. સ્થિતિ ઊર્જા<br>
+B. વેગમાન<br>
+C. ગતિ ઊર્જા<br>
+D. બંને (a) અને (c).<br><br>
+<b>ઉત્તર:</b> B
+<hr>
+
+<b>પ્રશ્ન 80</b><br>
+m અને 4m દળના બે પદાર્થો સમાન ગતિ ઊર્જા સાથે ગતિ કરી રહ્યા છે. તેમના રેખીય વેગમાનનો ગુણોત્તર છે:<br>
+(1998, 1997, 1989)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 1: 2<br>
+B. 1:4<br>
+C. 4:1<br>
+D. 1: 1.<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+પ્રથમ પદાર્થનું દળ $=m$<br>
+બીજા પદાર્થનું દળ = 4m અને $KE_{1}=KE_{2}$<br>
+પદાર્થનું રેખીય વેગમાન<br>
+$p=\sqrt{2mE}\propto \sqrt{m}$<br>
+તેથી $\frac{p_{1}}{p_{2}}=\sqrt{\frac{m_{1}}{m_{2}}}=\sqrt{\frac{m}{4m}}=\sqrt{\frac{1}{4}}=\frac{1}{2}$<br>
+અથવા $p_{1}:p_{2}=1:2$
+<hr>
+
+<b>પ્રશ્ન 81</b><br>
+36km/h ની ઝડપથી ગતિ કરતો 2kg દળનો ધાતુનો દડો 3kg દળના સ્થિર દડા સાથે હેડ-ઓન અથડામણ કરે છે. જો અથડામણ પછી, બંને દડા એક જ દળ (સંયુક્ત) તરીકે ગતિકોરે, તો અથડામણને કારણે ગતિ ઊર્જામાં થતો ઘટાડો કેટલો હશે?<br>
+(1997)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 100J<br>
+B. 140J<br>
+C. 40J<br>
+D. 60J.<br><br>
+<b>ઉત્તર:</b> D<br><br>
+<b>ઉકેલ:</b><br>
+ધાતુના દડાનું દળ $=2kg$;<br>
+ધાતુના દડાની ઝડપ $(v_{1})=36km/h=10m/s$ અને સ્થિર દડાનું દળ $=3$ kg.<br>
+વેગમાન સંરક્ષણનો નિયમ લાગુ કરતા,<br>
+$m_{1}v_{1}+m_{2}v_{2}=(m_{1}+m_{2})v$<br>
+અથવા, $v=\frac{m_{1}v_{1}+m_{2}v_{2}}{m_{1}+m_{2}}=\frac{(2\times 10)+(3\times 0)}{2+3}=\frac{20}{5}$<br>
+તેથી ઊર્જાનો વ્યય $=[\frac{1}{2}m_{1}{v_{1}}^{2}+\frac{1}{2}m_{2}{v_{2}}^{2}]-\frac{1}{2}\times (m_{1}+m_{2})v^{2}$<br>
+$=[\frac{1}{2}\times 2\times (10)^{2}+\frac{1}{2}\times 3(0)^{2}]-\frac{1}{2}\times (2+3)\times (4)^{2}$<br>
+$=100-40=60J$
+<hr>
+
+<b>પ્રશ્ન 82</b><br>
+5N બળની અસર હેઠળ પદાર્થ સીધી રેખામાં 10m અંતર કાપે છે. જો થયેલું કાર્ય 25J હોય, તો બળ અને પદાર્થની ગતિની દિશા વચ્ચેનો ખૂણો કેટલો હશે?<br>
+(1997)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $60^{\circ}$<br>
+B. $75^{\circ}$<br>
+C. $30^{\circ}$<br>
+D. $45^{\circ}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+અંતર (s) = 10m; બળ $(F)=5N$ અને થયેલું કાર્ય (W) $=25J$.<br>
+કાર્ય $(W)=F~s~cos~\theta=25$<br>
+$25=5\times 10~cos~\theta=50~cos~\theta$<br>
+અથવા $cos~\theta=\frac{25}{50}=0.5$ અથવા $\theta = 60^{\circ}$.
+<hr>
+
+<b>પ્રશ્ન 83</b><br>
+3 km/hour ના વેગથી ગતિ કરતો m દળનો પદાર્થ 2m દળના સ્થિર પદાર્થ સાથે અથડાય છે અને તેની સાથે ચોંટી જાય છે. હવે સંયુક્ત દળ ગતિ કરવાનું શરૂ કરે છે. સંયુક્ત વેગ કેટલો હશે?<br>
+(1996)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 3 km/hour<br>
+B. 4 km/hour<br>
+C. 1 km/hour<br>
+D. 2 km/hour<br><br>
+<b>ઉત્તર:</b> C<br><br>
+<b>ઉકેલ:</b><br>
+પદાર્થનું દળ $(m_{1})=m$; પ્રથમ પદાર્થનો વેગ $(u_{1})=$ 3km/ hour; સ્થિર બીજા પદાર્થનું દળ $(m_{2})=2m$ અને બીજા પદાર્થનો વેગ $(u_{2})=0$.<br>
+જોડાયા પછી, પદાર્થનું દળ<br>
+$M=m+2m=3m$<br>
+વેગમાન સંરક્ષણના નિયમ મુજબ, આપણે મેળવીએ છીએ<br>
+$Mv=m_{1}u_{1}+m_{2}u_{2}$<br>
+અથવા $3mv=(m\times 3)+(2m\times 0)=3m$<br>
+અથવા $v=1~km/hour.$
+<hr>
+
+<b>પ્રશ્ન 84</b><br>
+અણુમાં બે પરમાણુઓ વચ્ચેની સ્થિતિ ઊર્જા $U(x)=\frac{a}{x^{12}}-\frac{b}{x^{6}}$ દ્વારા આપવામાં આવે છે જ્યાં a અને b ધન અચળાંકો છે અને x એ પરમાણુઓ વચ્ચેનું અંતર છે. પરમાણુ સ્થાયી સંતુલનમાં (stable equilibrium) હોય, ત્યારે<br>
+(1995)<br><br>
+<b>વિકલ્પો:</b><br>
+A. $x=(\frac{2a}{b})^{\frac{1}{6}}$<br>
+B. $x=(\frac{11a}{5b})^{\frac{1}{6}}$<br>
+C. $x=0$<br>
+D. $x=(\frac{a}{2b})^{\frac{1}{6}}$<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+$U(x)=\frac{a}{x^{12}}-\frac{b}{x^{6}}$ અથવા $-\frac{12a}{x^{13}}-\frac{-6b}{x^{7}}=0$<br>
+અથવા $x^{6}=\frac{2a}{b}.$ તેથી $x=(\frac{2a}{b})^{\frac{1}{6}}$
+<hr>
+
+<b>પ્રશ્ન 85</b><br>
+y-દિશામાં ગતિ કરવા માટે મર્યાદિત પદાર્થ પર $\vec{F}=(-2\hat{i}+15\hat{j}+6\hat{k})_{N}$ બળ લાગે છે. આ બળ દ્વારા પદાર્થને y-અક્ષ પર $10\hat{j}m$ ના અંતરે ખસેડવા માટે થયેલું કાર્ય છે:<br>
+(1994)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 150 J<br>
+B. 20 J<br>
+C. 190 J<br>
+D. 160 J<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+બળ $\vec{F}=(-2\hat{i}+15\hat{j}+6\hat{k})_{N}$ અને અંતર (d) $=10\hat{j}m$<br>
+કાર્ય, W = $\vec{F}\cdot\vec{d}$<br>
+$=(-2\hat{i}+15\hat{j}+6\hat{k})\cdot (10\hat{j})=150N-m=150J$
+<hr>
+
+<b>પ્રશ્ન 86</b><br>
+અચળ બળની અસર હેઠળ સ્થિર અવસ્થામાંથી શરૂ કરીને d અંતર કાપવામાં m દળ દ્વારા પ્રાપ્ત થતી ગતિ ઊર્જા શેના સમપ્રમાણમાં છે?<br>
+(1994)<br><br>
+<b>વિકલ્પો:</b><br>
+A. m<br>
+B. $m^{0}$<br>
+C. $\sqrt{m}$<br>
+D. $\frac{1}{\sqrt{m}}$<br><br>
+<b>ઉત્તર:</b> B<br><br>
+<b>ઉકેલ:</b><br>
+$v^{2}=u^{2}+2as$ અથવા $v^{2}-u^{2}=2as$<br>
+અથવા $v^{2}-(0)^{2}=2\times \frac{F}{m}\times s \text{ અથવા } v^{2}=\frac{2Fs}{m}$<br>
+અને $K.E.=\frac{1}{2}mv^{2}=\frac{1}{2}m\times \frac{2Fs}{m}=Fs$<br>
+આમ K.E. એ m થી સ્વતંત્ર છે અથવા $m^{0}$ ના સમપ્રમાણમાં છે.
+<hr>
+
+<b>પ્રશ્ન 87</b><br>
+સ્થાન આધારિત બળ $F=(7-2x+3x^{2})N$, 2 kg ના દળના નાના પદાર્થ પર લાગે છે અને તેને $x=0$ થી $x=5m$ સુધી સ્થાનાંતરિત કરે છે. જૂલમાં થયેલું કાર્ય કેટલું હશે?<br>
+(1994, 1992)<br><br>
+<b>વિકલ્પો:</b><br>
+A. 135<br>
+B. 270<br>
+C. 35<br>
+D. 70<br><br>
+<b>ઉત્તર:</b> A<br><br>
+<b>ઉકેલ:</b><br>
+બળ (F) $=7-2x+3x^{2}$<br>
+દળ $(m)=2~kg$ અને સ્થાનાંતર (d) = 5m<br>
+તેથી કાર્ય<br>
+$(W)=\int F~d~x=\int_{0}^{5}(7-2x+3x^{2})d~x=(7x-x^{2}+x^{3})_{0}^{5}$<br>
+$=(7\times 5)-(5)^{2}+(5)^{3}=35-25+125=135J$
+<hr>
+
+<b>પ્રશ્ન 88</b><br>
+જ્યારે કોઈ પદાર્થ વર્તુળમાં અચળ ઝડપથી ગતિ કરે છે ત્યારે<br>
+(1994)<br><br>
+<b>વિકલ્પો:</b><br>
+A. તેના પર કોઈ કાર્ય થતું નથી<br>
+B. તેમાં કોઈ પ્રવેગ ઉત્પન્ન થતો નથી<br>
+C. તેનો વેગ અચળ રહે છે<br>
+D. તેના પર કોઈ બળ લાગતું નથી.<br><br>
+<b>ઉત્તર:</b> A
+<hr>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById('content-container');
+    let blocks = container.innerHTML.split('<hr>');
+    let finalHtml = '';
+    
+    blocks.forEach(block => {
+        if(!block.trim()) return;
+        
+        try {
+            let qTitleMatch = block.match(/<b>(પ્રશ્ન\s+\d+)<\/b>/);
+            let qTitle = qTitleMatch ? qTitleMatch[1] : '';
+            
+            // વધુ સુરક્ષિત સ્પ્લિટિંગ (વિકલ્પો અને અન્ય ટેક્સ્ટ માટે)
+            let parts = block.split(/<b>વિકલ્પો:<\/b>/);
+            if(parts.length < 2) {
+                finalHtml += `<div class="q-wrapper">${block}</div><hr>`;
+                return;
+            }
+
+            let qTextRaw = parts[0].replace(/<b>પ્રશ્ન\s+\d+<\/b><br\s*\/?>/, '').trim();
+            if (qTextRaw.startsWith('<br>')) qTextRaw = qTextRaw.substring(4);
+            
+            let optionsPart = parts[1] || '';
+            let ansPartSplit = optionsPart.split(/<b>ઉત્તર:<\/b>/);
+            let rawOptions = ansPartSplit[0] || '';
+            
+            let solPartSplit = (ansPartSplit[1] || '').split(/<b>ઉકેલ:<\/b>/);
+            let answer = solPartSplit[0] ? solPartSplit[0].replace(/<br\s*\/?>/g, '').trim() : '';
+            let solution = solPartSplit[1] ? solPartSplit[1].trim() : '';
+            
+            if (solution.startsWith('<br>')) solution = solution.substring(4);
+
+            let optionsHtml = '';
+            let cleanOptions = rawOptions.replace(/<br\s*\/?>\s*$/g, '').replace(/<br\s*\/?>$/, '').trim();
+            
+            // સચોટ Regex
+            let optRegex = /A\.\s*([\s\S]*?)\s*B\.\s*([\s\S]*?)\s*C\.\s*([\s\S]*?)\s*D\.\s*([\s\S]*)$/i;
+            let optMatch = cleanOptions.match(optRegex);
+            
+            if(optMatch) {
+                let optA = optMatch[1].replace(/<br\s*\/?>\s*$/, '').trim();
+                let optB = optMatch[2].replace(/<br\s*\/?>\s*$/, '').trim();
+                let optC = optMatch[3].replace(/<br\s*\/?>\s*$/, '').trim();
+                let optD = optMatch[4].replace(/<br\s*\/?>\s*$/, '').trim();
+                optionsHtml = `
+                <div class="options-row">
+                    <div class="opt-item"><span class="opt-label">A)</span> <div>${optA}</div></div>
+                    <div class="opt-item"><span class="opt-label">B)</span> <div>${optB}</div></div>
+                    <div class="opt-item"><span class="opt-label">C)</span> <div>${optC}</div></div>
+                    <div class="opt-item"><span class="opt-label">D)</span> <div>${optD}</div></div>
+                </div>`;
+            } else {
+                optionsHtml = `<div class="options-row" style="display:block;">${rawOptions}</div>`;
+            }
+            
+            let solutionHtml = solution ? `
+            <div class="sol-box">
+                <div class="sol-title">ઉકેલ:</div>
+                <div class="sol-content">${solution}</div>
+            </div>` : '';
+
+            finalHtml += `
+            <div class="q-wrapper">
+                <div class="q-text"><b>${qTitle}:</b> ${qTextRaw}</div>
+                ${optionsHtml}
+                <div class="ans-box">
+                    <span class="ans-title">ઉત્તર:</span> 
+                    <span style="font-weight:bold; margin-left: 10px;">${answer}</span>
+                </div>
+                ${solutionHtml}
+            </div>`;
+        } catch (err) {
+            console.error("Error parsing block: ", err);
+            finalHtml += `<div class="q-wrapper">${block}</div><hr>`;
+        }
+    });
+    
+    container.innerHTML = finalHtml;
+    
+    // MathJax સુરક્ષિત રીતે લોડ કરવું (DOM સેટ થયા પછી) જેથી 'કોડ' ન દેખાય.
+    let mathJaxScript = document.createElement('script');
+    mathJaxScript.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+    mathJaxScript.async = true;
+    document.head.appendChild(mathJaxScript);
+});
+</script>
+</body>
+</html>
